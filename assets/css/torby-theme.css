@@ -1,0 +1,40 @@
+/**
+ * Torby project-level styles.
+ *
+ * Keep global design tokens and reusable front-end utilities in this file.
+ * Page-specific visual design may remain inside Elementor while the design is
+ * still being finalized.
+ */
+
+:root {
+    --torby-color-primary: #111827;
+    --torby-color-accent: #2563eb;
+    --torby-color-surface: #ffffff;
+    --torby-color-muted: #6b7280;
+    --torby-radius-small: 8px;
+    --torby-radius-medium: 16px;
+    --torby-container-width: 1400px;
+}
+
+.torby-container {
+    width: min(100% - 32px, var(--torby-container-width));
+    margin-inline: auto;
+}
+
+.torby-sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .torby-container {
+        width: min(100% - 24px, var(--torby-container-width));
+    }
+}
