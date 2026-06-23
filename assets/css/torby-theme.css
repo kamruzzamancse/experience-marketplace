@@ -7,13 +7,22 @@
  */
 
 :root {
-    --torby-color-primary: #111827;
-    --torby-color-accent: #2563eb;
+    --torby-color-primary: #0f2138;
+    --torby-color-primary-soft: #1c3442;
+    --torby-color-accent: #ff6846;
+    --torby-color-cyan: #1aa8bd;
+    --torby-color-cyan-dark: #11889b;
     --torby-color-surface: #ffffff;
-    --torby-color-muted: #6b7280;
+    --torby-color-background: #f3f6f8;
+    --torby-color-border: #dce4e9;
+    --torby-color-text: #1f2937;
+    --torby-color-muted: #687684;
+    --torby-color-success: #159a73;
     --torby-radius-small: 8px;
     --torby-radius-medium: 16px;
-    --torby-container-width: 1400px;
+    --torby-radius-large: 22px;
+    --torby-shadow-soft: 0 18px 45px rgba(15, 33, 56, 0.08);
+    --torby-container-width: 1300px;
 }
 
 .torby-container {
@@ -33,8 +42,1258 @@
     border: 0 !important;
 }
 
+/* --------------------------------------------------------------------------
+ * WooCommerce My Account
+ * ----------------------------------------------------------------------- */
+
+body.tourbi-account-page {
+    background: var(--torby-color-background);
+}
+
+body.tourbi-account-page .page-header,
+body.tourbi-account-page .entry-header {
+    display: none;
+}
+
+body.tourbi-account-page .site-main,
+body.tourbi-account-page main.site-main,
+body.tourbi-account-page .page-content,
+body.tourbi-account-page .entry-content {
+    width: min(100% - 40px, var(--torby-container-width));
+    max-width: var(--torby-container-width);
+    margin-inline: auto;
+}
+
+body.tourbi-account-page .site-main,
+body.tourbi-account-page main.site-main {
+    padding-top: 42px;
+    padding-bottom: 60px;
+}
+
+body.tourbi-account-page .woocommerce {
+    color: var(--torby-color-text);
+}
+
+body.tourbi-account-page .woocommerce-notices-wrapper,
+body.tourbi-account-page .woocommerce-error,
+body.tourbi-account-page .woocommerce-info,
+body.tourbi-account-page .woocommerce-message {
+    grid-column: 1 / -1;
+}
+
+body.tourbi-account-page .woocommerce-error,
+body.tourbi-account-page .woocommerce-info,
+body.tourbi-account-page .woocommerce-message {
+    border-radius: 12px;
+    border-top: 0;
+    box-shadow: none;
+}
+
+.tourbi-account-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: var(--torby-color-cyan);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.tourbi-account-eyebrow::before {
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    content: "";
+}
+
+/* Guest login and registration screen. */
+
+body.tourbi-account-guest .woocommerce {
+    display: block;
+}
+
+.tourbi-account-login-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 24px;
+    padding: 34px 38px;
+    overflow: hidden;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(26, 168, 189, 0.35), transparent 32%),
+        linear-gradient(135deg, var(--torby-color-primary), var(--torby-color-primary-soft));
+    border-radius: var(--torby-radius-large);
+    box-shadow: var(--torby-shadow-soft);
+}
+
+.tourbi-account-login-intro h1 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.08;
+}
+
+.tourbi-account-login-intro p {
+    max-width: 720px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.tourbi-account-login-intro__features {
+    display: grid;
+    flex: 0 0 260px;
+    gap: 10px;
+}
+
+.tourbi-account-login-intro__features span {
+    position: relative;
+    padding: 12px 16px 12px 42px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.tourbi-account-login-intro__features span::before {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    width: 16px;
+    height: 16px;
+    color: var(--torby-color-cyan);
+    content: "✓";
+    transform: translateY(-50%);
+}
+
+body.tourbi-account-guest .woocommerce #customer_login.u-columns.col2-set {
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    direction: ltr !important;
+    gap: 24px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body.tourbi-account-guest .woocommerce #customer_login > .u-column1,
+body.tourbi-account-guest .woocommerce #customer_login > .u-column2 {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    flex: 1 1 0 !important;
+    flex-direction: column !important;
+    float: none !important;
+    clear: none !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 34px !important;
+    overflow: hidden;
+    background: var(--torby-color-surface);
+    border: 1px solid var(--torby-color-border);
+    border-radius: var(--torby-radius-large);
+    box-shadow: var(--torby-shadow-soft);
+}
+
+body.tourbi-account-guest .woocommerce #customer_login > .u-column1::after,
+body.tourbi-account-guest .woocommerce #customer_login > .u-column2::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--torby-color-cyan), var(--torby-color-cyan-dark));
+    content: "";
+}
+
+body.tourbi-account-guest .woocommerce #customer_login > .u-column2::after {
+    background: linear-gradient(90deg, var(--torby-color-accent), #f2b61f);
+}
+
+body.tourbi-account-guest .woocommerce .u-column1::before,
+body.tourbi-account-guest .woocommerce .u-column2::before {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 18px;
+    color: #ffffff;
+    background: var(--torby-color-cyan);
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+body.tourbi-account-guest .woocommerce .u-column1::before {
+    content: "→";
+}
+
+body.tourbi-account-guest .woocommerce .u-column2::before {
+    content: "+";
+    background: var(--torby-color-accent);
+}
+
+body.tourbi-account-guest .woocommerce .u-column1 > h2,
+body.tourbi-account-guest .woocommerce .u-column2 > h2 {
+    margin: 0 0 22px;
+    color: var(--torby-color-primary);
+    font-size: 28px;
+}
+
+body.tourbi-account-guest .woocommerce form.login,
+body.tourbi-account-guest .woocommerce form.register {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body.tourbi-account-guest .woocommerce form.login > .form-row:last-of-type,
+body.tourbi-account-guest .woocommerce form.register > .form-row:last-of-type {
+    margin-bottom: 0;
+}
+
+body.tourbi-account-guest .woocommerce form.login .woocommerce-form-login__submit,
+body.tourbi-account-guest .woocommerce form.register .woocommerce-form-register__submit {
+    min-width: 132px;
+}
+
+body.tourbi-account-guest .woocommerce .woocommerce-form-login__rememberme {
+    margin-left: 14px;
+}
+
+body.tourbi-account-guest .woocommerce .woocommerce-LostPassword {
+    margin: 14px 0 0;
+}
+
+body.tourbi-account-page .woocommerce form .form-row {
+    margin: 0 0 18px;
+    padding: 0;
+}
+
+body.tourbi-account-page .woocommerce form .form-row label {
+    margin-bottom: 8px;
+    color: var(--torby-color-primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+body.tourbi-account-page .woocommerce form .form-row input.input-text,
+body.tourbi-account-page .woocommerce form .form-row textarea,
+body.tourbi-account-page .woocommerce form .form-row select,
+body.tourbi-account-page .select2-container .select2-selection--single {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+    color: var(--torby-color-text);
+    background: #ffffff;
+    border: 1px solid #cfd9df;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.tourbi-account-page .woocommerce form .form-row input.input-text:focus,
+body.tourbi-account-page .woocommerce form .form-row textarea:focus,
+body.tourbi-account-page .woocommerce form .form-row select:focus {
+    border-color: var(--torby-color-cyan);
+    box-shadow: 0 0 0 4px rgba(26, 168, 189, 0.12);
+}
+
+body.tourbi-account-page .woocommerce button.button,
+body.tourbi-account-page .woocommerce a.button,
+body.tourbi-account-page .woocommerce input.button {
+    min-height: 48px;
+    padding: 12px 22px;
+    color: #ffffff;
+    background: var(--torby-color-accent);
+    border: 0;
+    border-radius: 10px;
+    font-weight: 800;
+    line-height: 1.2;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+body.tourbi-account-page .woocommerce button.button:hover,
+body.tourbi-account-page .woocommerce a.button:hover,
+body.tourbi-account-page .woocommerce input.button:hover {
+    color: #ffffff;
+    background: #e95738;
+    transform: translateY(-1px);
+}
+
+body.tourbi-account-page .woocommerce .woocommerce-form-login__rememberme {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+body.tourbi-account-page .woocommerce-LostPassword,
+body.tourbi-account-page .woocommerce-privacy-policy-text {
+    color: var(--torby-color-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+body.tourbi-account-page .woocommerce a {
+    color: var(--torby-color-cyan-dark);
+}
+
+/* Logged-in customer dashboard shell. */
+
+body.tourbi-account-authenticated .woocommerce {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: 0 24px;
+    align-items: stretch;
+}
+
+.tourbi-account-user-card {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1;
+    padding: 24px 20px;
+    color: #ffffff;
+    background: var(--torby-color-primary);
+    border-radius: var(--torby-radius-large) var(--torby-radius-large) 0 0;
+}
+
+.tourbi-account-user-card__avatar img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    border: 3px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+}
+
+.tourbi-account-user-card__details {
+    min-width: 0;
+}
+
+.tourbi-account-user-card__details .tourbi-account-eyebrow {
+    margin-bottom: 2px;
+}
+
+.tourbi-account-user-card__details strong,
+.tourbi-account-user-card__details small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tourbi-account-user-card__details strong {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.tourbi-account-user-card__details small {
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 12px;
+}
+
+.tourbi-account-menu-toggle {
+    display: none;
+}
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation {
+    float: none;
+    width: 100%;
+    grid-column: 1;
+    grid-row: 2;
+    padding: 10px 0 18px;
+    background: var(--torby-color-primary-soft);
+    border-radius: 0 0 var(--torby-radius-large) var(--torby-radius-large);
+    box-shadow: var(--torby-shadow-soft);
+}
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation li {
+    margin: 0;
+}
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 12px 20px 12px 52px;
+    color: rgba(255, 255, 255, 0.78);
+    border-left: 4px solid transparent;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation a::before {
+    position: absolute;
+    left: 22px;
+    width: 18px;
+    color: var(--torby-color-cyan);
+    content: "•";
+    font-size: 22px;
+    line-height: 1;
+}
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation li.is-active a,
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation a:hover {
+    color: #ffffff;
+    background: var(--torby-color-cyan);
+    border-left-color: #ffffff;
+}
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation li.is-active a::before,
+body.tourbi-account-authenticated .woocommerce-MyAccount-navigation a:hover::before {
+    color: #ffffff;
+}
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-content {
+    float: none;
+    width: 100%;
+    min-width: 0;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    padding: 30px;
+    background: var(--torby-color-surface);
+    border: 1px solid var(--torby-color-border);
+    border-radius: var(--torby-radius-large);
+    box-shadow: var(--torby-shadow-soft);
+}
+
+body.tourbi-account-dashboard .woocommerce-MyAccount-content > p {
+    display: none;
+}
+
+.tourbi-account-dashboard-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 30px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 100% 0, rgba(255, 104, 70, 0.28), transparent 35%),
+        linear-gradient(135deg, var(--torby-color-primary), var(--torby-color-primary-soft));
+    border-radius: 18px;
+}
+
+.tourbi-account-dashboard-hero h1 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.12;
+}
+
+.tourbi-account-dashboard-hero p {
+    max-width: 650px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.65;
+}
+
+.tourbi-account-dashboard-hero__actions {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.tourbi-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.tourbi-button--primary {
+    color: #ffffff !important;
+    background: var(--torby-color-accent);
+}
+
+.tourbi-button--secondary {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tourbi-account-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.tourbi-account-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid var(--torby-color-border);
+    border-radius: 14px;
+}
+
+.tourbi-account-stat-card__icon {
+    display: inline-flex;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: #ffffff;
+    background: var(--torby-color-cyan);
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.tourbi-account-stat-card:nth-child(2) .tourbi-account-stat-card__icon {
+    background: var(--torby-color-accent);
+}
+
+.tourbi-account-stat-card:nth-child(3) .tourbi-account-stat-card__icon {
+    background: #f2b61f;
+}
+
+.tourbi-account-stat-card:nth-child(4) .tourbi-account-stat-card__icon {
+    background: var(--torby-color-success);
+}
+
+.tourbi-account-stat-card strong,
+.tourbi-account-stat-card span {
+    display: block;
+}
+
+.tourbi-account-stat-card strong {
+    color: var(--torby-color-primary);
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.tourbi-account-stat-card > div > span {
+    margin-top: 4px;
+    color: var(--torby-color-muted);
+    font-size: 12px;
+}
+
+.tourbi-account-quick-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 26px;
+    background: #f7fafb;
+    border: 1px solid var(--torby-color-border);
+    border-radius: 16px;
+}
+
+.tourbi-account-quick-panel h2 {
+    margin: 0 0 8px;
+    color: var(--torby-color-primary);
+    font-size: 24px;
+}
+
+.tourbi-account-quick-panel p {
+    max-width: 650px;
+    margin: 0;
+    color: var(--torby-color-muted);
+    line-height: 1.6;
+}
+
+.tourbi-account-quick-panel__links {
+    display: grid;
+    flex: 0 0 210px;
+    gap: 10px;
+}
+
+.tourbi-account-quick-panel__links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px;
+    color: var(--torby-color-primary) !important;
+    background: #ffffff;
+    border: 1px solid var(--torby-color-border);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.tourbi-account-quick-panel__links a:hover {
+    color: #ffffff !important;
+    background: var(--torby-color-cyan);
+    border-color: var(--torby-color-cyan);
+}
+
+/* WooCommerce account endpoint content. */
+
+body.tourbi-account-authenticated .woocommerce-MyAccount-content h2,
+body.tourbi-account-authenticated .woocommerce-MyAccount-content h3 {
+    color: var(--torby-color-primary);
+}
+
+body.tourbi-account-authenticated .woocommerce table.shop_table {
+    overflow: hidden;
+    border: 1px solid var(--torby-color-border);
+    border-radius: 12px;
+}
+
+body.tourbi-account-authenticated .woocommerce table.shop_table th {
+    color: #ffffff;
+    background: var(--torby-color-primary-soft);
+}
+
+body.tourbi-account-authenticated .woocommerce table.shop_table td,
+body.tourbi-account-authenticated .woocommerce table.shop_table th {
+    padding: 14px;
+    border-color: var(--torby-color-border);
+}
+
+body.tourbi-account-authenticated .woocommerce-Address,
+body.tourbi-account-authenticated .woocommerce-EditAccountForm,
+body.tourbi-account-authenticated .woocommerce-PaymentMethods {
+    padding: 22px;
+    background: #f8fafb;
+    border: 1px solid var(--torby-color-border);
+    border-radius: 14px;
+}
+
+@media (max-width: 1100px) {
+    .tourbi-account-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tourbi-account-dashboard-hero,
+    .tourbi-account-quick-panel {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tourbi-account-dashboard-hero__actions,
+    .tourbi-account-quick-panel__links {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .tourbi-account-dashboard-hero__actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 900px) {
+    body.tourbi-account-page .site-main,
+    body.tourbi-account-page main.site-main,
+    body.tourbi-account-page .page-content,
+    body.tourbi-account-page .entry-content {
+        width: min(100% - 28px, var(--torby-container-width));
+    }
+
+    body.tourbi-account-authenticated .woocommerce {
+        display: block;
+    }
+
+    .tourbi-account-user-card {
+        grid-template-columns: 56px minmax(0, 1fr) auto;
+        border-radius: var(--torby-radius-large);
+    }
+
+    .tourbi-account-user-card__avatar img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .tourbi-account-menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 9px 12px;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 700;
+    }
+
+    body.tourbi-account-authenticated .woocommerce-MyAccount-navigation {
+        display: none;
+        margin: 10px 0 20px;
+        border-radius: 14px;
+    }
+
+    body.tourbi-account-authenticated.tourbi-account-menu-open .woocommerce-MyAccount-navigation {
+        display: block;
+    }
+
+    body.tourbi-account-authenticated .woocommerce-MyAccount-content {
+        margin-top: 20px;
+        padding: 22px;
+    }
+}
+
+@media (max-width: 980px) and (min-width: 768px) {
+    body.tourbi-account-guest .woocommerce #customer_login.u-columns.col2-set {
+        gap: 18px !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column1,
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column2 {
+        padding: 28px !important;
+    }
+
+    .tourbi-account-login-intro {
+        padding: 30px;
+    }
+}
+
 @media (max-width: 767px) {
     .torby-container {
         width: min(100% - 24px, var(--torby-container-width));
+    }
+
+    body.tourbi-account-page .site-main,
+    body.tourbi-account-page main.site-main {
+        padding-top: 24px;
+        padding-bottom: 36px;
+    }
+
+    .tourbi-account-login-intro {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 26px 22px;
+    }
+
+    .tourbi-account-login-intro__features {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login.u-columns.col2-set {
+        flex-direction: column !important;
+        gap: 18px !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column1,
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column2 {
+        width: 100% !important;
+        padding: 26px 22px !important;
+    }
+
+    .tourbi-account-user-card {
+        grid-template-columns: 50px minmax(0, 1fr) auto;
+        padding: 18px 16px;
+    }
+
+    .tourbi-account-user-card__avatar img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tourbi-account-menu-toggle span:first-child {
+        display: none;
+    }
+
+    body.tourbi-account-authenticated .woocommerce-MyAccount-content {
+        padding: 16px;
+    }
+
+    .tourbi-account-dashboard-hero {
+        padding: 24px 20px;
+    }
+
+    .tourbi-account-dashboard-hero__actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-account-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-account-quick-panel {
+        padding: 22px 18px;
+    }
+
+    body.tourbi-account-authenticated .woocommerce table.shop_table,
+    body.tourbi-account-authenticated .woocommerce table.shop_table tbody,
+    body.tourbi-account-authenticated .woocommerce table.shop_table tr,
+    body.tourbi-account-authenticated .woocommerce table.shop_table td {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* --------------------------------------------------------------------------
+ * WCFM Vendor Registration
+ * ----------------------------------------------------------------------- */
+
+body.tourbi-vendor-registration-page {
+    background: var(--torby-color-background);
+}
+
+body.tourbi-vendor-registration-page .page-header,
+body.tourbi-vendor-registration-page .entry-header {
+    display: none;
+}
+
+body.tourbi-vendor-registration-page .site-main,
+body.tourbi-vendor-registration-page main.site-main,
+body.tourbi-vendor-registration-page .page-content,
+body.tourbi-vendor-registration-page .entry-content {
+    width: min(100% - 40px, var(--torby-container-width));
+    max-width: var(--torby-container-width);
+    margin-inline: auto;
+}
+
+body.tourbi-vendor-registration-page .site-main,
+body.tourbi-vendor-registration-page main.site-main {
+    padding-top: 44px;
+    padding-bottom: 64px;
+}
+
+body.tourbi-vendor-registration-page .entry-content > p:empty,
+body.tourbi-vendor-registration-page .page-content > p:empty {
+    display: none;
+}
+
+.tourbi-host-registration-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    min-height: 650px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid var(--torby-color-border);
+    border-radius: var(--torby-radius-large);
+    box-shadow: 0 24px 70px rgba(15, 33, 56, 0.12);
+}
+
+.tourbi-host-registration-intro {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: clamp(38px, 5vw, 64px);
+    overflow: hidden;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 92% 8%, rgba(26, 168, 189, 0.4), transparent 34%),
+        radial-gradient(circle at 5% 95%, rgba(255, 104, 70, 0.26), transparent 32%),
+        linear-gradient(145deg, #0f2138 0%, #16384a 100%);
+}
+
+.tourbi-host-registration-intro::after {
+    position: absolute;
+    right: -85px;
+    bottom: -90px;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 32px rgba(255, 255, 255, 0.03),
+        0 0 0 64px rgba(255, 255, 255, 0.02);
+    content: "";
+    pointer-events: none;
+}
+
+.tourbi-host-registration-kicker {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 12px;
+    color: var(--torby-color-cyan);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.tourbi-host-registration-kicker::before {
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    content: "";
+}
+
+.tourbi-host-registration-intro h1 {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: clamp(38px, 4vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+}
+
+.tourbi-host-registration-lead {
+    position: relative;
+    z-index: 1;
+    max-width: 580px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.73);
+    font-size: 16px;
+    line-height: 1.72;
+}
+
+.tourbi-host-registration-benefits {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 12px;
+    margin-top: 34px;
+}
+
+.tourbi-host-registration-benefits > div {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 13px;
+    align-items: center;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 13px;
+}
+
+.tourbi-host-registration-benefits > div > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    color: #ffffff;
+    background: var(--torby-color-cyan);
+    border-radius: 11px;
+    font-weight: 900;
+}
+
+.tourbi-host-registration-benefits p,
+.tourbi-host-registration-benefits strong,
+.tourbi-host-registration-benefits small {
+    display: block;
+    margin: 0;
+}
+
+.tourbi-host-registration-benefits strong {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.tourbi-host-registration-benefits small {
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.tourbi-host-registration-steps {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-top: 30px;
+}
+
+.tourbi-host-registration-steps span {
+    padding: 10px 12px;
+    color: rgba(255, 255, 255, 0.76);
+    background: rgba(15, 33, 56, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tourbi-host-registration-form-card {
+    min-width: 0;
+    padding: clamp(34px, 5vw, 62px);
+    background: #ffffff;
+}
+
+.tourbi-host-registration-form-card > h2 {
+    margin: 0 0 10px;
+    color: var(--torby-color-primary);
+    font-size: clamp(30px, 3vw, 42px);
+    line-height: 1.12;
+}
+
+.tourbi-host-registration-form-card__intro {
+    max-width: 620px;
+    margin: 0 0 28px;
+    color: var(--torby-color-muted);
+    line-height: 1.65;
+}
+
+.tourbi-host-registration-form__plugin,
+.tourbi-host-registration-form__plugin form,
+.tourbi-host-registration-form__plugin .wcfm-container,
+.tourbi-host-registration-form__plugin .wcfm-content,
+.tourbi-host-registration-form__plugin #wcfm_membership_registration_form,
+.tourbi-host-registration-form__plugin #wcfm_membership_registration_form_expander {
+    float: none !important;
+    clear: both !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.tourbi-host-registration-form__plugin h2:first-of-type {
+    display: none !important;
+}
+
+.tourbi-host-registration-form__plugin .wcfm_clearfix {
+    clear: both !important;
+    height: 0 !important;
+}
+
+.tourbi-host-registration-form__plugin p.wcfm_title,
+.tourbi-host-registration-form__plugin .wcfm_title,
+.tourbi-host-registration-form__plugin label {
+    float: none !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    color: var(--torby-color-primary) !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 1.4 !important;
+}
+
+.tourbi-host-registration-form__plugin p.wcfm_title strong,
+.tourbi-host-registration-form__plugin .wcfm_title strong {
+    font-weight: 800 !important;
+}
+
+.tourbi-host-registration-form__plugin input[type="text"],
+.tourbi-host-registration-form__plugin input[type="email"],
+.tourbi-host-registration-form__plugin input[type="password"],
+.tourbi-host-registration-form__plugin input[type="tel"],
+.tourbi-host-registration-form__plugin input[type="url"],
+.tourbi-host-registration-form__plugin input[type="number"],
+.tourbi-host-registration-form__plugin select,
+.tourbi-host-registration-form__plugin textarea,
+.tourbi-host-registration-form__plugin input.wcfm-text,
+.tourbi-host-registration-form__plugin select.wcfm-select,
+.tourbi-host-registration-form__plugin textarea.wcfm-textarea {
+    float: none !important;
+    clear: both !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 52px !important;
+    margin: 0 0 19px !important;
+    padding: 13px 15px !important;
+    color: var(--torby-color-text) !important;
+    background: #f8fafb !important;
+    border: 1px solid #ced9df !important;
+    border-radius: 10px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    font-size: 15px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+.tourbi-host-registration-form__plugin input:focus,
+.tourbi-host-registration-form__plugin select:focus,
+.tourbi-host-registration-form__plugin textarea:focus {
+    background: #ffffff !important;
+    border-color: var(--torby-color-cyan) !important;
+    box-shadow: 0 0 0 4px rgba(26, 168, 189, 0.12) !important;
+}
+
+.tourbi-host-registration-form__plugin input[type="checkbox"],
+.tourbi-host-registration-form__plugin input[type="radio"] {
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 8px !important;
+    accent-color: var(--torby-color-cyan);
+}
+
+.tourbi-host-registration-form__plugin .wcfm_description,
+.tourbi-host-registration-form__plugin .description,
+.tourbi-host-registration-form__plugin small,
+.tourbi-host-registration-form__plugin em {
+    display: block;
+    margin: -10px 0 18px !important;
+    color: var(--torby-color-muted) !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+}
+
+.tourbi-host-registration-form__plugin .password_strength,
+.tourbi-host-registration-form__plugin #password_strength {
+    margin: -10px 0 18px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tourbi-host-registration-form__plugin button,
+.tourbi-host-registration-form__plugin input[type="submit"],
+.tourbi-host-registration-form__plugin .wcfm_submit_button,
+.tourbi-host-registration-form__plugin #wcfm_membership_register_button {
+    float: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 150px !important;
+    min-height: 50px !important;
+    margin: 8px 0 0 !important;
+    padding: 13px 24px !important;
+    color: #ffffff !important;
+    background: var(--torby-color-accent) !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+.tourbi-host-registration-form__plugin button:hover,
+.tourbi-host-registration-form__plugin input[type="submit"]:hover,
+.tourbi-host-registration-form__plugin .wcfm_submit_button:hover,
+.tourbi-host-registration-form__plugin #wcfm_membership_register_button:hover {
+    background: #e95738 !important;
+    transform: translateY(-1px);
+}
+
+.tourbi-host-registration-form__plugin .wcfm-message,
+.tourbi-host-registration-form__plugin .wcfm-error,
+.tourbi-host-registration-form__plugin .wcfm-success,
+.tourbi-host-registration-form__plugin .woocommerce-error,
+.tourbi-host-registration-form__plugin .woocommerce-message,
+.tourbi-host-registration-form__plugin .woocommerce-info {
+    margin: 0 0 20px !important;
+    padding: 14px 16px !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+}
+
+.tourbi-host-registration-login-link {
+    margin: 24px 0 0;
+    padding-top: 20px;
+    color: var(--torby-color-muted);
+    border-top: 1px solid var(--torby-color-border);
+    font-size: 14px;
+}
+
+.tourbi-host-registration-login-link a {
+    color: var(--torby-color-cyan-dark);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.tourbi-host-registration-login-link a:hover {
+    color: var(--torby-color-accent);
+}
+
+@media (max-width: 980px) {
+    .tourbi-host-registration-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-host-registration-intro {
+        min-height: auto;
+    }
+
+    .tourbi-host-registration-benefits {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .tourbi-host-registration-benefits > div {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+}
+
+@media (max-width: 720px) {
+    body.tourbi-vendor-registration-page .site-main,
+    body.tourbi-vendor-registration-page main.site-main,
+    body.tourbi-vendor-registration-page .page-content,
+    body.tourbi-vendor-registration-page .entry-content {
+        width: min(100% - 24px, 1220px);
+    }
+
+    body.tourbi-vendor-registration-page .site-main,
+    body.tourbi-vendor-registration-page main.site-main {
+        padding-top: 24px;
+        padding-bottom: 38px;
+    }
+
+    .tourbi-host-registration-shell {
+        border-radius: 16px;
+    }
+
+    .tourbi-host-registration-intro,
+    .tourbi-host-registration-form-card {
+        padding: 30px 24px;
+    }
+
+    .tourbi-host-registration-intro h1 {
+        font-size: 36px;
+    }
+
+    .tourbi-host-registration-benefits,
+    .tourbi-host-registration-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-host-registration-form__plugin button,
+    .tourbi-host-registration-form__plugin input[type="submit"],
+    .tourbi-host-registration-form__plugin .wcfm_submit_button,
+    .tourbi-host-registration-form__plugin #wcfm_membership_register_button {
+        width: 100% !important;
     }
 }
