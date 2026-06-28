@@ -1,0 +1,430 @@
+/**
+ * Tourbi Host Income Calculator.
+ * Fully scoped so Elementor and other Tourbi sections are not affected.
+ */
+
+.tourbi-income-calculator {
+    --tourbi-estimator-max-width: 1300px;
+    --tourbi-estimator-bg: #10203a;
+    --tourbi-estimator-bg-deep: #0a172b;
+    --tourbi-estimator-border: rgba(151, 178, 215, 0.22);
+    --tourbi-estimator-text: #ffffff;
+    --tourbi-estimator-muted: #b8c6da;
+    --tourbi-estimator-orange: #ff5a27;
+    --tourbi-estimator-red: #ff414b;
+    --tourbi-estimator-lime: #c7ef31;
+    --tourbi-estimator-track: rgba(255, 255, 255, 0.34);
+    width: 100%;
+    padding: 38px 0;
+    font-family: var(--tourbi-font-body, "DM Sans", Inter, "Segoe UI", Arial, sans-serif);
+    color: var(--tourbi-estimator-text);
+}
+
+.tourbi-income-calculator *,
+.tourbi-income-calculator *::before,
+.tourbi-income-calculator *::after {
+    box-sizing: border-box;
+}
+
+.tourbi-income-calculator__panel {
+    width: min(calc(100% - 40px), var(--tourbi-estimator-max-width));
+    margin: 0 auto;
+    padding: clamp(34px, 4.2vw, 58px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr);
+    gap: clamp(45px, 7vw, 100px);
+    align-items: center;
+    border: 1px solid var(--tourbi-estimator-border);
+    border-radius: 40px;
+    background:
+        radial-gradient(circle at 88% 90%, rgba(255, 65, 75, 0.09), transparent 31%),
+        linear-gradient(145deg, #12233f 0%, var(--tourbi-estimator-bg) 55%, #0d1b32 100%);
+    box-shadow: 0 30px 80px rgba(0, 11, 29, 0.26);
+    overflow: hidden;
+}
+
+.tourbi-income-calculator__intro,
+.tourbi-income-calculator__controls {
+    min-width: 0;
+}
+
+.tourbi-income-calculator__eyebrow {
+    margin: 0 0 15px;
+    color: #bfd4f5;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+}
+
+.tourbi-income-calculator__title {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(40px, 4.2vw, 62px);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+}
+
+.tourbi-income-calculator__title em {
+    display: block;
+    margin-top: 13px;
+    color: var(--tourbi-estimator-lime);
+    font-weight: 800;
+}
+
+.tourbi-income-calculator__description {
+    max-width: 570px;
+    margin: 26px 0 0;
+    color: var(--tourbi-estimator-muted);
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.tourbi-income-calculator__result-card {
+    margin-top: 32px;
+    padding: 24px 26px;
+    border: 1px solid var(--tourbi-estimator-border);
+    border-radius: 22px;
+    background: rgba(3, 14, 32, 0.22);
+    backdrop-filter: blur(6px);
+}
+
+.tourbi-income-calculator__result-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+}
+
+.tourbi-income-calculator__result-label {
+    margin: 0;
+    color: #c7d6eb;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.tourbi-income-calculator__period-toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    gap: 3px;
+    padding: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 999px;
+    background: rgba(3, 12, 26, 0.35);
+}
+
+.tourbi-income-calculator__period-toggle button {
+    min-height: 30px;
+    padding: 5px 11px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #adbed4;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.tourbi-income-calculator__period-toggle button.is-active {
+    background: var(--tourbi-estimator-orange);
+    color: #ffffff;
+}
+
+.tourbi-income-calculator__period-toggle button:focus-visible,
+.tourbi-income-calculator__cta:focus-visible,
+.tourbi-income-calculator__number:focus-visible,
+.tourbi-income-calculator__range:focus-visible {
+    outline: 3px solid rgba(199, 239, 49, 0.92);
+    outline-offset: 3px;
+}
+
+.tourbi-income-calculator__payout {
+    margin: 6px 0 18px;
+    color: var(--tourbi-estimator-orange);
+    font-size: clamp(44px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+.tourbi-income-calculator__breakdown {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+}
+
+.tourbi-income-calculator__breakdown div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #aebfd6;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.tourbi-income-calculator__breakdown dt,
+.tourbi-income-calculator__breakdown dd {
+    margin: 0;
+}
+
+.tourbi-income-calculator__breakdown dd {
+    color: #ffffff;
+    font-weight: 700;
+    text-align: right;
+}
+
+.tourbi-income-calculator__formula {
+    margin: 15px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+    color: #8fa4c1;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.tourbi-income-calculator__controls {
+    display: grid;
+    gap: 27px;
+}
+
+.tourbi-income-calculator__control {
+    display: grid;
+    gap: 12px;
+}
+
+.tourbi-income-calculator__control-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+}
+
+.tourbi-income-calculator__control-head label {
+    color: #b9c9df;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.tourbi-income-calculator__number-field {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1px;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.tourbi-income-calculator__number {
+    width: 72px;
+    min-height: 34px;
+    margin: 0;
+    padding: 4px 7px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: right;
+    appearance: textfield;
+}
+
+.tourbi-income-calculator__number--plain {
+    width: 58px;
+}
+
+.tourbi-income-calculator__number::-webkit-inner-spin-button,
+.tourbi-income-calculator__number::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+}
+
+.tourbi-income-calculator__range {
+    --tourbi-range-progress: 0%;
+    width: 100%;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    appearance: none;
+}
+
+.tourbi-income-calculator__range::-webkit-slider-runnable-track {
+    height: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 999px;
+    background: linear-gradient(
+        to right,
+        var(--tourbi-estimator-orange) 0,
+        var(--tourbi-estimator-orange) var(--tourbi-range-progress),
+        var(--tourbi-estimator-track) var(--tourbi-range-progress),
+        var(--tourbi-estimator-track) 100%
+    );
+}
+
+.tourbi-income-calculator__range::-moz-range-track {
+    height: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 999px;
+    background: var(--tourbi-estimator-track);
+}
+
+.tourbi-income-calculator__range::-moz-range-progress {
+    height: 7px;
+    border-radius: 999px;
+    background: var(--tourbi-estimator-orange);
+}
+
+.tourbi-income-calculator__range::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+    margin-top: -6px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--tourbi-estimator-orange);
+    box-shadow: 0 0 0 5px rgba(255, 90, 39, 0.12);
+    appearance: none;
+}
+
+.tourbi-income-calculator__range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--tourbi-estimator-orange);
+    box-shadow: 0 0 0 5px rgba(255, 90, 39, 0.12);
+}
+
+.tourbi-income-calculator__cta {
+    min-height: 58px;
+    margin-top: 3px;
+    padding: 16px 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 19px;
+    background: linear-gradient(90deg, var(--tourbi-estimator-orange), var(--tourbi-estimator-red));
+    box-shadow: 0 18px 38px rgba(255, 65, 75, 0.15);
+    color: #ffffff !important;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none !important;
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.tourbi-income-calculator__cta:hover {
+    color: #ffffff !important;
+    filter: brightness(1.06);
+    transform: translateY(-2px);
+    box-shadow: 0 22px 46px rgba(255, 65, 75, 0.22);
+}
+
+.tourbi-income-calculator__disclaimer {
+    margin: -7px 0 0;
+    color: #8298b6;
+    font-size: 11px;
+    line-height: 1.55;
+    text-align: center;
+}
+
+@media (max-width: 980px) {
+    .tourbi-income-calculator__panel {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .tourbi-income-calculator__description {
+        max-width: 680px;
+    }
+}
+
+@media (max-width: 640px) {
+    .tourbi-income-calculator {
+        padding: 24px 0;
+    }
+
+    .tourbi-income-calculator__panel {
+        width: min(calc(100% - 24px), var(--tourbi-estimator-max-width));
+        padding: 28px 20px;
+        gap: 36px;
+        border-radius: 26px;
+    }
+
+    .tourbi-income-calculator__title {
+        font-size: clamp(38px, 12vw, 50px);
+    }
+
+    .tourbi-income-calculator__description {
+        margin-top: 20px;
+        font-size: 15px;
+    }
+
+    .tourbi-income-calculator__result-card {
+        margin-top: 25px;
+        padding: 20px;
+    }
+
+    .tourbi-income-calculator__result-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tourbi-income-calculator__payout {
+        margin-top: 14px;
+        font-size: 47px;
+    }
+
+    .tourbi-income-calculator__breakdown div {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .tourbi-income-calculator__breakdown dd {
+        text-align: left;
+    }
+
+    .tourbi-income-calculator__control-head {
+        gap: 10px;
+    }
+
+    .tourbi-income-calculator__control-head label {
+        font-size: 13px;
+    }
+
+    .tourbi-income-calculator__number {
+        width: 65px;
+    }
+
+    .tourbi-income-calculator__number--plain {
+        width: 52px;
+    }
+
+    .tourbi-income-calculator__cta {
+        width: 100%;
+        border-radius: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tourbi-income-calculator *,
+    .tourbi-income-calculator *::before,
+    .tourbi-income-calculator *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

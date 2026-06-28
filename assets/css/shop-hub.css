@@ -1,0 +1,231 @@
+/**
+ * Tourbi Shop Hub.
+ *
+ * Replaces the generic WooCommerce product grid with two booking choices.
+ */
+
+.tourbi-shop-hub {
+    background: #f6f3ed;
+}
+
+.tourbi-shop-hub__hero {
+    padding: clamp(56px, 7vw, 92px) 0 38px;
+    text-align: center;
+}
+
+.tourbi-shop-hub__hero > div {
+    display: grid;
+    justify-items: center;
+    gap: 13px;
+}
+
+.tourbi-shop-hub__kicker,
+.tourbi-shop-choice__content > span {
+    color: #ff5b2d;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.tourbi-shop-hub__hero h1 {
+    max-width: 950px;
+    margin: 0;
+    color: #111;
+    font-family: var(--tourbi-font-display);
+    font-size: clamp(50px, 6vw, 80px);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 0.94;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.tourbi-shop-hub__hero p {
+    max-width: 740px;
+    margin: 0;
+    color: #625d57;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.tourbi-shop-hub__choices {
+    padding: 24px 0 clamp(70px, 8vw, 105px);
+}
+
+.tourbi-shop-hub__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tourbi-shop-choice {
+    position: relative;
+    display: grid;
+    min-height: 610px;
+    overflow: hidden;
+    color: #fff;
+    background:
+        linear-gradient(135deg, #121212, #3b1c11);
+    border-radius: 20px;
+    box-shadow: 0 20px 58px rgba(17, 17, 17, 0.14);
+    isolation: isolate;
+}
+
+.tourbi-shop-choice--rental {
+    background:
+        linear-gradient(135deg, #0c2339, #0f6873);
+}
+
+.tourbi-shop-choice[style] {
+    background-image: var(--tourbi-shop-image);
+    background-position: center;
+    background-size: cover;
+}
+
+.tourbi-shop-choice__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.92) 0%,
+            rgba(0, 0, 0, 0.62) 58%,
+            rgba(0, 0, 0, 0.2) 100%
+        );
+}
+
+.tourbi-shop-choice--rental .tourbi-shop-choice__overlay {
+    background:
+        linear-gradient(
+            0deg,
+            rgba(5, 25, 40, 0.96) 0%,
+            rgba(5, 44, 55, 0.68) 62%,
+            rgba(5, 25, 40, 0.22) 100%
+        );
+}
+
+.tourbi-shop-choice__content {
+    display: grid;
+    align-content: end;
+    gap: 17px;
+    min-width: 0;
+    padding: clamp(28px, 4vw, 48px);
+}
+
+.tourbi-shop-choice__content h2 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--tourbi-font-display);
+    font-size: clamp(43px, 4.7vw, 70px);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 0.92;
+    text-transform: uppercase;
+}
+
+.tourbi-shop-choice__content p {
+    max-width: 590px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.tourbi-shop-choice__content ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tourbi-shop-choice__content li {
+    padding: 8px 10px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 750;
+    backdrop-filter: blur(9px);
+}
+
+.tourbi-shop-choice__content .tourbi-button {
+    justify-self: start;
+}
+
+.tourbi-shop-hub__support {
+    padding: 0 0 76px;
+}
+
+.tourbi-shop-hub__support > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.tourbi-shop-hub__support > div > div {
+    display: grid;
+    gap: 6px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #dfdbd3;
+    border-radius: 14px;
+}
+
+.tourbi-shop-hub__support span {
+    color: #77716b;
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tourbi-shop-hub__support strong,
+.tourbi-shop-hub__support a {
+    color: #111 !important;
+    font-size: 18px;
+    font-weight: 850;
+    text-decoration: none;
+}
+
+.tourbi-shop-hub__support a {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 820px) {
+    .tourbi-shop-hub__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-shop-choice {
+        min-height: 540px;
+    }
+}
+
+@media (max-width: 620px) {
+    .tourbi-shop-hub__hero {
+        padding-top: 42px;
+    }
+
+    .tourbi-shop-hub__hero h1 {
+        font-size: clamp(39px, 12vw, 54px);
+    }
+
+    .tourbi-shop-choice {
+        min-height: 500px;
+    }
+
+    .tourbi-shop-choice__content h2 {
+        font-size: clamp(37px, 11vw, 53px);
+    }
+
+    .tourbi-shop-hub__support > div {
+        grid-template-columns: 1fr;
+    }
+}

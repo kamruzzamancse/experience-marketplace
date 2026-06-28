@@ -1,0 +1,293 @@
+/**
+ * Reusable Tourbi components.
+ *
+ * All selectors are namespaced to avoid Elementor homepage conflicts.
+ */
+
+.tourbi-app {
+    color: var(--tourbi-color-ink);
+    background: var(--tourbi-color-canvas);
+    font-family: var(--tourbi-font-body);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.tourbi-app *,
+.tourbi-app *::before,
+.tourbi-app *::after {
+    box-sizing: border-box;
+}
+
+.tourbi-app img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tourbi-app a {
+    color: inherit;
+}
+
+.tourbi-display-title,
+.tourbi-section-title,
+.tourbi-card-title {
+    margin: 0;
+    color: var(--tourbi-color-ink);
+    font-family: var(--tourbi-font-display);
+    font-weight: 800;
+    letter-spacing: 0.015em;
+    line-height: 0.95;
+    text-transform: uppercase;
+}
+
+.tourbi-display-title {
+    font-size: clamp(54px, 8vw, 112px);
+}
+
+.tourbi-section-title {
+    font-size: clamp(38px, 5vw, 68px);
+}
+
+.tourbi-card-title {
+    font-size: clamp(28px, 3vw, 42px);
+}
+
+.tourbi-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--tourbi-color-orange);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tourbi-kicker::before {
+    width: 30px;
+    height: 2px;
+    background: currentColor;
+    content: "";
+}
+
+.tourbi-lead {
+    max-width: var(--tourbi-reading-width);
+    margin: 0;
+    color: var(--tourbi-color-ink-soft);
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.55;
+}
+
+.tourbi-muted {
+    color: var(--tourbi-color-muted);
+}
+
+.tourbi-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 1px solid transparent;
+    border-radius: var(--tourbi-radius-sm);
+    font-family: var(--tourbi-font-display);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        transform var(--tourbi-transition),
+        background-color var(--tourbi-transition),
+        border-color var(--tourbi-transition),
+        box-shadow var(--tourbi-transition);
+}
+
+.tourbi-button:hover {
+    transform: translateY(-2px);
+}
+
+.tourbi-button:focus-visible {
+    outline: 3px solid var(--tourbi-color-focus);
+    outline-offset: 3px;
+}
+
+.tourbi-button--primary {
+    color: var(--tourbi-color-white);
+    background: var(--tourbi-color-orange);
+    border-color: var(--tourbi-color-orange);
+    box-shadow: 0 12px 28px rgba(255, 84, 21, 0.2);
+}
+
+.tourbi-button--primary:hover {
+    color: var(--tourbi-color-white);
+    background: var(--tourbi-color-orange-dark);
+    border-color: var(--tourbi-color-orange-dark);
+}
+
+.tourbi-button--lime {
+    color: var(--tourbi-color-ink);
+    background: var(--tourbi-color-lime);
+    border-color: var(--tourbi-color-lime);
+}
+
+.tourbi-button--lime:hover {
+    color: var(--tourbi-color-ink);
+    background: var(--tourbi-color-lime-dark);
+    border-color: var(--tourbi-color-lime-dark);
+}
+
+.tourbi-button--outline {
+    color: var(--tourbi-color-ink);
+    background: transparent;
+    border-color: var(--tourbi-color-ink);
+}
+
+.tourbi-button--outline:hover {
+    color: var(--tourbi-color-white);
+    background: var(--tourbi-color-ink);
+}
+
+.tourbi-button--small {
+    min-height: 40px;
+    padding: 9px 16px;
+    font-size: 17px;
+}
+
+.tourbi-button--large {
+    min-height: 58px;
+    padding: 16px 28px;
+    font-size: 23px;
+}
+
+.tourbi-card {
+    overflow: hidden;
+    background: var(--tourbi-color-surface);
+    border: 1px solid var(--tourbi-color-border);
+    border-radius: var(--tourbi-radius-lg);
+    box-shadow: var(--tourbi-shadow-sm);
+}
+
+.tourbi-card__body {
+    padding: clamp(20px, 3vw, 32px);
+}
+
+.tourbi-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    color: var(--tourbi-color-white);
+    background: var(--tourbi-color-orange);
+    border-radius: var(--tourbi-radius-sm);
+    font-family: var(--tourbi-font-display);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.tourbi-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tourbi-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 6px 12px;
+    color: #356324;
+    background: #edf7e7;
+    border: 1px solid #b8d6ab;
+    border-radius: var(--tourbi-radius-pill);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.tourbi-field {
+    display: grid;
+    gap: 7px;
+}
+
+.tourbi-field label {
+    color: var(--tourbi-color-ink);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+}
+
+.tourbi-input,
+.tourbi-select,
+.tourbi-textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+    color: var(--tourbi-color-ink);
+    background: var(--tourbi-color-white);
+    border: 1px solid var(--tourbi-color-border);
+    border-radius: var(--tourbi-radius-sm);
+    font: inherit;
+    transition:
+        border-color var(--tourbi-transition),
+        box-shadow var(--tourbi-transition);
+}
+
+.tourbi-textarea {
+    min-height: 132px;
+    resize: vertical;
+}
+
+.tourbi-input:focus,
+.tourbi-select:focus,
+.tourbi-textarea:focus {
+    border-color: var(--tourbi-color-focus);
+    box-shadow: 0 0 0 3px rgba(23, 105, 255, 0.14);
+    outline: 0;
+}
+
+.tourbi-stat {
+    display: grid;
+    gap: 4px;
+    padding: 18px;
+    background: var(--tourbi-color-surface-soft);
+    border-radius: var(--tourbi-radius-md);
+}
+
+.tourbi-stat strong {
+    font-family: var(--tourbi-font-display);
+    font-size: 34px;
+    line-height: 1;
+}
+
+.tourbi-stat span {
+    color: var(--tourbi-color-muted);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tourbi-notice {
+    padding: 16px 18px;
+    border-left: 4px solid var(--tourbi-color-orange);
+    border-radius: var(--tourbi-radius-sm);
+    background: #fff4ee;
+}
+
+.tourbi-sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}

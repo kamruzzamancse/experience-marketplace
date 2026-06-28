@@ -1,0 +1,497 @@
+/**
+ * Final Tourbi responsive normalization.
+ *
+ * These rules are intentionally conservative and limited to functional
+ * Tourbi pages.
+ */
+
+body.tourbi-custom-site-chrome,
+body.tourbi-custom-site-chrome #page {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+body.tourbi-custom-site-chrome img,
+body.tourbi-custom-site-chrome svg,
+body.tourbi-custom-site-chrome video,
+body.tourbi-custom-site-chrome iframe {
+    max-width: 100%;
+}
+
+body.tourbi-custom-site-chrome table {
+    max-width: 100%;
+}
+
+body.tourbi-custom-site-chrome .site-main,
+body.tourbi-custom-site-chrome main {
+    min-width: 0;
+}
+
+/* WooCommerce cart and checkout shell. */
+body.tourbi-custom-site-chrome.woocommerce-cart .site-main,
+body.tourbi-custom-site-chrome.woocommerce-checkout .site-main {
+    width: min(100% - 34px, 1300px);
+    margin-inline: auto;
+    padding-block: 52px 78px;
+}
+
+body.tourbi-custom-site-chrome.woocommerce-cart table.shop_table,
+body.tourbi-custom-site-chrome.woocommerce-checkout table.shop_table,
+body.tourbi-custom-site-chrome.woocommerce-checkout .woocommerce-checkout-review-order {
+    background: #fff;
+    border: 1px solid #e1ddd6;
+    border-radius: 12px;
+}
+
+/* WCFM page must remain usable beside the final site header. */
+body.tourbi-wcfm-surface #wcfm-main-contentainer {
+    width: min(100% - 28px, 1300px) !important;
+    max-width: 1300px !important;
+    margin: 18px auto 55px !important;
+}
+
+body.tourbi-wcfm-surface #wcfm_menu {
+    min-height: 760px;
+}
+
+body.tourbi-wcfm-surface .wcfm-collapse-content,
+body.tourbi-wcfm-surface .wcfm-container,
+body.tourbi-wcfm-surface .wcfm-content {
+    min-width: 0;
+    max-width: 100%;
+}
+
+body.tourbi-wcfm-surface .wcfm-content {
+    overflow-x: auto;
+}
+
+/* Account and registration page width normalization. */
+body.tourbi-account-page .site-main,
+body.tourbi-vendor-registration-page .site-main {
+    width: min(100% - 34px, 1300px);
+    margin-inline: auto;
+}
+
+@media (max-width: 1024px) {
+    body.tourbi-wcfm-surface #wcfm-main-contentainer {
+        width: min(100% - 18px, 1300px) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body.tourbi-custom-site-chrome.woocommerce-cart .site-main,
+    body.tourbi-custom-site-chrome.woocommerce-checkout .site-main,
+    body.tourbi-account-page .site-main,
+    body.tourbi-vendor-registration-page .site-main {
+        width: min(100% - 22px, 1300px);
+    }
+
+    body.tourbi-custom-site-chrome .woocommerce table.shop_table_responsive tr,
+    body.tourbi-custom-site-chrome .woocommerce-page table.shop_table_responsive tr {
+        display: block;
+        margin-bottom: 14px;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid #e1ddd6;
+        border-radius: 10px;
+    }
+
+    body.tourbi-wcfm-surface #wcfm-main-contentainer {
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+}
+
+/* Public WCFM Host storefront.
+ * Keep all WCFM store functionality while applying a centered 1300px Tourbi
+ * canvas. The banner clips only inside its own frame; the vendor avatar is
+ * intentionally allowed to overlap the banner/header boundary.
+ */
+body.tourbi-wcfm-store-page {
+    background: #f7f5ef;
+}
+
+body.tourbi-wcfm-store-page #page {
+    min-height: 100vh;
+    background: #f7f5ef;
+}
+
+body.tourbi-wcfm-store-page #content,
+body.tourbi-wcfm-store-page .site-content,
+body.tourbi-wcfm-store-page #primary.content-area,
+body.tourbi-wcfm-store-page .content-area,
+body.tourbi-wcfm-store-page .site-main,
+body.tourbi-wcfm-store-page main.site-main {
+    float: none !important;
+    clear: both !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store {
+    float: none !important;
+    clear: both !important;
+    display: block !important;
+    box-sizing: border-box;
+    width: min(calc(100% - 40px), 1300px) !important;
+    max-width: 1300px !important;
+    margin: 34px auto 76px !important;
+    padding: 0 !important;
+    background: transparent;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store-content,
+body.tourbi-wcfm-store-page .wcfmmp-store-page-wrap {
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 20px 55px rgba(9, 25, 47, 0.12);
+}
+
+/* Banner: only the media frame is clipped. Do not hide overflow on
+ * .header_area because WCFM positions the vendor avatar above the header. */
+body.tourbi-wcfm-store-page #wcfmmp-store .wcfm_banner_area,
+body.tourbi-wcfm-store-page #wcfmmp-store .wcfm_banner_area_desktop,
+body.tourbi-wcfm-store-page #wcfmmp-store .wcfm_banner_area_mobile {
+    width: 100%;
+    max-width: 100%;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .banner_area,
+body.tourbi-wcfm-store-page #wcfmmp-store .wcfm_slideshow_container {
+    overflow: hidden !important;
+    border-radius: 18px 18px 0 0;
+    background: #dfe6e5;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .banner_img {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .banner_img img,
+body.tourbi-wcfm-store-page #wcfmmp-store .wcfmSlides img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Store identity panel. */
+body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header {
+    position: relative;
+    z-index: 5;
+    display: block;
+    min-height: 160px !important;
+    overflow: visible !important;
+    background: #202b38 !important;
+    border-radius: 0;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header .header_wrapper,
+body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header .header_area {
+    position: relative;
+    width: 100%;
+    min-height: 160px;
+    overflow: visible !important;
+    box-sizing: border-box;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header .header_area {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 30px 24px 205px;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .header_left {
+    position: static !important;
+    z-index: 2;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .logo_area {
+    position: absolute !important;
+    z-index: 8;
+    top: -62px !important;
+    left: 30px !important;
+    width: 142px !important;
+    height: 142px !important;
+    overflow: hidden;
+    background: #fff;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 12px 28px rgba(5, 17, 34, 0.28);
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .logo_area a,
+body.tourbi-wcfm-store-page #wcfmmp-store .logo_area a img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .logo_area a img {
+    object-fit: cover;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .logo_area_after {
+    position: absolute !important;
+    top: 88px !important;
+    left: 30px !important;
+    width: 142px;
+    margin: 0 !important;
+    text-align: center;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .address {
+    position: static !important;
+    width: auto !important;
+    max-width: 760px;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #fff;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .address h1,
+body.tourbi-wcfm-store-page #wcfmmp-store h1.wcfm_store_title {
+    margin: 0 0 10px !important;
+    color: #fff !important;
+    font-size: clamp(24px, 2.2vw, 34px) !important;
+    line-height: 1.15 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .address p {
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .address p:last-child {
+    margin-bottom: 0 !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .address span {
+    width: auto !important;
+    max-width: calc(100% - 32px);
+    margin-left: 9px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    overflow-wrap: anywhere;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .address a {
+    color: rgba(255, 255, 255, 0.94) !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .address i {
+    color: #ff5a2f !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .store_info_parallal {
+    display: inline-flex !important;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 18px 7px 0 !important;
+    vertical-align: middle;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .header_right {
+    position: static !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    min-width: 0;
+    padding: 0 !important;
+    background: transparent !important;
+    text-align: right;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .bd_icon_area {
+    position: static !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .social_area {
+    position: static !important;
+    width: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .social_area ul {
+    position: static !important;
+    width: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* Store body: maintain WCFM sidebar/tabs functionality and prevent the page
+ * from collapsing into a short white strip over the body background. */
+body.tourbi-wcfm-store-page #wcfmmp-store .body_area {
+    display: flow-root;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 520px;
+    padding: 30px 24px 54px;
+    overflow: visible;
+    background: #fff;
+    border-radius: 0 0 18px 18px;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store .left_sidebar,
+body.tourbi-wcfm-store-page #wcfmmp-store .right_side,
+body.tourbi-wcfm-store-page #wcfmmp-store .tab_area {
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store input[type="text"],
+body.tourbi-wcfm-store-page #wcfmmp-store input[type="search"],
+body.tourbi-wcfm-store-page #wcfmmp-store input[type="email"],
+body.tourbi-wcfm-store-page #wcfmmp-store select,
+body.tourbi-wcfm-store-page #wcfmmp-store textarea {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+body.tourbi-wcfm-store-page #wcfmmp-store img,
+body.tourbi-wcfm-store-page #wcfmmp-store iframe,
+body.tourbi-wcfm-store-page #wcfmmp-store video {
+    max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+    body.tourbi-wcfm-store-page #wcfmmp-store {
+        width: min(calc(100% - 28px), 1300px) !important;
+        margin-top: 24px !important;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header .header_area {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        padding-right: 24px;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .header_right,
+    body.tourbi-wcfm-store-page #wcfmmp-store .bd_icon_area {
+        justify-content: flex-start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    body.tourbi-wcfm-store-page #wcfmmp-store {
+        width: min(calc(100% - 20px), 1300px) !important;
+        margin: 16px auto 48px !important;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store-content,
+    body.tourbi-wcfm-store-page .wcfmmp-store-page-wrap {
+        border-radius: 12px;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .banner_area,
+    body.tourbi-wcfm-store-page #wcfmmp-store .wcfm_slideshow_container {
+        border-radius: 12px 12px 0 0;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header {
+        min-height: 0 !important;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header .header_wrapper,
+    body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header .header_area {
+        min-height: 0;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header .header_area {
+        display: block !important;
+        padding: 86px 18px 24px;
+        text-align: center;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .logo_area {
+        top: -62px !important;
+        left: 50% !important;
+        width: 124px !important;
+        height: 124px !important;
+        transform: translateX(-50%);
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .logo_area_after {
+        position: static !important;
+        width: 100%;
+        margin: 0 0 12px !important;
+        padding-top: 0;
+        transform: none;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .address {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .address span {
+        max-width: calc(100% - 28px);
+        font-size: 13px !important;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .store_info_parallal {
+        display: flex !important;
+        justify-content: center;
+        margin: 0 0 8px !important;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .header_right,
+    body.tourbi-wcfm-store-page #wcfmmp-store .bd_icon_area {
+        justify-content: center;
+        margin-top: 14px !important;
+        text-align: center;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .body_area {
+        min-height: 420px;
+        padding: 22px 14px 38px;
+        border-radius: 0 0 12px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body.tourbi-wcfm-store-page #wcfmmp-store {
+        width: min(calc(100% - 14px), 1300px) !important;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store #wcfm_store_header .header_area {
+        padding-inline: 14px;
+    }
+
+    body.tourbi-wcfm-store-page #wcfmmp-store .address h1,
+    body.tourbi-wcfm-store-page #wcfmmp-store h1.wcfm_store_title {
+        font-size: 24px !important;
+    }
+}

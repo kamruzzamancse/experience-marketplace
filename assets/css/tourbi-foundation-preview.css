@@ -1,0 +1,106 @@
+/**
+ * Step 68A foundation preview page.
+ */
+
+.tourbi-foundation-preview__hero {
+    position: relative;
+    overflow: hidden;
+    color: var(--tourbi-color-white);
+    background:
+        radial-gradient(
+            circle at 82% 18%,
+            rgba(255, 84, 21, 0.42),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #111111 0%,
+            #24211e 60%,
+            #432009 100%
+        );
+}
+
+.tourbi-foundation-preview__hero .tourbi-display-title,
+.tourbi-foundation-preview__hero .tourbi-lead {
+    color: var(--tourbi-color-white);
+}
+
+.tourbi-foundation-preview__hero .tourbi-lead {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.tourbi-foundation-preview__hero-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(340px, 0.75fr);
+    gap: clamp(34px, 7vw, 100px);
+    align-items: center;
+}
+
+.tourbi-foundation-preview__visual {
+    display: grid;
+    gap: 14px;
+    padding: clamp(24px, 4vw, 44px);
+    color: var(--tourbi-color-ink);
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: var(--tourbi-radius-xl);
+    box-shadow: var(--tourbi-shadow-md);
+}
+
+.tourbi-foundation-preview__visual-row {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.tourbi-foundation-preview__image {
+    display: grid;
+    place-items: center;
+    min-height: 250px;
+    color: var(--tourbi-color-white);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 84, 21, 0.88),
+            rgba(17, 17, 17, 0.95)
+        );
+    border-radius: var(--tourbi-radius-lg);
+    font-family: var(--tourbi-font-display);
+    font-size: 44px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.tourbi-foundation-preview__card-media {
+    min-height: 220px;
+    background:
+        linear-gradient(
+            145deg,
+            #ff8455,
+            #ff5415 48%,
+            #111111 49%,
+            #2b2b2b
+        );
+}
+
+.tourbi-foundation-preview__form {
+    padding: clamp(24px, 4vw, 42px);
+}
+
+.tourbi-foundation-preview__footer-note {
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .tourbi-foundation-preview__hero-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .tourbi-foundation-preview__visual-row {
+        grid-template-columns: 1fr;
+    }
+}

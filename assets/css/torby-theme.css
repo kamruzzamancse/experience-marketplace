@@ -1297,3 +1297,156 @@ body.tourbi-vendor-registration-page .page-content > p:empty {
         width: 100% !important;
     }
 }
+
+
+/* =========================================================
+ * Step 68I — My Account identity, SVG icons and Host CTA fixes
+ * ======================================================= */
+
+.tourbi-account-user-card__details strong {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.18;
+}
+
+.tourbi-account-user-card__details small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tourbi-account-dashboard-hero > div:first-child {
+    min-width: 0;
+}
+
+.tourbi-account-dashboard-hero h1 {
+    max-width: 720px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-wrap: balance;
+}
+
+.tourbi-account-stat-card__icon svg {
+    display: block;
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.tourbi-account-stat-card > div {
+    min-width: 0;
+}
+
+.tourbi-account-stat-card strong {
+    display: block;
+    min-width: 0;
+    color: #101820;
+    font-size: 20px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.tourbi-account-stat-card strong .woocommerce-Price-amount,
+.tourbi-account-stat-card strong bdi {
+    display: inline;
+    white-space: nowrap;
+}
+
+body.tourbi-account-dashboard
+.woocommerce-MyAccount-content
+> a[href*="vendor"],
+body.tourbi-account-dashboard
+.woocommerce-MyAccount-content
+> p
+a[href*="vendor"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-top: 38px;
+    padding: 18px 20px;
+    color: #0f2637 !important;
+    background: #eef7f8;
+    border: 1px solid #bcdde2;
+    border-radius: 12px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+body.tourbi-account-dashboard
+.woocommerce-MyAccount-content
+> a[href*="vendor"]::after,
+body.tourbi-account-dashboard
+.woocommerce-MyAccount-content
+> p
+a[href*="vendor"]::after {
+    content: "→";
+    font-size: 18px;
+}
+
+@media (max-width: 560px) {
+    .tourbi-account-user-card__details strong {
+        font-size: 15px;
+    }
+
+    .tourbi-account-dashboard-hero h1 {
+        font-size: clamp(28px, 9vw, 38px);
+    }
+}
+
+/* =========================================================
+ * Rider dashboard — separate Experience and Bike Rental CTAs
+ * ======================================================= */
+
+.tourbi-account-dashboard-hero__actions .tourbi-account-booking-action {
+    min-width: 178px;
+    white-space: nowrap;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.tourbi-account-dashboard-hero__actions .tourbi-account-booking-action:hover,
+.tourbi-account-dashboard-hero__actions .tourbi-account-booking-action:focus-visible {
+    transform: translateY(-2px);
+}
+
+.tourbi-account-dashboard-hero__actions .tourbi-button--primary:hover,
+.tourbi-account-dashboard-hero__actions .tourbi-button--primary:focus-visible {
+    color: #ffffff !important;
+    background: #f0502e;
+    box-shadow: 0 10px 24px rgba(255, 91, 51, 0.24);
+}
+
+.tourbi-account-dashboard-hero__actions .tourbi-button--secondary:hover,
+.tourbi-account-dashboard-hero__actions .tourbi-button--secondary:focus-visible {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.42);
+}
+
+.tourbi-account-dashboard-hero__actions .tourbi-account-booking-action:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+    .tourbi-account-dashboard-hero__actions {
+        flex-direction: column;
+    }
+
+    .tourbi-account-dashboard-hero__actions .tourbi-account-booking-action {
+        width: 100%;
+        min-width: 0;
+    }
+}
+

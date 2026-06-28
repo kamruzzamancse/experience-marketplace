@@ -1,0 +1,132 @@
+/**
+ * Step 68G.1 client-reference alignment.
+ *
+ * Keeps the existing functionality while bringing custom pages closer to the
+ * supplied editorial orange/black/white references.
+ */
+
+body.tourbi-custom-site-chrome {
+    background: #f7f5f0;
+}
+
+.tourbi-marketplace,
+.tourbi-experience-single,
+.tourbi-become-host {
+    --tourbi-reference-radius: 16px;
+    --tourbi-reference-shadow: 0 16px 45px rgba(17, 17, 17, 0.085);
+}
+
+/* Keep major display headings powerful but controlled. */
+.tourbi-featured-experience__copy h2,
+.tourbi-experience-hero__title,
+.tourbi-host-hero__copy h1,
+.tourbi-host-section__heading h2,
+.tourbi-host-requirements__copy h2,
+.tourbi-host-final-cta h2 {
+    font-size: clamp(48px, 5vw, 80px) !important;
+    letter-spacing: -0.018em !important;
+    line-height: 0.95 !important;
+    text-wrap: balance;
+}
+
+/* Marketplace reference treatment. */
+.tourbi-marketplace-intro {
+    padding-block: 20px;
+}
+
+.tourbi-marketplace-featured {
+    padding-block: 26px 42px;
+}
+
+.tourbi-featured-experience,
+.tourbi-marketplace-card,
+.tourbi-experience-card {
+    border-radius: var(--tourbi-reference-radius) !important;
+    box-shadow: var(--tourbi-reference-shadow);
+}
+
+.tourbi-featured-experience {
+    min-height: clamp(500px, 56vw, 660px);
+}
+
+/* Single Experience reference treatment. */
+.tourbi-experience-hero {
+    min-height: min(680px, 72vh);
+}
+
+.tourbi-experience-hero__inner {
+    padding-block: 26px 48px;
+}
+
+.tourbi-experience-single__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(350px, 410px);
+    gap: clamp(34px, 4.4vw, 62px);
+    padding-block: clamp(48px, 6vw, 78px);
+}
+
+.tourbi-booking-card,
+.tourbi-experience-key-facts > div,
+.tourbi-experience-audience {
+    border-radius: var(--tourbi-reference-radius);
+    box-shadow: 0 12px 34px rgba(17, 17, 17, 0.06);
+}
+
+/* Become a Host reference treatment. */
+.tourbi-host-benefit-grid article,
+.tourbi-host-idea-card,
+.tourbi-host-requirement-list article,
+.tourbi-host-faq-item,
+.tourbi-host-final-cta__card {
+    border-radius: var(--tourbi-reference-radius);
+}
+
+.tourbi-host-benefit-grid article,
+.tourbi-host-requirement-list article,
+.tourbi-host-faq-item {
+    box-shadow: 0 12px 34px rgba(17, 17, 17, 0.055);
+}
+
+.tourbi-host-kicker {
+    color: #ff5415;
+}
+
+/* Consistent orange reference CTA. */
+.tourbi-button--primary,
+.tourbi-site-header__rent {
+    background: #ff5b2d !important;
+    border-color: #ff5b2d !important;
+}
+
+.tourbi-button--primary:hover,
+.tourbi-site-header__rent:hover {
+    color: #111 !important;
+    background: #c9f553 !important;
+    border-color: #c9f553 !important;
+}
+
+@media (max-width: 1180px) {
+    .tourbi-featured-experience__copy h2,
+    .tourbi-experience-hero__title,
+    .tourbi-host-hero__copy h1,
+    .tourbi-host-section__heading h2,
+    .tourbi-host-requirements__copy h2,
+    .tourbi-host-final-cta h2 {
+        font-size: clamp(42px, 6vw, 62px) !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .tourbi-featured-experience__copy h2,
+    .tourbi-experience-hero__title,
+    .tourbi-host-hero__copy h1,
+    .tourbi-host-section__heading h2,
+    .tourbi-host-requirements__copy h2,
+    .tourbi-host-final-cta h2 {
+        font-size: clamp(34px, 10vw, 46px) !important;
+        line-height: 1 !important;
+    }
+
+    .tourbi-experience-hero {
+        min-height: 600px;
+    }
+}

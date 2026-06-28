@@ -1,0 +1,540 @@
+/**
+ * Dedicated Tourbi Bike Rentals marketplace.
+ */
+
+.tourbi-rental-marketplace {
+    --tourbi-rental-marketplace-navy: #0b2338;
+    --tourbi-rental-marketplace-teal: #0ca6b7;
+    --tourbi-rental-marketplace-light: #eaf4f4;
+    --tourbi-rental-marketplace-border: #d7e1e2;
+    background: #f6f4ef;
+}
+
+.tourbi-rental-marketplace-hero {
+    color: #fff;
+    background:
+        radial-gradient(
+            circle at 86% 12%,
+            rgba(12, 166, 183, 0.38),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            #071827 0%,
+            #0c2c43 58%,
+            #0b6974 100%
+        );
+}
+
+.tourbi-rental-marketplace-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(290px, 420px);
+    gap: clamp(45px, 7vw, 105px);
+    align-items: center;
+    padding-block: clamp(68px, 8vw, 108px);
+}
+
+.tourbi-rental-marketplace-hero__inner > div:first-child {
+    display: grid;
+    gap: 18px;
+    min-width: 0;
+}
+
+.tourbi-rental-marketplace-kicker {
+    color: #68e3eb;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.tourbi-rental-marketplace-hero h1,
+.tourbi-rental-marketplace-compare h2 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--tourbi-font-display);
+    font-size: clamp(48px, 5.4vw, 80px);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 0.94;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.tourbi-rental-marketplace-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.tourbi-rental-marketplace-hero__facts {
+    display: grid;
+    gap: 10px;
+}
+
+.tourbi-rental-marketplace-hero__facts > div {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 15px;
+    align-items: center;
+    min-height: 80px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.tourbi-rental-marketplace-hero__facts strong {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    color: #071827;
+    background: #6ee7ef;
+    border-radius: 50%;
+    font-family: var(--tourbi-font-display);
+    font-size: 20px;
+}
+
+.tourbi-rental-marketplace-hero__facts span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.tourbi-rental-marketplace-results {
+    padding: clamp(58px, 7vw, 92px) 0;
+}
+
+.tourbi-rental-marketplace-toolbar {
+    display: grid;
+    gap: 19px;
+    margin-bottom: 28px;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid var(--tourbi-rental-marketplace-border);
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(10, 35, 56, 0.055);
+}
+
+.tourbi-rental-marketplace-toolbar__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 18px;
+}
+
+.tourbi-rental-marketplace-toolbar__heading > div {
+    display: grid;
+    gap: 4px;
+}
+
+.tourbi-rental-marketplace-toolbar__heading span {
+    color: #687377;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.tourbi-rental-marketplace-toolbar__heading strong {
+    color: #0b2338;
+    font-size: 20px;
+}
+
+.tourbi-rental-marketplace-toolbar__heading > a {
+    color: #087a87 !important;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.tourbi-rental-marketplace-filters {
+    display: grid;
+    grid-template-columns: minmax(240px, 1.4fr) minmax(190px, 0.8fr) minmax(190px, 0.8fr) auto;
+    gap: 11px;
+    align-items: end;
+}
+
+.tourbi-rental-marketplace-filters label {
+    display: grid;
+    gap: 7px;
+    min-width: 0;
+}
+
+.tourbi-rental-marketplace-filters label > span {
+    color: #4e5c62;
+    font-size: 11px;
+    font-weight: 850;
+    text-transform: uppercase;
+}
+
+.tourbi-rental-marketplace-filters input,
+.tourbi-rental-marketplace-filters select {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 12px;
+    color: #102638;
+    background: #f8faf9;
+    border: 1px solid #ccd8d9;
+    border-radius: 8px;
+}
+
+.tourbi-rental-marketplace-filters button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 10px 19px;
+    color: #fff;
+    background: var(--tourbi-rental-marketplace-teal);
+    border: 0;
+    border-radius: 8px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.tourbi-rental-marketplace-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tourbi-rental-marketplace-card {
+    display: grid;
+    overflow: hidden;
+    min-width: 0;
+    background: #fff;
+    border: 1px solid var(--tourbi-rental-marketplace-border);
+    border-radius: 16px;
+    box-shadow: 0 14px 38px rgba(10, 35, 56, 0.07);
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.tourbi-rental-marketplace-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 48px rgba(10, 35, 56, 0.13);
+}
+
+.tourbi-rental-marketplace-card__image {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    color: #fff;
+    background: #dce9e9;
+}
+
+.tourbi-rental-marketplace-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 280ms ease;
+}
+
+.tourbi-rental-marketplace-card:hover
+.tourbi-rental-marketplace-card__image img {
+    transform: scale(1.035);
+}
+
+.tourbi-rental-marketplace-card__placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: #0b5660;
+    font-family: var(--tourbi-font-display);
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.tourbi-rental-marketplace-card__badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 7px 10px;
+    color: #fff;
+    background: #0b2338;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tourbi-rental-marketplace-card__content {
+    display: grid;
+    gap: 14px;
+    padding: 21px;
+}
+
+.tourbi-rental-marketplace-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.tourbi-rental-marketplace-card__meta span {
+    padding: 6px 8px;
+    color: #08727e;
+    background: #e8f5f5;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.tourbi-rental-marketplace-card h2 {
+    margin: 0;
+    font-family: var(--tourbi-font-display);
+    font-size: 30px;
+    line-height: 1;
+}
+
+.tourbi-rental-marketplace-card h2 a {
+    color: #0c2237 !important;
+    text-decoration: none;
+}
+
+.tourbi-rental-marketplace-card p {
+    margin: 0;
+    color: #687176;
+    line-height: 1.6;
+}
+
+.tourbi-rental-marketplace-card ul {
+    display: grid;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tourbi-rental-marketplace-card li {
+    display: flex;
+    gap: 8px;
+    color: #3f4f55;
+    font-size: 12px;
+}
+
+.tourbi-rental-marketplace-card li span {
+    color: var(--tourbi-rental-marketplace-teal);
+    font-weight: 900;
+}
+
+.tourbi-rental-marketplace-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e1e8e8;
+}
+
+.tourbi-rental-marketplace-card__footer > div {
+    display: grid;
+    gap: 3px;
+}
+
+.tourbi-rental-marketplace-card__footer small {
+    color: #758084;
+    font-size: 9px;
+    font-weight: 850;
+    text-transform: uppercase;
+}
+
+.tourbi-rental-marketplace-card__footer strong {
+    color: #0b2338;
+    font-size: 21px;
+}
+
+.tourbi-rental-marketplace-card__footer > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #fff !important;
+    background: var(--tourbi-rental-marketplace-teal);
+    border-radius: 7px;
+    padding: 10px 12px;
+    font-size: 11px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.tourbi-rental-marketplace-pagination {
+    margin-top: 36px;
+}
+
+.tourbi-rental-marketplace-pagination .page-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tourbi-rental-marketplace-pagination a,
+.tourbi-rental-marketplace-pagination span {
+    display: grid;
+    place-items: center;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px;
+    color: #0b2338 !important;
+    background: #fff;
+    border: 1px solid var(--tourbi-rental-marketplace-border);
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.tourbi-rental-marketplace-pagination .current {
+    color: #fff !important;
+    background: var(--tourbi-rental-marketplace-teal);
+    border-color: var(--tourbi-rental-marketplace-teal);
+}
+
+.tourbi-rental-marketplace-empty {
+    display: grid;
+    justify-items: center;
+    gap: 13px;
+    padding: 75px 25px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--tourbi-rental-marketplace-border);
+    border-radius: 16px;
+}
+
+.tourbi-rental-marketplace-empty > span {
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 70px;
+    color: #fff;
+    background: var(--tourbi-rental-marketplace-teal);
+    border-radius: 50%;
+    font-size: 34px;
+}
+
+.tourbi-rental-marketplace-empty h2 {
+    margin: 0;
+    color: #0b2338;
+    font-family: var(--tourbi-font-display);
+    font-size: 38px;
+}
+
+.tourbi-rental-marketplace-empty p {
+    max-width: 630px;
+    margin: 0;
+    color: #697478;
+}
+
+.tourbi-rental-marketplace-compare {
+    padding: clamp(60px, 7vw, 90px) 0;
+    color: #fff;
+    background: #081a2b;
+}
+
+.tourbi-rental-marketplace-compare__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
+}
+
+.tourbi-rental-marketplace-compare__inner > div:first-child {
+    display: grid;
+    gap: 13px;
+}
+
+.tourbi-rental-marketplace-compare h2 {
+    font-size: clamp(43px, 4.8vw, 70px);
+}
+
+.tourbi-rental-marketplace-compare__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.tourbi-rental-marketplace-compare article {
+    display: grid;
+    align-content: start;
+    gap: 11px;
+    min-height: 225px;
+    padding: 23px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 13px;
+}
+
+.tourbi-rental-marketplace-compare article strong {
+    font-family: var(--tourbi-font-display);
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.tourbi-rental-marketplace-compare article p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.6;
+}
+
+.tourbi-rental-marketplace-compare article a {
+    align-self: end;
+    color: #6ee7ef !important;
+    font-weight: 850;
+    text-decoration: none;
+}
+
+@media (max-width: 1050px) {
+    .tourbi-rental-marketplace-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tourbi-rental-marketplace-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tourbi-rental-marketplace-filters button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 850px) {
+    .tourbi-rental-marketplace-hero__inner,
+    .tourbi-rental-marketplace-compare__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .tourbi-rental-marketplace-hero__inner {
+        padding-block: 52px;
+    }
+
+    .tourbi-rental-marketplace-hero h1 {
+        font-size: clamp(39px, 12vw, 54px);
+    }
+
+    .tourbi-rental-marketplace-grid,
+    .tourbi-rental-marketplace-filters,
+    .tourbi-rental-marketplace-compare__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-rental-marketplace-toolbar__heading,
+    .tourbi-rental-marketplace-card__footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .tourbi-rental-marketplace-card__footer > a {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,70 @@
+/**
+ * Tourbi custom-template design tokens.
+ *
+ * This file is conditionally loaded only on Tourbi custom surfaces.
+ * It does not load on the protected Elementor homepage.
+ */
+
+.tourbi-custom-surface,
+.tourbi-app {
+    --tourbi-color-ink: #111111;
+    --tourbi-color-ink-soft: #2b2b2b;
+    --tourbi-color-orange: #ff5415;
+    --tourbi-color-orange-dark: #dd3f05;
+    --tourbi-color-lime: #c9ee48;
+    --tourbi-color-lime-dark: #a7ce22;
+    --tourbi-color-white: #ffffff;
+    --tourbi-color-canvas: #fbfaf7;
+    --tourbi-color-surface: #ffffff;
+    --tourbi-color-surface-soft: #f5f3ee;
+    --tourbi-color-border: #dedbd4;
+    --tourbi-color-muted: #68665f;
+    --tourbi-color-success: #1e8c4a;
+    --tourbi-color-danger: #b42318;
+    --tourbi-color-focus: #1769ff;
+
+    --tourbi-font-display:
+        "Bebas Neue",
+        "Arial Narrow",
+        Impact,
+        sans-serif;
+
+    --tourbi-font-body:
+        "DM Sans",
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    --tourbi-container: 1300px;
+    --tourbi-container-wide: 1300px;
+    --tourbi-reading-width: 760px;
+
+    --tourbi-space-1: 4px;
+    --tourbi-space-2: 8px;
+    --tourbi-space-3: 12px;
+    --tourbi-space-4: 16px;
+    --tourbi-space-5: 20px;
+    --tourbi-space-6: 24px;
+    --tourbi-space-7: 32px;
+    --tourbi-space-8: 40px;
+    --tourbi-space-9: 48px;
+    --tourbi-space-10: 64px;
+    --tourbi-space-11: 80px;
+    --tourbi-space-12: 104px;
+
+    --tourbi-radius-sm: 8px;
+    --tourbi-radius-md: 14px;
+    --tourbi-radius-lg: 22px;
+    --tourbi-radius-xl: 30px;
+    --tourbi-radius-pill: 999px;
+
+    --tourbi-shadow-sm:
+        0 8px 24px rgba(17, 17, 17, 0.06);
+
+    --tourbi-shadow-md:
+        0 20px 55px rgba(17, 17, 17, 0.1);
+
+    --tourbi-transition:
+        180ms ease;
+}

@@ -1,0 +1,998 @@
+/**
+ * Tourbi Become a Host landing page.
+ *
+ * Scoped to .tourbi-become-host so the Elementor homepage and WCFM screens
+ * remain unchanged.
+ */
+
+.tourbi-become-host {
+    --tourbi-host-border: #e3ded5;
+    --tourbi-host-shadow: 0 20px 60px rgba(17, 17, 17, 0.1);
+    overflow: clip;
+    background: #fbfaf7;
+}
+
+.tourbi-host-kicker {
+    color: var(--tourbi-color-orange);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.tourbi-host-hero {
+    position: relative;
+    min-height: min(820px, 82vh);
+    color: #fff;
+    background:
+        linear-gradient(135deg, #111 0%, #2f1b13 72%, #762806 100%);
+    isolation: isolate;
+}
+
+.tourbi-host-hero.has-image {
+    background-image: var(--tourbi-host-hero-image);
+    background-position: center;
+    background-size: cover;
+}
+
+.tourbi-host-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.94) 0%,
+            rgba(0, 0, 0, 0.78) 42%,
+            rgba(0, 0, 0, 0.2) 77%,
+            rgba(0, 0, 0, 0.36) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.72) 0%,
+            transparent 48%
+        );
+}
+
+.tourbi-host-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
+    gap: clamp(44px, 8vw, 120px);
+    align-items: center;
+    min-height: inherit;
+    padding-block: clamp(70px, 10vw, 135px) 120px;
+}
+
+.tourbi-host-hero__copy {
+    display: grid;
+    gap: 22px;
+    max-width: 830px;
+}
+
+.tourbi-host-hero__copy h1 {
+    max-width: 820px;
+    margin: 0;
+    color: #fff;
+    font-family: var(--tourbi-font-display);
+    font-size: clamp(64px, 8.5vw, 130px);
+    font-weight: 900;
+    letter-spacing: 0.005em;
+    line-height: 0.84;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.tourbi-host-hero__copy > p {
+    max-width: 690px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: clamp(17px, 2vw, 22px);
+    line-height: 1.58;
+}
+
+.tourbi-host-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tourbi-button--glass {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(12px);
+}
+
+.tourbi-button--glass:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.tourbi-host-hero__note {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.tourbi-host-hero__note span {
+    display: grid;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    color: #111;
+    background: var(--tourbi-color-lime);
+    border-radius: 50%;
+    font-weight: 900;
+}
+
+.tourbi-host-earning-card {
+    display: grid;
+    gap: 15px;
+    padding: clamp(28px, 4vw, 42px);
+    color: #111;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    border-radius: 22px;
+    box-shadow: var(--tourbi-host-shadow);
+    backdrop-filter: blur(16px);
+}
+
+.tourbi-host-earning-card > span {
+    color: #6c655e;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tourbi-host-earning-card > strong {
+    color: var(--tourbi-color-orange);
+    font-family: var(--tourbi-font-display);
+    font-size: clamp(90px, 10vw, 145px);
+    line-height: 0.72;
+}
+
+.tourbi-host-earning-card > p {
+    margin: 4px 0;
+    color: #4f4943;
+    line-height: 1.65;
+}
+
+.tourbi-host-earning-card > div {
+    display: grid;
+    grid-template-columns: 85fr 15fr;
+    overflow: hidden;
+    min-height: 72px;
+    border-radius: 10px;
+}
+
+.tourbi-host-earning-card > div span {
+    display: grid;
+    align-content: center;
+    gap: 2px;
+    padding: 12px;
+    color: #fff;
+    background: var(--tourbi-color-orange);
+    font-size: 11px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.tourbi-host-earning-card > div span:last-child {
+    color: #111;
+    background: var(--tourbi-color-lime);
+}
+
+.tourbi-host-earning-card > div b {
+    font-size: 18px;
+}
+
+.tourbi-host-hero__facts {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.82);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+}
+
+.tourbi-host-hero__facts > div {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tourbi-host-hero__facts span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    min-height: 72px;
+    padding: 14px;
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 13px;
+    font-weight: 750;
+    text-align: center;
+}
+
+.tourbi-host-hero__facts span:last-child {
+    border-right: 0;
+}
+
+.tourbi-host-hero__facts b {
+    display: grid;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    color: #111;
+    background: var(--tourbi-color-lime);
+    border-radius: 50%;
+}
+
+.tourbi-host-section {
+    padding: clamp(70px, 9vw, 118px) 0;
+}
+
+.tourbi-host-section__heading {
+    display: grid;
+    gap: 13px;
+    max-width: 850px;
+    margin-bottom: 42px;
+}
+
+.tourbi-host-section__heading h2,
+.tourbi-host-requirements__copy h2,
+.tourbi-host-final-cta h2 {
+    margin: 0;
+    color: #111;
+    font-family: var(--tourbi-font-display);
+    font-size: clamp(54px, 7vw, 100px);
+    font-weight: 900;
+    letter-spacing: 0.005em;
+    line-height: 0.88;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.tourbi-host-section__heading > p,
+.tourbi-host-requirements__copy > p {
+    max-width: 720px;
+    margin: 0;
+    color: #605a54;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.tourbi-host-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.tourbi-host-benefit-grid article {
+    display: grid;
+    align-content: start;
+    gap: 15px;
+    min-height: 320px;
+    padding: clamp(23px, 3vw, 32px);
+    background: #fff;
+    border: 1px solid var(--tourbi-host-border);
+    border-radius: 16px;
+    box-shadow: 0 12px 38px rgba(17, 17, 17, 0.055);
+    transition:
+        transform var(--tourbi-transition),
+        box-shadow var(--tourbi-transition);
+}
+
+.tourbi-host-benefit-grid article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 52px rgba(17, 17, 17, 0.11);
+}
+
+.tourbi-host-benefit-grid article > span {
+    display: grid;
+    place-items: center;
+    width: 62px;
+    height: 62px;
+    color: #fff;
+    background: var(--tourbi-color-orange);
+    border-radius: 14px;
+    font-family: var(--tourbi-font-display);
+    font-size: 27px;
+}
+
+.tourbi-host-benefit-grid h3,
+.tourbi-host-process h3,
+.tourbi-host-idea-card h3,
+.tourbi-host-requirement-list h3 {
+    margin: 0;
+    font-family: var(--tourbi-font-display);
+    font-size: 31px;
+    line-height: 0.98;
+    text-transform: uppercase;
+}
+
+.tourbi-host-benefit-grid p,
+.tourbi-host-process p,
+.tourbi-host-idea-card p,
+.tourbi-host-requirement-list p {
+    margin: 0;
+    color: #625c55;
+    line-height: 1.65;
+}
+
+.tourbi-host-process {
+    color: #fff;
+    background: #111;
+}
+
+.tourbi-host-section__heading--light h2 {
+    color: #fff;
+}
+
+.tourbi-host-process__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tourbi-host-process article {
+    display: grid;
+    gap: 35px;
+    min-height: 370px;
+    padding: 30px;
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tourbi-host-process article:last-child {
+    border-right: 0;
+}
+
+.tourbi-host-process article > span {
+    color: var(--tourbi-color-orange);
+    font-family: var(--tourbi-font-display);
+    font-size: 56px;
+    line-height: 1;
+}
+
+.tourbi-host-process article > div {
+    display: grid;
+    align-content: end;
+    gap: 13px;
+}
+
+.tourbi-host-process h3 {
+    color: #fff;
+}
+
+.tourbi-host-process p {
+    color: rgba(255, 255, 255, 0.66);
+}
+
+.tourbi-host-ideas {
+    background: #fff;
+}
+
+.tourbi-host-idea-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.tourbi-host-idea-card {
+    --tourbi-idea-color: #ed611a;
+    display: grid;
+    gap: 14px;
+    min-height: 270px;
+    padding: 27px;
+    color: #111;
+    background: #fff;
+    border: 1px solid var(--tourbi-host-border);
+    border-top: 6px solid var(--tourbi-idea-color);
+    border-radius: 15px;
+}
+
+.tourbi-host-idea-card--green {
+    --tourbi-idea-color: #258759;
+}
+
+.tourbi-host-idea-card--blue {
+    --tourbi-idea-color: #2b6cb0;
+}
+
+.tourbi-host-idea-card--teal {
+    --tourbi-idea-color: #0d8f91;
+}
+
+.tourbi-host-idea-card--purple {
+    --tourbi-idea-color: #7353ba;
+}
+
+.tourbi-host-idea-card--yellow {
+    --tourbi-idea-color: #d49b11;
+}
+
+.tourbi-host-idea-card > span {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: var(--tourbi-idea-color);
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+.tourbi-host-requirements {
+    background: #f1efe9;
+}
+
+.tourbi-host-requirements__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+    gap: clamp(42px, 8vw, 110px);
+    align-items: start;
+}
+
+.tourbi-host-requirements__copy {
+    position: sticky;
+    top: 34px;
+    display: grid;
+    gap: 22px;
+}
+
+.admin-bar .tourbi-host-requirements__copy {
+    top: 66px;
+}
+
+.tourbi-host-requirements__copy .tourbi-button {
+    justify-self: start;
+}
+
+.tourbi-host-requirement-list {
+    display: grid;
+    gap: 12px;
+}
+
+.tourbi-host-requirement-list article {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 18px;
+    padding: 23px;
+    background: #fff;
+    border: 1px solid var(--tourbi-host-border);
+    border-radius: 14px;
+}
+
+.tourbi-host-requirement-list article > span {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    color: #fff;
+    background: #111;
+    border-radius: 50%;
+    font-family: var(--tourbi-font-display);
+    font-size: 20px;
+}
+
+.tourbi-host-requirement-list article > div {
+    display: grid;
+    gap: 8px;
+}
+
+.tourbi-host-faq {
+    background: #fff;
+}
+
+.tourbi-host-faq__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+    gap: clamp(40px, 8vw, 105px);
+    align-items: start;
+}
+
+.tourbi-host-faq-list {
+    display: grid;
+    gap: 10px;
+}
+
+.tourbi-host-faq-item {
+    overflow: hidden;
+    background: #fbfaf7;
+    border: 1px solid var(--tourbi-host-border);
+    border-radius: 12px;
+}
+
+.tourbi-host-faq-item h3 {
+    margin: 0;
+}
+
+.tourbi-host-faq-item button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 72px;
+    padding: 17px 20px;
+    color: #111;
+    background: transparent;
+    border: 0;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    cursor: pointer;
+}
+
+.tourbi-host-faq-item button b {
+    display: grid;
+    place-items: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    color: #fff;
+    background: #111;
+    border-radius: 50%;
+    font-size: 21px;
+    transition: transform 200ms ease;
+}
+
+.tourbi-host-faq-item.is-open button b {
+    background: var(--tourbi-color-orange);
+    transform: rotate(45deg);
+}
+
+.tourbi-host-faq-item__answer {
+    padding: 0 20px 19px;
+}
+
+.tourbi-host-faq-item__answer p {
+    margin: 0;
+    color: #625c55;
+    line-height: 1.68;
+}
+
+.tourbi-host-final-cta {
+    padding: 34px 0 95px;
+    background: #fff;
+}
+
+.tourbi-host-final-cta__card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    overflow: hidden;
+    padding: clamp(30px, 6vw, 68px);
+    color: #fff;
+    background:
+        radial-gradient(circle at 92% 18%, rgba(255, 84, 21, 0.5), transparent 28%),
+        #111;
+    border-radius: 22px;
+}
+
+.tourbi-host-final-cta__card > div {
+    display: grid;
+    gap: 14px;
+    max-width: 850px;
+}
+
+.tourbi-host-final-cta h2 {
+    color: #fff;
+    font-size: clamp(48px, 6vw, 88px);
+}
+
+.tourbi-host-final-cta p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.tourbi-host-final-cta .tourbi-button {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 1100px) {
+    .tourbi-host-benefit-grid,
+    .tourbi-host-process__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tourbi-host-process article:nth-child(2) {
+        border-right: 0;
+    }
+
+    .tourbi-host-process article:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+}
+
+@media (max-width: 920px) {
+    .tourbi-host-hero {
+        min-height: auto;
+    }
+
+    .tourbi-host-hero__overlay {
+        background:
+            linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.94) 0%,
+                rgba(0, 0, 0, 0.67) 65%,
+                rgba(0, 0, 0, 0.28) 100%
+            );
+    }
+
+    .tourbi-host-hero__inner {
+        grid-template-columns: 1fr;
+        padding-block: 80px 125px;
+    }
+
+    .tourbi-host-earning-card {
+        max-width: 560px;
+    }
+
+    .tourbi-host-idea-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tourbi-host-requirements__layout,
+    .tourbi-host-faq__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-host-requirements__copy {
+        position: static;
+    }
+
+    .tourbi-host-final-cta__card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px) {
+    .tourbi-host-hero__copy h1 {
+        font-size: clamp(55px, 16vw, 86px);
+    }
+
+    .tourbi-host-hero__actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .tourbi-host-hero__actions .tourbi-button {
+        width: 100%;
+    }
+
+    .tourbi-host-hero__facts {
+        position: static;
+    }
+
+    .tourbi-host-hero__facts > div {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tourbi-host-hero__facts span:nth-child(2) {
+        border-right: 0;
+    }
+
+    .tourbi-host-hero__facts span:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .tourbi-host-benefit-grid,
+    .tourbi-host-process__grid,
+    .tourbi-host-idea-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-host-process article {
+        min-height: 260px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .tourbi-host-process article:last-child {
+        border-bottom: 0;
+    }
+
+    .tourbi-host-section__heading h2,
+    .tourbi-host-requirements__copy h2 {
+        font-size: clamp(49px, 14vw, 76px);
+    }
+
+    .tourbi-host-requirement-list article {
+        grid-template-columns: 46px minmax(0, 1fr);
+    }
+
+    .tourbi-host-requirement-list article > span {
+        width: 42px;
+        height: 42px;
+    }
+
+    .tourbi-host-final-cta {
+        padding-bottom: 60px;
+    }
+
+    .tourbi-host-final-cta__card .tourbi-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    .tourbi-host-hero__facts > div {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-host-hero__facts span {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .tourbi-host-hero__facts span:last-child {
+        border-bottom: 0;
+    }
+
+    .tourbi-host-earning-card > div {
+        grid-template-columns: 3fr 1fr;
+    }
+}
+
+/* =========================================================
+ * Step 68F.1 — Typography and two-column layout correction
+ * ======================================================= */
+
+/*
+ * Prevent long display headings from overflowing into the right column.
+ * The previous 100px maximum was too large for the available column width.
+ */
+.tourbi-become-host .tourbi-host-requirements__copy,
+.tourbi-become-host .tourbi-host-faq__layout > *,
+.tourbi-become-host .tourbi-host-section__heading,
+.tourbi-become-host .tourbi-host-requirement-list,
+.tourbi-become-host .tourbi-host-faq-list {
+    min-width: 0;
+}
+
+.tourbi-become-host .tourbi-host-requirements__layout {
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(520px, 1.1fr);
+    gap: clamp(38px, 5vw, 76px);
+}
+
+.tourbi-become-host .tourbi-host-faq__layout {
+    grid-template-columns:
+        minmax(0, 0.82fr)
+        minmax(560px, 1.18fr);
+    gap: clamp(40px, 5.4vw, 82px);
+}
+
+.tourbi-become-host .tourbi-host-requirements__copy h2,
+.tourbi-become-host .tourbi-host-faq .tourbi-host-section__heading h2 {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow: visible;
+    font-family: var(--tourbi-font-display);
+    font-size: clamp(48px, 4.65vw, 76px);
+    font-weight: 850;
+    letter-spacing: -0.025em;
+    line-height: 0.94;
+    overflow-wrap: normal;
+    word-break: normal;
+    text-wrap: balance;
+}
+
+.tourbi-become-host .tourbi-host-requirements__copy h2 {
+    max-width: 690px;
+}
+
+.tourbi-become-host .tourbi-host-faq .tourbi-host-section__heading h2 {
+    max-width: 620px;
+}
+
+.tourbi-become-host .tourbi-host-faq .tourbi-host-section__heading {
+    align-content: start;
+    margin-bottom: 0;
+}
+
+.tourbi-become-host .tourbi-host-requirements__copy > p,
+.tourbi-become-host .tourbi-host-faq .tourbi-host-section__heading > p {
+    max-width: 680px;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.tourbi-become-host .tourbi-host-requirement-list article {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 18px;
+    min-height: 138px;
+    padding: 22px;
+}
+
+.tourbi-become-host .tourbi-host-requirement-list article > div {
+    min-width: 0;
+}
+
+.tourbi-become-host .tourbi-host-requirement-list h3 {
+    max-width: 100%;
+    font-size: clamp(25px, 2.05vw, 34px);
+    letter-spacing: -0.015em;
+    line-height: 1;
+    overflow-wrap: break-word;
+}
+
+.tourbi-become-host .tourbi-host-requirement-list p {
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.tourbi-become-host .tourbi-host-faq-list {
+    align-self: start;
+}
+
+.tourbi-become-host .tourbi-host-faq-item {
+    width: 100%;
+}
+
+.tourbi-become-host .tourbi-host-faq-item button {
+    min-height: 74px;
+    padding: 18px 20px;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.tourbi-become-host .tourbi-host-faq-item button > span {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.tourbi-become-host .tourbi-host-faq-item__answer {
+    padding: 0 20px 20px;
+}
+
+.tourbi-become-host .tourbi-host-faq-item__answer p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+/*
+ * At laptop widths, stack these dense sections earlier instead of forcing
+ * oversized headings into narrow columns.
+ */
+@media (max-width: 1180px) {
+    .tourbi-become-host .tourbi-host-requirements__layout,
+    .tourbi-become-host .tourbi-host-faq__layout {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .tourbi-become-host .tourbi-host-requirements__copy {
+        position: static;
+    }
+
+    .tourbi-become-host .tourbi-host-requirements__copy h2,
+    .tourbi-become-host .tourbi-host-faq .tourbi-host-section__heading h2 {
+        max-width: 850px;
+        font-size: clamp(48px, 7vw, 74px);
+    }
+
+    .tourbi-become-host .tourbi-host-faq .tourbi-host-section__heading {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .tourbi-become-host .tourbi-host-requirements__copy h2,
+    .tourbi-become-host .tourbi-host-faq .tourbi-host-section__heading h2 {
+        font-size: clamp(42px, 12vw, 62px);
+        line-height: 0.96;
+    }
+
+    .tourbi-become-host .tourbi-host-requirement-list article {
+        grid-template-columns: 44px minmax(0, 1fr);
+        min-height: 0;
+        padding: 18px;
+    }
+
+    .tourbi-become-host .tourbi-host-requirement-list article > span {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .tourbi-become-host .tourbi-host-requirement-list h3 {
+        font-size: 25px;
+    }
+
+    .tourbi-become-host .tourbi-host-faq-item button {
+        min-height: 68px;
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    .tourbi-become-host .tourbi-host-faq-item__answer {
+        padding: 0 16px 17px;
+    }
+}
+
+/* =========================================================
+ * Step 68F.2 — Become a Host responsive H1/H2 sizing
+ * Desktop maximum: approximately 80px
+ * ======================================================= */
+
+/* Desktop */
+.tourbi-become-host .tourbi-host-hero__copy h1,
+.tourbi-become-host .tourbi-host-section__heading h2,
+.tourbi-become-host .tourbi-host-requirements__copy h2,
+.tourbi-become-host .tourbi-host-final-cta h2 {
+    max-width: 100%;
+    font-size: clamp(48px, 5vw, 80px) !important;
+    letter-spacing: -0.02em;
+    line-height: 0.95 !important;
+    overflow-wrap: normal;
+    word-break: normal;
+    text-wrap: balance;
+}
+
+/* Tablet and small laptop */
+@media (max-width: 1180px) {
+    .tourbi-become-host .tourbi-host-hero__copy h1,
+    .tourbi-become-host .tourbi-host-section__heading h2,
+    .tourbi-become-host .tourbi-host-requirements__copy h2,
+    .tourbi-become-host .tourbi-host-final-cta h2 {
+        font-size: clamp(40px, 5.8vw, 58px) !important;
+        line-height: 0.98 !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .tourbi-become-host .tourbi-host-hero__copy h1,
+    .tourbi-become-host .tourbi-host-section__heading h2,
+    .tourbi-become-host .tourbi-host-requirements__copy h2,
+    .tourbi-become-host .tourbi-host-final-cta h2 {
+        font-size: clamp(32px, 9.5vw, 42px) !important;
+        letter-spacing: -0.015em;
+        line-height: 1 !important;
+    }
+}
+
+/* Small phones */
+@media (max-width: 430px) {
+    .tourbi-become-host .tourbi-host-hero__copy h1,
+    .tourbi-become-host .tourbi-host-section__heading h2,
+    .tourbi-become-host .tourbi-host-requirements__copy h2,
+    .tourbi-become-host .tourbi-host-final-cta h2 {
+        font-size: clamp(29px, 8.8vw, 36px) !important;
+        line-height: 1.02 !important;
+    }
+}
+
+
+
+/* Step 68G.1 — reduce top space below the custom header. */
+.tourbi-become-host .tourbi-host-hero {
+    min-height: min(720px, 76vh);
+}
+
+.tourbi-become-host .tourbi-host-hero__inner {
+    padding-block:
+        clamp(38px, 4.2vw, 58px)
+        105px;
+}
+
+@media (max-width: 920px) {
+    .tourbi-become-host .tourbi-host-hero__inner {
+        padding-block: 42px 105px;
+    }
+}
+
+@media (max-width: 700px) {
+    .tourbi-become-host .tourbi-host-hero__inner {
+        padding-block: 34px 54px;
+    }
+}

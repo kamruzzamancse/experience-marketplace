@@ -1,0 +1,159 @@
+/**
+ * Tourbi custom-template layout utilities.
+ */
+
+.tourbi-app {
+    min-height: 70vh;
+}
+
+.tourbi-shell {
+    width: min(
+        calc(100% - 40px),
+        var(--tourbi-container)
+    );
+    margin-inline: auto;
+}
+
+.tourbi-shell--wide {
+    width: min(
+        calc(100% - 40px),
+        var(--tourbi-container-wide)
+    );
+    margin-inline: auto;
+}
+
+.tourbi-section {
+    padding-block: clamp(
+        var(--tourbi-space-10),
+        8vw,
+        var(--tourbi-space-12)
+    );
+}
+
+.tourbi-section--compact {
+    padding-block: clamp(
+        var(--tourbi-space-7),
+        5vw,
+        var(--tourbi-space-10)
+    );
+}
+
+.tourbi-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.tourbi-stack--2 {
+    gap: var(--tourbi-space-2);
+}
+
+.tourbi-stack--3 {
+    gap: var(--tourbi-space-3);
+}
+
+.tourbi-stack--4 {
+    gap: var(--tourbi-space-4);
+}
+
+.tourbi-stack--6 {
+    gap: var(--tourbi-space-6);
+}
+
+.tourbi-stack--8 {
+    gap: var(--tourbi-space-8);
+}
+
+.tourbi-cluster {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--tourbi-space-4);
+}
+
+.tourbi-grid {
+    display: grid;
+    gap: var(--tourbi-space-6);
+}
+
+.tourbi-grid--2 {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+}
+
+.tourbi-grid--3 {
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+}
+
+.tourbi-grid--4 {
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+}
+
+.tourbi-split {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(300px, 0.8fr);
+    gap: clamp(28px, 6vw, 88px);
+    align-items: center;
+}
+
+.tourbi-section-heading {
+    display: grid;
+    gap: 14px;
+    max-width: 850px;
+    margin-bottom: clamp(30px, 5vw, 60px);
+}
+
+.tourbi-section-heading--center {
+    margin-inline: auto;
+    text-align: center;
+}
+
+@media (max-width: 980px) {
+    .tourbi-grid--4 {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .tourbi-grid--3 {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .tourbi-split {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .tourbi-shell,
+    .tourbi-shell--wide {
+        width: min(
+            calc(100% - 24px),
+            var(--tourbi-container)
+        );
+    }
+
+    .tourbi-grid--2,
+    .tourbi-grid--3,
+    .tourbi-grid--4 {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-section {
+        padding-block: 58px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tourbi-app *,
+    .tourbi-app *::before,
+    .tourbi-app *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
