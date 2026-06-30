@@ -1,13 +1,13 @@
 <?php
 /**
- * Become a Host hero.
+ * Become a Host hero with compact earnings calculator.
  *
  * @package Torby
  */
 
 $host_page = $args['host_page'] ?? array();
-$image = $host_page['hero_image'] ?? '';
-$primary = $host_page['primary_cta'] ?? array();
+$image     = $host_page['hero_image'] ?? '';
+$primary   = $host_page['primary_cta'] ?? array();
 $secondary = $host_page['secondary_cta'] ?? array();
 ?>
 <section
@@ -33,10 +33,7 @@ $secondary = $host_page['secondary_cta'] ?? array();
                 echo esc_html(
                     sprintf(
                         /* translators: %s: Location label. */
-                        __(
-                            'Design an e-bike Experience in %s, welcome guests from around the world, and let Tourbi handle the booking infrastructure.',
-                            'torby'
-                        ),
+                        __( 'Design an e-bike Experience in %s, welcome guests from around the world, and let Tourbi handle the booking infrastructure.', 'torby' ),
                         $host_page['location'] ?? ''
                     )
                 );
@@ -68,53 +65,42 @@ $secondary = $host_page['secondary_cta'] ?? array();
             <?php endif; ?>
         </div>
 
-        <aside class="tourbi-host-earning-card">
-            <span><?php esc_html_e( 'Host earning', 'torby' ); ?></span>
-            <strong>85%</strong>
-            <p>
+        <div class="tourbi-host-hero__calculator">
+            <?php if ( function_exists( 'tourbi_theme_render_host_income_calculator' ) ) : ?>
                 <?php
-                esc_html_e(
-                    'You receive 85% of eligible Experience revenue. Tourbi retains 15% for marketplace operations and support.',
-                    'torby'
-                );
+                echo tourbi_theme_render_host_income_calculator(
+                    array(
+                        'variant'             => 'hero',
+                        'max_width'           => 500,
+                        'price_min'           => 20,
+                        'price_default'       => 75,
+                        'guests_default'      => 6,
+                        'experiences_default' => 6,
+                    )
+                ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 ?>
-            </p>
-
-            <div>
-                <span>
-                    <b>85%</b>
-                    <?php esc_html_e( 'Host', 'torby' ); ?>
-                </span>
-
-                <span>
-                    <b>15%</b>
-                    <?php esc_html_e( 'Tourbi', 'torby' ); ?>
-                </span>
-            </div>
-        </aside>
+            <?php else : ?>
+                <aside class="tourbi-host-earning-card">
+                    <span><?php esc_html_e( 'Host earning', 'torby' ); ?></span>
+                    <strong>85%</strong>
+                    <p>
+                        <?php esc_html_e( 'You receive 85% of eligible Experience revenue. Tourbi retains 15% for marketplace operations and support.', 'torby' ); ?>
+                    </p>
+                    <div>
+                        <span><b>85%</b><?php esc_html_e( 'Host', 'torby' ); ?></span>
+                        <span><b>15%</b><?php esc_html_e( 'Tourbi', 'torby' ); ?></span>
+                    </div>
+                </aside>
+            <?php endif; ?>
+        </div>
     </div>
 
     <div class="tourbi-host-hero__facts">
         <div class="tourbi-shell--wide">
-            <span>
-                <b aria-hidden="true">✓</b>
-                <?php esc_html_e( 'Protected bike inventory', 'torby' ); ?>
-            </span>
-
-            <span>
-                <b aria-hidden="true">✓</b>
-                <?php esc_html_e( 'Secure customer checkout', 'torby' ); ?>
-            </span>
-
-            <span>
-                <b aria-hidden="true">✓</b>
-                <?php esc_html_e( 'Host booking dashboard', 'torby' ); ?>
-            </span>
-
-            <span>
-                <b aria-hidden="true">✓</b>
-                <?php esc_html_e( 'Admin quality review', 'torby' ); ?>
-            </span>
+            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Protected bike inventory', 'torby' ); ?></span>
+            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Secure customer checkout', 'torby' ); ?></span>
+            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Host booking dashboard', 'torby' ); ?></span>
+            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Admin quality review', 'torby' ); ?></span>
         </div>
     </div>
 </section>

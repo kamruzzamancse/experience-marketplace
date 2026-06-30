@@ -47,7 +47,7 @@
 
             <article>
                 <span aria-hidden="true">◯</span>
-                <h3><?php esc_html_e( 'A Professional Storefront', 'torby' ); ?></h3>
+                <h3><?php esc_html_e( 'Unlimited Listing', 'torby' ); ?></h3>
                 <p><?php esc_html_e( 'Approved Experiences receive a marketplace card, custom detail page, itinerary, gallery, Host profile, and booking panel.', 'torby' ); ?></p>
             </article>
         </div>

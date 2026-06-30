@@ -996,3 +996,96 @@
         padding-block: 34px 54px;
     }
 }
+
+/* =========================================================
+ * Compact earnings calculator integration in the Host hero.
+ * Existing hero copy, CTA buttons, background and fact bar remain intact.
+ * ======================================================= */
+.tourbi-become-host .tourbi-host-hero__inner {
+    grid-template-columns: minmax(0, 1.12fr) minmax(420px, 500px);
+    gap: clamp(34px, 4.8vw, 72px);
+}
+
+.tourbi-become-host .tourbi-host-hero__copy {
+    max-width: 760px;
+}
+
+@media (max-width: 1100px) {
+    .tourbi-become-host .tourbi-host-hero__inner {
+        grid-template-columns: minmax(0, 1fr);
+        padding-block: 48px 112px;
+    }
+}
+
+@media (max-width: 700px) {
+    .tourbi-become-host .tourbi-host-hero__inner {
+        padding-block: 34px 40px;
+    }
+}
+
+
+/* =========================================================
+ * v1.2.0 — Premium hero/calculator composition.
+ * ======================================================= */
+.tourbi-become-host .tourbi-host-hero {
+    min-height: min(840px, 88vh);
+}
+
+.tourbi-become-host .tourbi-host-hero__overlay {
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.93) 0%, rgba(0, 0, 0, 0.79) 45%, rgba(3, 14, 30, 0.28) 72%, rgba(3, 14, 30, 0.35) 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.72) 0%, transparent 48%);
+}
+
+.tourbi-become-host .tourbi-host-hero__inner {
+    grid-template-columns: minmax(0, 1.12fr) minmax(420px, 470px);
+    gap: clamp(42px, 5.5vw, 88px);
+    align-items: center;
+    padding-block: clamp(46px, 5vw, 74px) 118px;
+}
+
+.tourbi-become-host .tourbi-host-hero__copy {
+    max-width: 760px;
+    gap: 20px;
+}
+
+.tourbi-become-host .tourbi-host-hero__copy h1 {
+    max-width: 720px;
+    font-size: clamp(54px, 5.35vw, 82px) !important;
+    line-height: 0.91 !important;
+    letter-spacing: -0.025em;
+}
+
+.tourbi-become-host .tourbi-host-hero__copy > p {
+    max-width: 670px;
+    font-size: clamp(16px, 1.35vw, 20px);
+    line-height: 1.52;
+}
+
+@media (max-width: 1180px) {
+    .tourbi-become-host .tourbi-host-hero {
+        min-height: auto;
+    }
+
+    .tourbi-become-host .tourbi-host-hero__inner {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding-block: 48px 112px;
+    }
+
+    .tourbi-become-host .tourbi-host-hero__calculator {
+        max-width: 620px;
+        justify-self: start;
+    }
+}
+
+@media (max-width: 700px) {
+    .tourbi-become-host .tourbi-host-hero__inner {
+        padding-block: 34px 38px;
+    }
+
+    .tourbi-become-host .tourbi-host-hero__copy h1 {
+        font-size: clamp(38px, 11vw, 52px) !important;
+        line-height: 0.96 !important;
+    }
+}

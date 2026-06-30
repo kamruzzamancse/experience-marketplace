@@ -57,7 +57,7 @@
             experiences: calculator.querySelector('[data-number="experiences"]')
         };
 
-        var payoutOutput = calculator.querySelector('[data-payout]');
+        var payoutOutputs = calculator.querySelectorAll('[data-payout]');
         var grossOutput = calculator.querySelector('[data-gross]');
         var feeOutput = calculator.querySelector('[data-fee]');
         var formulaOutput = calculator.querySelector('[data-formula]');
@@ -99,7 +99,9 @@
             var fee = feeMonthly * multiplier;
             var payout = payoutMonthly * multiplier;
 
-            payoutOutput.textContent = formatter.format(payout);
+            payoutOutputs.forEach(function (output) {
+                output.textContent = formatter.format(payout);
+            });
             grossOutput.textContent = formatter.format(gross);
             feeOutput.textContent = '-' + formatter.format(fee);
             resultLabel.textContent = period === 'annual'

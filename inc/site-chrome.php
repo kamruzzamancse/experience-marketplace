@@ -245,6 +245,9 @@ function tourbi_theme_is_wcfm_storefront() {
  */
 function tourbi_theme_get_custom_chrome_page_slugs() {
     $slugs = array(
+        'home',
+        'home-2',
+        'about',
         'calculate-earnings',
         'vendor-register',
         'store-manager',
@@ -279,6 +282,12 @@ function tourbi_theme_get_custom_chrome_page_slugs() {
 function tourbi_theme_is_custom_chrome_page() {
     if ( is_admin() || ! is_page() ) {
         return false;
+    }
+
+    if (
+        is_page_template( 'templates/page-tourbi-reference-home.php' )
+    ) {
+        return true;
     }
 
     return is_page(
@@ -370,8 +379,16 @@ function tourbi_theme_site_chrome_body_classes(
         $classes[] = 'tourbi-custom-chrome-page';
     }
 
+    if ( is_page( 'home-2' ) ) {
+        $classes[] = 'tourbi-home-2-page';
+    }
+
     if ( is_page( 'calculate-earnings' ) ) {
         $classes[] = 'tourbi-earnings-page';
+    }
+
+    if ( is_page( 'about' ) ) {
+        $classes[] = 'tourbi-about-page';
     }
 
     if ( tourbi_theme_is_wcfm_storefront() ) {

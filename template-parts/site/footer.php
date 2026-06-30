@@ -5,9 +5,19 @@
  * @package Torby
  */
 
-$rent_url = $args['rent_url'] ?? home_url( '/rent/' );
+$rent_url    = $args['rent_url'] ?? home_url( '/rent/' );
 $account_url = $args['account_url'] ?? home_url( '/my-account/' );
-$is_host = ! empty( $args['is_host'] );
+$is_host     = ! empty( $args['is_host'] );
+
+/*
+ * Keep the About link visible even when the page has not been created yet.
+ * Once a published page with the slug "about" exists, WordPress will use
+ * its permalink automatically.
+ */
+$about_page = get_page_by_path( 'about', OBJECT, 'page' );
+$about_url  = $about_page instanceof WP_Post
+    ? get_permalink( $about_page )
+    : home_url( '/about/' );
 
 $footer_pages = array(
     'privacy-policy' => __(
@@ -98,6 +108,10 @@ $footer_pages = array(
 
         <div class="tourbi-site-footer__column">
             <h2><?php esc_html_e( 'Information', 'torby' ); ?></h2>
+
+            <a href="<?php echo esc_url( $about_url ); ?>">
+                <?php esc_html_e( 'About', 'torby' ); ?>
+            </a>
 
             <?php foreach ( $footer_pages as $slug => $label ) : ?>
                 <?php

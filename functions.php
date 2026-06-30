@@ -908,6 +908,7 @@ tourbi_theme_load_module( 'inc/rental-view-model.php' );
 tourbi_theme_load_module( 'inc/rental-marketplace.php' );
 tourbi_theme_load_module( 'inc/shop-hub.php' );
 tourbi_theme_load_module( 'inc/experience-query.php' );
+tourbi_theme_load_module( 'inc/experience-showcase.php' );
 tourbi_theme_load_module( 'inc/become-host-page.php' );
 tourbi_theme_load_module( 'inc/host-income-calculator.php' );
 tourbi_theme_load_module( 'inc/host-store-experiences.php' );

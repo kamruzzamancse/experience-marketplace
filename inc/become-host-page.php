@@ -402,3 +402,47 @@ function tourbi_theme_get_become_host_view_model() {
             tourbi_theme_get_location_label(),
     );
 }
+
+/**
+ * Rename only the guest registration card heading on WooCommerce My Account.
+ *
+ * The Register submit button remains unchanged. This presentation-only filter
+ * runs after shortcode rendering and replaces the first matching H2 heading.
+ *
+ * @param string $content Rendered page content.
+ * @return string
+ */
+function tourbi_theme_rename_account_registration_heading( $content ) {
+    if (
+        is_admin() ||
+        is_user_logged_in() ||
+        ! function_exists( 'is_account_page' ) ||
+        ! is_account_page() ||
+        ! is_string( $content ) ||
+        '' === $content
+    ) {
+        return $content;
+    }
+
+    $replacement = sprintf(
+        '<h2$1>%s</h2>',
+        esc_html__( 'Create an account', 'torby' )
+    );
+
+    $updated_content = preg_replace(
+        '/<h2([^>]*)>\s*Register\s*<\/h2>/i',
+        $replacement,
+        $content,
+        1
+    );
+
+    return is_string( $updated_content )
+        ? $updated_content
+        : $content;
+}
+add_filter(
+    'the_content',
+    'tourbi_theme_rename_account_registration_heading',
+    99
+);
+
