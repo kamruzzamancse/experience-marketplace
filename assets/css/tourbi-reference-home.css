@@ -817,3 +817,1426 @@ body.tourbi-reference-home .tourbi-home-adventure-card__media > span.tourbi-home
     padding: 7px 12px 6px;
     border-radius: 7px;
 }
+
+
+/* Price unit used by dynamic Home experience cards. */
+.tourbi-home-featured__meta .tourbi-card-price-per-person,
+.tourbi-home-adventure-card__meta .tourbi-card-price-per-person {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+    width: auto;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.tourbi-home-featured__meta .tourbi-card-price-per-person__suffix,
+.tourbi-home-adventure-card__meta .tourbi-card-price-per-person__suffix {
+    margin: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: .78em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1;
+}
+
+/* v1.9.4 — client reference homepage UI update. */
+.tourbi-home-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(54px, 7vw, 92px) 0 26px;
+    background:
+        radial-gradient(circle at 10% 8%, rgba(255, 84, 21, .13), transparent 28%),
+        linear-gradient(135deg, #fff 0%, #fbf7f0 52%, #f2ebdf 100%);
+    isolation: isolate;
+}
+
+.tourbi-home-hero::after {
+    position: absolute;
+    right: max(-160px, -9vw);
+    bottom: -180px;
+    z-index: -1;
+    width: min(46vw, 560px);
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: rgba(255, 84, 21, .12);
+    content: "";
+    filter: blur(4px);
+}
+
+.tourbi-home-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(440px, 1fr);
+    gap: clamp(30px, 5vw, 72px);
+    align-items: center;
+}
+
+.tourbi-home-hero__copy {
+    display: grid;
+    align-content: center;
+    gap: 20px;
+    min-width: 0;
+}
+
+.tourbi-home-hero__eyebrow {
+    justify-self: start;
+    padding: 8px 14px;
+    color: #111;
+    background: var(--tourbi-home-lime);
+    border: 2px solid rgba(17,17,17,.08);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .13em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.tourbi-home-hero h1 {
+    max-width: 670px;
+    margin: 0;
+    color: #111;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(72px, 10vw, 142px);
+    font-weight: 400;
+    letter-spacing: -.012em;
+    line-height: .78;
+    text-transform: uppercase;
+}
+
+.tourbi-home-hero__lead {
+    max-width: 620px;
+    margin: 0;
+    color: #201c18;
+    font-size: clamp(20px, 2.1vw, 29px);
+    font-weight: 650;
+    line-height: 1.18;
+}
+
+.tourbi-home-hero__mobile-line {
+    display: none;
+    margin: -6px 0 0;
+    color: #504940;
+    font-size: 17px;
+    line-height: 1.45;
+}
+
+.tourbi-home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.tourbi-home-hero__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 15px 24px 13px;
+    border-radius: 10px;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: 24px;
+    letter-spacing: .04em;
+    line-height: 1;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.tourbi-home-hero__button:hover {
+    transform: translateY(-2px);
+}
+
+.tourbi-home-hero__button--primary {
+    color: #fff !important;
+    background: var(--tourbi-home-orange);
+    box-shadow: 0 14px 32px rgba(255, 84, 21, .2);
+}
+
+.tourbi-home-hero__button--secondary {
+    color: #111 !important;
+    background: #fff;
+    border: 2px solid #111;
+}
+
+.tourbi-home-hero__visual {
+    position: relative;
+    overflow: hidden;
+    min-height: clamp(440px, 42vw, 610px);
+    border: 1px solid #e4d9c9;
+    border-radius: 28px;
+    background: #ece7df;
+    box-shadow: 0 24px 70px rgba(17,17,17,.12);
+    isolation: isolate;
+}
+
+.tourbi-home-hero__visual::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(0,0,0,.02) 42%, rgba(0,0,0,.5) 100%);
+    content: "";
+    pointer-events: none;
+}
+
+.tourbi-home-hero__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    object-position: center;
+}
+
+.tourbi-home-hero__floating-card {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    gap: 3px;
+    max-width: 240px;
+    padding: 14px 16px;
+    color: #111;
+    border-radius: 14px;
+    box-shadow: 0 16px 32px rgba(0,0,0,.18);
+}
+
+.tourbi-home-hero__floating-card strong {
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: .035em;
+    line-height: .95;
+    text-transform: uppercase;
+}
+
+.tourbi-home-hero__floating-card small {
+    color: rgba(17,17,17,.75);
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.tourbi-home-hero__floating-card--orange {
+    top: 24px;
+    left: 24px;
+    color: #fff;
+    background: var(--tourbi-home-orange);
+}
+
+.tourbi-home-hero__floating-card--orange small {
+    color: rgba(255,255,255,.86);
+}
+
+.tourbi-home-hero__floating-card--lime {
+    right: 24px;
+    bottom: 24px;
+    background: var(--tourbi-home-lime);
+}
+
+.tourbi-home-hero__features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.tourbi-home-hero__features span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    padding: 13px 15px;
+    color: #111;
+    background: #fff;
+    border: 1px solid #e3d9cd;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(17,17,17,.045);
+    font-weight: 850;
+    text-align: center;
+}
+
+.tourbi-home-origin h2 {
+    margin: 2px 0 0;
+    color: var(--tourbi-home-orange);
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    letter-spacing: .025em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.tourbi-home-booking-cta {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+    color: #111;
+    background: #111;
+    border-radius: 18px;
+    box-shadow: 0 18px 44px rgba(17,17,17,.12);
+}
+
+.tourbi-home-booking-cta__icon {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    color: #111;
+    background: var(--tourbi-home-lime);
+    border-radius: 16px;
+    font-size: 26px;
+}
+
+.tourbi-home-booking-cta h2,
+.tourbi-home-booking-cta p {
+    margin: 0;
+}
+
+.tourbi-home-booking-cta h2 {
+    color: #fff;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(26px, 2.4vw, 38px);
+    font-weight: 400;
+    letter-spacing: .035em;
+    line-height: .95;
+    text-transform: uppercase;
+}
+
+.tourbi-home-booking-cta p {
+    margin-top: 6px;
+    color: rgba(255,255,255,.72);
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.tourbi-home-booking-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 18px;
+    color: #111 !important;
+    background: var(--tourbi-home-lime);
+    border-radius: 9px;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: 21px;
+    letter-spacing: .04em;
+    line-height: 1;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.tourbi-home-steps {
+    padding: 12px 0 40px;
+    background: #fff;
+}
+
+.tourbi-home-section-title--compact {
+    margin-bottom: 18px;
+}
+
+.tourbi-home-steps__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.tourbi-home-steps__grid article {
+    display: grid;
+    gap: 11px;
+    min-height: 188px;
+    padding: 22px 20px;
+    background: #fbfaf7;
+    border: 1px solid #e3ddd4;
+    border-radius: 16px;
+}
+
+.tourbi-home-steps__grid strong {
+    justify-self: start;
+    padding: 7px 10px;
+    color: #fff;
+    background: var(--tourbi-home-orange);
+    border-radius: 8px;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.tourbi-home-steps__grid h3,
+.tourbi-home-steps__grid p {
+    margin: 0;
+}
+
+.tourbi-home-steps__grid h3 {
+    color: #111;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: .025em;
+    line-height: .95;
+    text-transform: uppercase;
+}
+
+.tourbi-home-steps__grid p {
+    color: #4d4740;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+@media (max-width: 1100px) {
+    .tourbi-home-hero__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-home-hero__visual {
+        min-height: 520px;
+    }
+
+    .tourbi-home-steps__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 820px) {
+    .tourbi-home-hero {
+        padding-top: 34px;
+    }
+
+    .tourbi-home-hero h1 {
+        font-size: clamp(58px, 17vw, 96px);
+    }
+
+    .tourbi-home-hero__lead {
+        font-size: 20px;
+    }
+
+    .tourbi-home-hero__mobile-line {
+        display: block;
+    }
+
+    .tourbi-home-hero__features {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-home-booking-cta {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .tourbi-home-booking-cta a {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 620px) {
+    .tourbi-home-hero__actions,
+    .tourbi-home-hero__button {
+        width: 100%;
+    }
+
+    .tourbi-home-hero__visual {
+        min-height: 430px;
+        border-radius: 20px;
+    }
+
+    .tourbi-home-hero__floating-card {
+        max-width: 190px;
+        padding: 12px 13px;
+    }
+
+    .tourbi-home-hero__floating-card strong {
+        font-size: 22px;
+    }
+
+    .tourbi-home-hero__floating-card--orange {
+        top: 16px;
+        left: 16px;
+    }
+
+    .tourbi-home-hero__floating-card--lime {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .tourbi-home-steps__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* v1.10.3 — final mobile-first homepage simplification. */
+.tourbi-home-hero__lead {
+    max-width: 560px;
+}
+
+.tourbi-home-hero__features,
+.tourbi-home-hero__floating-card {
+    display: none !important;
+}
+
+@media (max-width: 820px) {
+    .tourbi-home-hero {
+        padding: 28px 0 22px;
+    }
+
+    .tourbi-home-hero__grid {
+        gap: 22px;
+    }
+
+    .tourbi-home-hero__copy {
+        gap: 14px;
+    }
+
+    .tourbi-home-hero h1 {
+        max-width: 420px;
+        font-size: clamp(52px, 15vw, 84px);
+        line-height: .82;
+    }
+
+    .tourbi-home-hero__lead {
+        font-size: 18px;
+    }
+
+    .tourbi-home-hero__mobile-line {
+        margin-top: -3px;
+    }
+
+    .tourbi-home-hero__visual {
+        min-height: 360px;
+    }
+
+    .tourbi-home-intro {
+        padding-top: 26px;
+    }
+
+    .tourbi-home-steps {
+        padding-top: 36px;
+    }
+}
+
+@media (max-width: 520px) {
+    .tourbi-home-hero h1 {
+        max-width: 360px;
+    }
+
+    .tourbi-home-hero__visual {
+        min-height: 300px;
+        border-radius: 18px;
+    }
+
+    .tourbi-home-hero__button {
+        min-height: 52px;
+        padding-block: 13px 11px;
+    }
+}
+
+
+/* v1.10.4 — final client video clarification: Book/Host hero wording and mobile simplification. */
+body.tourbi-reference-home .tourbi-home-hero__eyebrow {
+    color: #111;
+    background: var(--tourbi-home-lime);
+}
+
+body.tourbi-reference-home .tourbi-home-hero h1 {
+    display: grid;
+    gap: .035em;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__line {
+    display: block;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__line--orange {
+    color: var(--tourbi-home-orange);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__lead {
+    max-width: 610px;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__features,
+body.tourbi-reference-home .tourbi-home-hero__floating-card {
+    display: none !important;
+}
+
+body.tourbi-reference-home .tourbi-home-adventures__note {
+    margin: 18px 0 0;
+    color: #111;
+    font-size: clamp(18px, 2vw, 28px);
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+}
+
+@media (max-width: 820px) {
+    body.tourbi-reference-home .tourbi-home-hero {
+        padding: 26px 0 18px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__grid {
+        gap: 18px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__copy {
+        gap: 13px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero h1 {
+        max-width: 390px;
+        font-size: clamp(50px, 14.8vw, 82px);
+        line-height: .82;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__lead {
+        max-width: 430px;
+        font-size: 17px;
+        line-height: 1.35;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__mobile-line {
+        display: block;
+        color: #28231e;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__visual {
+        min-height: 330px;
+        border-radius: 18px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-intro {
+        padding-top: 22px;
+    }
+}
+
+@media (max-width: 560px) {
+    body.tourbi-reference-home .tourbi-home-hero h1 {
+        max-width: 350px;
+        font-size: clamp(47px, 14.4vw, 70px);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__lead {
+        font-size: 16px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__actions {
+        gap: 10px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__visual {
+        min-height: 285px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-steps {
+        display: none;
+    }
+
+    body.tourbi-reference-home .tourbi-home-section-title h2 {
+        font-size: 34px;
+    }
+}
+
+/* v1.10.7 — final client clarification: homepage reference image, short hero copy, and mobile-first layout. */
+body.tourbi-reference-home .tourbi-home-hero {
+    padding: clamp(46px, 6vw, 86px) 0 clamp(34px, 4vw, 62px);
+    background:
+        linear-gradient(90deg, rgba(255,255,255,.99) 0%, rgba(255,255,255,.98) 38%, rgba(255,255,255,.70) 55%, rgba(255,255,255,.05) 78%),
+        linear-gradient(135deg, #fff 0%, #f8f5ef 55%, #e9e1d4 100%);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__grid {
+    grid-template-columns: minmax(0, .86fr) minmax(460px, 1.14fr);
+    gap: clamp(28px, 4vw, 66px);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__eyebrow {
+    padding: 11px 25px 10px;
+    color: #111;
+    background: var(--tourbi-home-lime);
+    border: 1px solid rgba(17,17,17,.12);
+    border-radius: 999px;
+    font-size: clamp(13px, 1.2vw, 18px);
+    letter-spacing: .22em;
+}
+
+body.tourbi-reference-home .tourbi-home-hero h1 {
+    display: grid;
+    gap: .018em;
+    max-width: 645px;
+    font-size: clamp(72px, 8.8vw, 134px);
+    line-height: .78;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__line {
+    display: block;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__line--orange {
+    color: var(--tourbi-home-orange);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__lead {
+    display: none !important;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__mobile-line {
+    display: none !important;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__callouts {
+    display: grid;
+    gap: 9px;
+    margin-top: 4px;
+    color: #111;
+    font-size: clamp(17px, 1.55vw, 25px);
+    font-weight: 850;
+    line-height: 1.15;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__callouts span {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__callouts b {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    color: var(--tourbi-home-orange);
+    font-size: 24px;
+    line-height: 1;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__visual {
+    min-height: clamp(560px, 58vw, 820px);
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__visual::after {
+    display: none;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__image {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 0;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__button {
+    min-width: min(100%, 420px);
+    min-height: 64px;
+    border-radius: 10px;
+    font-size: clamp(24px, 2.1vw, 34px);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__button--secondary {
+    background: #fff;
+}
+
+@media (max-width: 1100px) {
+    body.tourbi-reference-home .tourbi-home-hero__grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__visual {
+        min-height: 520px;
+        max-width: 660px;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 820px) {
+    body.tourbi-reference-home .tourbi-home-hero {
+        padding: 30px 0 24px;
+        background:
+            linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.94) 52%, rgba(255,255,255,.76) 100%),
+            #fff;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__copy {
+        gap: 14px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero h1 {
+        max-width: 420px;
+        font-size: clamp(54px, 14.5vw, 92px);
+        line-height: .82;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__callouts {
+        font-size: 18px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__visual {
+        min-height: 440px;
+        max-width: 100%;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__image {
+        border-radius: 24px;
+    }
+}
+
+@media (max-width: 560px) {
+    body.tourbi-reference-home .tourbi-home-shell {
+        width: min(100% - 32px, 1300px);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__eyebrow {
+        padding: 9px 18px 8px;
+        font-size: 13px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero h1 {
+        max-width: 340px;
+        font-size: clamp(48px, 14vw, 70px);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__visual {
+        min-height: 360px;
+        border-radius: 18px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__image {
+        object-position: 56% center;
+        border-radius: 18px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__actions {
+        gap: 11px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__button {
+        width: 100%;
+        min-width: 0;
+        min-height: 56px;
+    }
+}
+
+
+/* v1.10.8 — client final reference: desktop + mobile homepage hero/layout/typography match. */
+body.tourbi-reference-home .tourbi-home-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: clamp(660px, 58vw, 820px);
+    padding: 0;
+    color: #050505;
+    background-image:
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.98) 31%, rgba(255,255,255,.78) 45%, rgba(255,255,255,.12) 68%, rgba(255,255,255,0) 100%),
+        url('../images/tourbi-home/home-hero-riders.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+body.tourbi-reference-home .tourbi-home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,18,38,.06) 0%, rgba(0,18,38,0) 46%, rgba(0,18,38,.08) 100%);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(420px, 560px) minmax(0, 1fr);
+    align-items: center;
+    min-height: inherit;
+    gap: 0;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: clamp(16px, 1.8vw, 24px);
+    min-height: inherit;
+    padding: clamp(48px, 7vw, 96px) 0 clamp(48px, 6vw, 80px);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    min-height: 58px;
+    padding: 13px 32px 11px;
+    color: #111;
+    background: linear-gradient(180deg, #d5ff3d 0%, #bbed20 100%);
+    border: 2px solid rgba(17,17,17,.09);
+    border-radius: 999px;
+    box-shadow: inset 0 -2px 0 rgba(17,17,17,.08), 0 12px 28px rgba(184,236,32,.28);
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(22px, 2vw, 36px);
+    font-weight: 400;
+    letter-spacing: .18em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+body.tourbi-reference-home .tourbi-home-hero h1 {
+    display: block;
+    max-width: 640px;
+    margin: 0;
+    color: #060606;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(82px, 9vw, 148px);
+    font-weight: 400;
+    letter-spacing: -.02em;
+    line-height: .76;
+    text-transform: uppercase;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__line {
+    display: block;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__line--orange {
+    color: var(--tourbi-home-orange);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__lead,
+body.tourbi-reference-home .tourbi-home-hero__mobile-line,
+body.tourbi-reference-home .tourbi-home-hero__features,
+body.tourbi-reference-home .tourbi-home-hero__floating-card,
+body.tourbi-reference-home .tourbi-home-hero__visual {
+    display: none !important;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__callouts {
+    display: grid;
+    gap: 12px;
+    margin-top: 0;
+    color: #080808;
+    font-size: clamp(19px, 1.55vw, 26px);
+    font-weight: 900;
+    line-height: 1.15;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__callouts span {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__callouts b {
+    display: inline-grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    color: var(--tourbi-home-orange);
+    font-size: 30px;
+    line-height: 1;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__actions {
+    display: grid;
+    width: min(100%, 520px);
+    gap: 14px;
+    margin-top: 4px;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 70px;
+    padding: 18px 28px 15px;
+    border-radius: 11px;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(28px, 2.45vw, 42px);
+    font-weight: 400;
+    letter-spacing: .045em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none !important;
+}
+
+body.tourbi-reference-home .tourbi-home-hero__button--primary {
+    color: #fff !important;
+    background: linear-gradient(180deg, #ff6b2a 0%, #ff4f15 100%);
+    border: 2px solid #ff4f15;
+    box-shadow: 0 16px 28px rgba(255,84,21,.18);
+}
+
+body.tourbi-reference-home .tourbi-home-hero__button--secondary {
+    color: #060606 !important;
+    background: rgba(255,255,255,.86);
+    border: 3px solid #060606;
+    box-shadow: none;
+}
+
+body.tourbi-reference-home .tourbi-home-intro {
+    position: relative;
+    z-index: 4;
+    margin-top: -58px;
+    padding: 0;
+    background: transparent;
+}
+
+body.tourbi-reference-home .tourbi-home-intro__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+    align-items: stretch;
+    gap: 26px;
+    padding: clamp(24px, 3vw, 36px);
+    background: rgba(255,255,255,.97);
+    border: 1px solid rgba(17,17,17,.08);
+    border-radius: 28px 28px 0 0;
+    box-shadow: 0 28px 70px rgba(9,18,29,.15);
+    backdrop-filter: blur(10px);
+}
+
+body.tourbi-reference-home .tourbi-home-booking-cta {
+    display: grid;
+    grid-template-columns: 64px minmax(0,1fr);
+    align-items: center;
+    gap: 18px;
+    min-height: 116px;
+    padding: 24px 26px;
+    color: #fff;
+    background: linear-gradient(135deg, #06142b 0%, #0d2742 100%);
+    border: 1px solid rgba(17,113,255,.45);
+    border-radius: 18px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 18px 35px rgba(0,17,38,.12);
+}
+
+body.tourbi-reference-home .tourbi-home-booking-cta__icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    color: #2183ff;
+    border: 5px solid currentColor;
+    border-radius: 50%;
+    font-size: 31px;
+}
+
+body.tourbi-reference-home .tourbi-home-booking-cta h2 {
+    margin: 0;
+    color: #fff;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(28px, 3.4vw, 48px);
+    font-weight: 400;
+    letter-spacing: .055em;
+    line-height: .95;
+    text-transform: uppercase;
+}
+
+body.tourbi-reference-home .tourbi-home-booking-cta p {
+    display: none;
+}
+
+body.tourbi-reference-home .tourbi-home-booking-cta a {
+    grid-column: 1 / -1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    min-height: 64px;
+    margin-top: 6px;
+    padding: 18px 24px 15px;
+    color: #fff !important;
+    background: linear-gradient(180deg, #198bff 0%, #006dff 100%);
+    border-radius: 999px;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(30px, 3.4vw, 48px);
+    font-weight: 400;
+    letter-spacing: .06em;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+body.tourbi-reference-home .tourbi-home-steps {
+    padding: 0 0 38px;
+    background: #fff;
+}
+
+body.tourbi-reference-home .tourbi-home-steps .tourbi-home-shell {
+    padding: 0 clamp(24px, 3vw, 36px) clamp(28px, 3vw, 36px);
+    background: rgba(255,255,255,.97);
+    border: 1px solid rgba(17,17,17,.08);
+    border-top: 0;
+    border-radius: 0 0 28px 28px;
+    box-shadow: 0 28px 70px rgba(9,18,29,.08);
+}
+
+body.tourbi-reference-home .tourbi-home-section-title--compact {
+    display: none;
+}
+
+body.tourbi-reference-home .tourbi-home-steps__grid {
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 0;
+}
+
+body.tourbi-reference-home .tourbi-home-steps__grid article {
+    padding: 18px clamp(16px, 2.2vw, 28px);
+    background: transparent;
+    border: 0;
+    border-left: 1px solid rgba(17,17,17,.13);
+    border-radius: 0;
+    box-shadow: none;
+    text-align: left;
+}
+
+body.tourbi-reference-home .tourbi-home-steps__grid article:first-child {
+    border-left: 0;
+}
+
+body.tourbi-reference-home .tourbi-home-steps__grid article strong {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    color: #07142a;
+    background: var(--tourbi-home-lime);
+    border-radius: 50%;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+body.tourbi-reference-home .tourbi-home-steps__grid h3 {
+    margin-top: 10px;
+    font-size: clamp(20px, 1.6vw, 27px);
+    line-height: .95;
+}
+
+body.tourbi-reference-home .tourbi-home-steps__grid p {
+    margin-top: 7px;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+@media (max-width: 1100px) {
+    body.tourbi-reference-home .tourbi-home-hero {
+        min-height: 690px;
+        background-position: 60% center;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__copy {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 820px) {
+    body.tourbi-reference-home .tourbi-home-page {
+        background: #041329;
+    }
+
+    body.tourbi-reference-home .tourbi-home-shell {
+        width: min(100% - 42px, 1300px);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero {
+        min-height: 0;
+        padding: 64px 0 28px;
+        color: #fff;
+        background-image:
+            linear-gradient(180deg, rgba(0,16,38,.15) 0%, rgba(0,33,81,.08) 30%, rgba(0,23,45,.15) 68%, rgba(0,18,35,.98) 100%),
+            url('../images/tourbi-home/home-hero-riders.jpg');
+        background-size: cover;
+        background-position: center top;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero::before {
+        display: none;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__grid {
+        display: block;
+        min-height: 0;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__copy {
+        display: flex;
+        min-height: 660px;
+        padding: 0 0 510px;
+        justify-content: flex-start;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__eyebrow {
+        min-height: 42px;
+        padding: 8px 20px 6px;
+        font-size: 25px;
+        letter-spacing: .16em;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero h1 {
+        max-width: 94%;
+        color: #fff;
+        font-size: clamp(68px, 18.2vw, 132px);
+        line-height: .74;
+        text-shadow: 0 3px 18px rgba(0,12,30,.18);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__line--orange {
+        color: var(--tourbi-home-orange);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__callouts {
+        display: none !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__actions {
+        width: 100%;
+        max-width: 520px;
+        margin-top: 2px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__button {
+        min-height: 58px;
+        border-radius: 10px;
+        font-size: 30px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-intro {
+        margin-top: -18px;
+        padding-bottom: 28px;
+        background: linear-gradient(180deg, rgba(0,18,35,0) 0%, #041329 42%, #041329 100%);
+    }
+
+    body.tourbi-reference-home .tourbi-home-intro__grid {
+        display: block;
+        width: min(100% - 42px, 760px);
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    body.tourbi-reference-home .tourbi-home-origin,
+    body.tourbi-reference-home .tourbi-home-steps {
+        display: none !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta {
+        display: grid;
+        grid-template-columns: 82px minmax(0,1fr);
+        gap: 18px 24px;
+        padding: 32px 28px;
+        border-radius: 28px;
+        border: 2px solid rgba(40,130,255,.65);
+        background: linear-gradient(135deg, rgba(4,18,39,.98) 0%, rgba(7,37,67,.98) 100%);
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta__icon {
+        width: 82px;
+        height: 82px;
+        font-size: 38px;
+        border-width: 6px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta h2 {
+        align-self: center;
+        font-size: clamp(38px, 9vw, 70px);
+        letter-spacing: .06em;
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta a {
+        min-height: 82px;
+        font-size: clamp(42px, 11vw, 72px);
+        border-radius: 999px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-featured,
+    body.tourbi-reference-home .tourbi-home-adventures,
+    body.tourbi-reference-home .tourbi-home-trust {
+        background: #fff;
+    }
+}
+
+@media (max-width: 560px) {
+    body.tourbi-reference-home .tourbi-home-shell {
+        width: min(100% - 34px, 1300px);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero {
+        padding-top: 42px;
+        background-position: center top;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__copy {
+        min-height: 610px;
+        padding-bottom: 430px;
+        gap: 11px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__eyebrow {
+        font-size: 21px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero h1 {
+        max-width: 100%;
+        font-size: clamp(60px, 17.5vw, 92px);
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero__actions {
+        display: none;
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta {
+        grid-template-columns: 76px minmax(0,1fr);
+        padding: 26px 22px 28px;
+        border-radius: 24px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta__icon {
+        width: 76px;
+        height: 76px;
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta h2 {
+        font-size: clamp(32px, 8.4vw, 46px);
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta a {
+        min-height: 70px;
+        font-size: clamp(34px, 9vw, 50px);
+    }
+}
+
+/* v1.10.9 — desktop hero uses a dedicated desktop-safe image crop; mobile keeps the client mobile reference image. */
+@media (min-width: 821px) {
+    body.tourbi-reference-home .tourbi-home-hero {
+        background-image: url('../images/tourbi-home/home-hero-riders-desktop.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    body.tourbi-reference-home .tourbi-home-hero::before {
+        background: linear-gradient(180deg, rgba(0,18,38,.02) 0%, rgba(0,18,38,0) 52%, rgba(0,18,38,.04) 100%);
+    }
+}
+
+/* v1.11.0 — use uploaded WordPress media hero images by exact URL.
+   Desktop and mobile use separate assets so desktop positioning stays clean while mobile remains unchanged. */
+body.tourbi-reference-home .tourbi-home-hero {
+    background-image:
+        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.98) 30%, rgba(255,255,255,.86) 45%, rgba(255,255,255,.28) 62%, rgba(255,255,255,0) 82%),
+        url('https://christopherpar.mypreviewsite.online/wp-content/uploads/2026/07/home-hero-desktop.png') !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}
+
+@media (min-width: 821px) {
+    body.tourbi-reference-home .tourbi-home-hero {
+        background-image:
+            linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.98) 30%, rgba(255,255,255,.86) 45%, rgba(255,255,255,.28) 62%, rgba(255,255,255,0) 82%),
+            url('https://christopherpar.mypreviewsite.online/wp-content/uploads/2026/07/home-hero-desktop.png') !important;
+        background-position: center center !important;
+    }
+}
+
+@media (max-width: 820px) {
+    body.tourbi-reference-home .tourbi-home-hero {
+        background-image:
+            linear-gradient(180deg, rgba(0,16,38,.15) 0%, rgba(0,33,81,.08) 30%, rgba(0,23,45,.15) 68%, rgba(0,18,35,.98) 100%),
+            url('https://christopherpar.mypreviewsite.online/wp-content/uploads/2026/07/home-hero-mobile.png') !important;
+        background-position: center top !important;
+        background-size: cover !important;
+    }
+}
+
+/* v1.11.1 — mobile CTA-to-featured spacing cleanup.
+   Keep desktop and the approved mobile hero image unchanged; only remove the extra vertical gap
+   between the Book Your Adventure CTA and the Featured Experience card on mobile. */
+@media (max-width: 820px) {
+    body.tourbi-reference-home .tourbi-home-intro {
+        padding-bottom: 10px !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-featured {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-featured .tourbi-home-shell {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 560px) {
+    body.tourbi-reference-home .tourbi-home-intro {
+        margin-top: -12px !important;
+        padding-bottom: 6px !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta {
+        margin-bottom: 0 !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-featured__card {
+        margin-top: 0 !important;
+    }
+}
+
+
+/* v1.11.2 — controlled mobile separation between the dark CTA block and the white featured section.
+   Client wants a small intentional gap between the upper dark section and lower white section. */
+@media (max-width: 820px) {
+    body.tourbi-reference-home .tourbi-home-intro {
+        padding-bottom: 16px !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-featured {
+        margin-top: 24px !important;
+        padding-top: 18px !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-featured .tourbi-home-shell {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 560px) {
+    body.tourbi-reference-home .tourbi-home-intro {
+        margin-top: -12px !important;
+        padding-bottom: 14px !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-featured {
+        margin-top: 22px !important;
+        padding-top: 16px !important;
+    }
+
+    body.tourbi-reference-home .tourbi-home-booking-cta {
+        margin-bottom: 0 !important;
+    }
+}

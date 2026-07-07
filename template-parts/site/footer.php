@@ -9,16 +9,6 @@ $rent_url    = $args['rent_url'] ?? home_url( '/rent/' );
 $account_url = $args['account_url'] ?? home_url( '/my-account/' );
 $is_host     = ! empty( $args['is_host'] );
 
-/*
- * Keep the About link visible even when the page has not been created yet.
- * Once a published page with the slug "about" exists, WordPress will use
- * its permalink automatically.
- */
-$about_page = get_page_by_path( 'about', OBJECT, 'page' );
-$about_url  = $about_page instanceof WP_Post
-    ? get_permalink( $about_page )
-    : home_url( '/about/' );
-
 $footer_pages = array(
     'privacy-policy' => __(
         'Privacy Policy',
@@ -65,12 +55,6 @@ $footer_pages = array(
                 ?>
             </p>
 
-            <a
-                class="tourbi-site-footer__email"
-                href="mailto:<?php echo esc_attr( get_option( 'admin_email' ) ); ?>"
-            >
-                <?php echo esc_html( get_option( 'admin_email' ) ); ?>
-            </a>
         </div>
 
         <div class="tourbi-site-footer__column">
@@ -109,9 +93,6 @@ $footer_pages = array(
         <div class="tourbi-site-footer__column">
             <h2><?php esc_html_e( 'Information', 'torby' ); ?></h2>
 
-            <a href="<?php echo esc_url( $about_url ); ?>">
-                <?php esc_html_e( 'About', 'torby' ); ?>
-            </a>
 
             <?php foreach ( $footer_pages as $slug => $label ) : ?>
                 <?php
@@ -150,7 +131,7 @@ $footer_pages = array(
         </p>
 
         <p>
-            <?php esc_html_e( 'Host share 85% · Tourbi share 15%', 'torby' ); ?>
+            <?php esc_html_e( 'Booking data and Host payout references are managed by Tourbi.', 'torby' ); ?>
         </p>
     </div>
 </footer>

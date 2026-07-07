@@ -7,64 +7,28 @@
 
 $faqs = array(
     array(
-        'question' => __(
-            'How much does a Host earn?',
-            'torby'
-        ),
-        'answer' => __(
-            'Current marketplace commission settings allocate 85% of eligible Experience revenue to the Host and 15% to Tourbi.',
-            'torby'
-        ),
+        'question' => __( 'How does Tourbi pricing work?', 'torby' ),
+        'answer'   => __( 'Tourbi uses the $18 per bike per hour support rate plus a 5% service fee to estimate Host earnings. Final Host payouts are reviewed and handled manually by Tourbi.', 'torby' ),
     ),
     array(
-        'question' => __(
-            'Can I save an Experience before it is complete?',
-            'torby'
-        ),
-        'answer' => __(
-            'Yes. The Experience Builder supports Draft saving. Complete submissions can then be sent to the administrator for review.',
-            'torby'
-        ),
+        'question' => __( 'Can I save an Experience before it is complete?', 'torby' ),
+        'answer'   => __( 'Yes. The Experience Builder supports Draft saving. Complete submissions can then be sent to the administrator for review.', 'torby' ),
     ),
     array(
-        'question' => __(
-            'When will my Experience become public?',
-            'torby'
-        ),
-        'answer' => __(
-            'It becomes public after the administrator approves and publishes it. Pending or Draft Experiences do not appear in the public marketplace.',
-            'torby'
-        ),
+        'question' => __( 'When will my Experience become public?', 'torby' ),
+        'answer'   => __( 'It becomes public after the administrator approves and publishes it. Pending or Draft Experiences do not appear in the public marketplace.', 'torby' ),
     ),
     array(
-        'question' => __(
-            'How are bike quantities protected?',
-            'torby'
-        ),
-        'answer' => __(
-            'Tourbi uses shared date, time, bike-type, and quantity inventory across normal rentals and Experiences, including temporary cart holds and checkout validation.',
-            'torby'
-        ),
+        'question' => __( 'What is included with each booking?', 'torby' ),
+        'answer'   => __( 'Every booking can include a premium e-bike, helmet, lock, and pickup/drop-off support at King Electric Bike Shop.', 'torby' ),
     ),
     array(
-        'question' => __(
-            'How do I receive Host payments?',
-            'torby'
-        ),
-        'answer' => __(
-            'Customer payments are collected through the marketplace. Host earnings and withdrawals are managed through the approved marketplace payout workflow.',
-            'torby'
-        ),
+        'question' => __( 'How are bike quantities protected?', 'torby' ),
+        'answer'   => __( 'Tourbi uses shared date, time, bike-type, and quantity inventory across normal rentals and Experiences, including temporary cart holds and checkout validation.', 'torby' ),
     ),
     array(
-        'question' => __(
-            'Can I edit an approved Experience?',
-            'torby'
-        ),
-        'answer' => __(
-            'Yes. Changes to an approved Experience are sent back for administrator review before the updated version is published.',
-            'torby'
-        ),
+        'question' => __( 'Can I edit an approved Experience?', 'torby' ),
+        'answer'   => __( 'Yes. Changes to an approved Experience are sent back for administrator review before the updated version is published.', 'torby' ),
     ),
 );
 ?>
@@ -80,7 +44,7 @@ $faqs = array(
             </h2>
 
             <p>
-                <?php esc_html_e( 'Here are the essentials about approval, earnings, inventory, and the Host workflow.', 'torby' ); ?>
+                <?php esc_html_e( 'Here are the essentials about pricing estimates, approval, included equipment, and the Host workflow.', 'torby' ); ?>
             </p>
         </div>
 

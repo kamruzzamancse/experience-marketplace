@@ -13,35 +13,15 @@ $primary = $host_page['primary_cta'] ?? array();
         <div class="tourbi-host-final-cta__card">
             <div>
                 <span class="tourbi-host-kicker">
-                    <?php
-                    echo ! empty( $host_page['is_host'] )
-                        ? esc_html__(
-                            'Ready for your next listing?',
-                            'torby'
-                        )
-                        : esc_html__(
-                            'Your route can become someone’s favorite memory.',
-                            'torby'
-                        );
-                    ?>
+                    <?php esc_html_e( 'Ready to start hosting?', 'torby' ); ?>
                 </span>
 
                 <h2>
-                    <?php
-                    echo ! empty( $host_page['is_host'] )
-                        ? esc_html__(
-                            'Create your next Tourbi Experience.',
-                            'torby'
-                        )
-                        : esc_html__(
-                            'Start your Tourbi Host journey today.',
-                            'torby'
-                        );
-                    ?>
+                    <?php esc_html_e( 'Apply to become a Host.', 'torby' ); ?>
                 </h2>
 
                 <p>
-                    <?php echo esc_html( $primary['note'] ?? '' ); ?>
+                    <?php esc_html_e( 'Bring your idea, route, and local energy. Tourbi will help power the ride with e-bikes and booking tools.', 'torby' ); ?>
                 </p>
             </div>
 
@@ -49,7 +29,7 @@ $primary = $host_page['primary_cta'] ?? array();
                 class="tourbi-button tourbi-button--lime tourbi-button--large"
                 href="<?php echo esc_url( $primary['url'] ?? '#' ); ?>"
             >
-                <?php echo esc_html( $primary['label'] ?? '' ); ?>
+                <?php esc_html_e( 'Apply to Become a Host', 'torby' ); ?>
                 <span aria-hidden="true">→</span>
             </a>
         </div>

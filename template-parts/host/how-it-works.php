@@ -9,44 +9,36 @@
     <div class="tourbi-shell--wide">
         <div class="tourbi-host-section__heading tourbi-host-section__heading--light">
             <span class="tourbi-host-kicker">
-                <?php esc_html_e( 'How It Works', 'torby' ); ?>
+                <?php esc_html_e( 'Here’s How It Works', 'torby' ); ?>
             </span>
 
             <h2>
-                <?php esc_html_e( 'From idea to live Experience in four steps.', 'torby' ); ?>
+                <?php esc_html_e( 'Three simple steps to host an e-bike experience.', 'torby' ); ?>
             </h2>
         </div>
 
-        <div class="tourbi-host-process__grid">
+        <div class="tourbi-host-process__grid tourbi-host-process__grid--three">
             <article>
                 <span>01</span>
                 <div>
-                    <h3><?php esc_html_e( 'Apply as a Host', 'torby' ); ?></h3>
-                    <p><?php esc_html_e( 'Create your account, add your store information, and submit the Host application.', 'torby' ); ?></p>
+                    <h3><?php esc_html_e( 'You create the experience.', 'torby' ); ?></h3>
+                    <p><?php esc_html_e( 'Choose the idea, route, story, guest price, and details that make your ride memorable.', 'torby' ); ?></p>
                 </div>
             </article>
 
             <article>
                 <span>02</span>
                 <div>
-                    <h3><?php esc_html_e( 'Build the Experience', 'torby' ); ?></h3>
-                    <p><?php esc_html_e( 'Use the four-step Experience Builder to add content, itinerary, pricing, schedule, and bike requirements.', 'torby' ); ?></p>
+                    <h3><?php esc_html_e( 'We provide the bikes.', 'torby' ); ?></h3>
+                    <p><?php esc_html_e( 'Tourbi provides premium e-bikes, helmets, locks, and pickup support for each booking.', 'torby' ); ?></p>
                 </div>
             </article>
 
             <article>
                 <span>03</span>
                 <div>
-                    <h3><?php esc_html_e( 'Tourbi Reviews It', 'torby' ); ?></h3>
-                    <p><?php esc_html_e( 'The administrator checks quality, booking configuration, inventory limits, and safety information.', 'torby' ); ?></p>
-                </div>
-            </article>
-
-            <article>
-                <span>04</span>
-                <div>
-                    <h3><?php esc_html_e( 'Welcome Your Guests', 'torby' ); ?></h3>
-                    <p><?php esc_html_e( 'Approved Experiences appear in the marketplace and new bookings become available in your Host dashboard.', 'torby' ); ?></p>
+                    <h3><?php esc_html_e( 'King Electric Bike Shop.', 'torby' ); ?></h3>
+                    <p><?php esc_html_e( 'Guests meet at King Electric Bike Shop for pickup, drop-off, and a smooth start to the ride.', 'torby' ); ?></p>
                 </div>
             </article>
         </div>

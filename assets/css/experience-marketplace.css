@@ -42,7 +42,7 @@ body.tourbi-experience-showcase-page .page-content {
 }
 
 .tourbi-showcase-shell {
-    width: min(1180px, calc(100% - 44px));
+    width: min(1300px, calc(100% - 44px));
     margin-inline: auto;
 }
 
@@ -1338,4 +1338,19 @@ body.tourbi-experience-showcase-page .page-content {
         width: 100%;
         max-height: 230px;
     }
+}
+
+
+/* Per-participant unit for every database-driven Experience card price. */
+.tourbi-showcase-card__price-suffix {
+    margin: 0;
+    color: inherit;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: .48em;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    text-transform: lowercase;
+    vertical-align: baseline;
 }

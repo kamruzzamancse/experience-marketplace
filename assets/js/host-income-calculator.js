@@ -6,6 +6,10 @@
     }
 
     function numericValue(input) {
+        if (!input) {
+            return 0;
+        }
+
         var parsed = Number(input.value);
         return Number.isFinite(parsed) ? parsed : Number(input.min || 0);
     }
@@ -25,22 +29,24 @@
 
         var currency = calculator.dataset.currency || 'USD';
         var currencySymbol = calculator.dataset.currencySymbol || '$';
-        var platformFee = Number(calculator.dataset.platformFee || 15);
-        var hostShare = Number(calculator.dataset.hostShare || (100 - platformFee));
-        var period = 'monthly';
-
+        var serviceFee = Number(calculator.dataset.platformFee || 5);
+        var bikeRate = Number(calculator.dataset.bikeRate || 18);
         var formatter;
 
         try {
             formatter = new Intl.NumberFormat(document.documentElement.lang || undefined, {
                 style: 'currency',
                 currency: currency,
-                maximumFractionDigits: 0
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
             });
         } catch (error) {
             formatter = {
                 format: function (value) {
-                    return currencySymbol + Math.round(value).toLocaleString();
+                    return currencySymbol + Number(value).toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    });
                 }
             };
         }
@@ -48,73 +54,128 @@
         var ranges = {
             price: calculator.querySelector('[data-range="price"]'),
             guests: calculator.querySelector('[data-range="guests"]'),
-            experiences: calculator.querySelector('[data-range="experiences"]')
+            hours: calculator.querySelector('[data-range="hours"]')
         };
 
         var numbers = {
             price: calculator.querySelector('[data-number="price"]'),
             guests: calculator.querySelector('[data-number="guests"]'),
-            experiences: calculator.querySelector('[data-number="experiences"]')
+            hours: calculator.querySelector('[data-number="hours"]')
         };
 
         var payoutOutputs = calculator.querySelectorAll('[data-payout]');
         var grossOutput = calculator.querySelector('[data-gross]');
         var feeOutput = calculator.querySelector('[data-fee]');
+        var bikeFeeOutput = calculator.querySelector('[data-bike-fee]');
         var formulaOutput = calculator.querySelector('[data-formula]');
         var resultLabel = calculator.querySelector('[data-result-label]');
-        var periodButtons = calculator.querySelectorAll('[data-period]');
 
         function updateRangeProgress(range) {
+            if (!range) {
+                return;
+            }
+
             var minimum = Number(range.min || 0);
             var maximum = Number(range.max || 100);
             var value = numericValue(range);
-            var progress = maximum === minimum
-                ? 0
-                : ((value - minimum) / (maximum - minimum)) * 100;
+            var progress = maximum === minimum ? 0 : ((value - minimum) / (maximum - minimum)) * 100;
 
             range.style.setProperty('--tourbi-range-progress', progress + '%');
             range.setAttribute('aria-valuenow', String(value));
         }
 
-        function synchronize(source, target) {
+        function rangeKey(source, target) {
+            return (target && target.dataset.range) || (source && source.dataset.number);
+        }
+
+        function setRangeFromNumber(source, target) {
+            if (!source || !target) {
+                return;
+            }
+
+            var rawValue = String(source.value).trim();
+
+            if ('' === rawValue) {
+                return;
+            }
+
+            var parsed = Number(rawValue);
+
+            if (!Number.isFinite(parsed)) {
+                return;
+            }
+
             var minimum = Number(target.min || source.min || 0);
             var maximum = Number(target.max || source.max || 100);
-            var value = clamp(numericValue(source), minimum, maximum);
+            var value = clamp(parsed, minimum, maximum);
+            var key = rangeKey(source, target);
+
+            target.value = String(value);
+            updateRangeProgress(ranges[key]);
+            calculate();
+        }
+
+        function commitNumberValue(source, target) {
+            if (!source || !target) {
+                return;
+            }
+
+            var minimum = Number(target.min || source.min || 0);
+            var maximum = Number(target.max || source.max || 100);
+            var parsed = Number(source.value);
+            var value = Number.isFinite(parsed)
+                ? clamp(parsed, minimum, maximum)
+                : Number(target.value || minimum);
+            var key = rangeKey(source, target);
 
             source.value = String(value);
             target.value = String(value);
-            updateRangeProgress(ranges[target.dataset.range || source.dataset.number]);
+            updateRangeProgress(ranges[key]);
             calculate();
         }
 
         function calculate() {
             var price = numericValue(ranges.price);
             var guests = numericValue(ranges.guests);
-            var experiences = numericValue(ranges.experiences);
-            var multiplier = period === 'annual' ? 12 : 1;
-            var grossMonthly = price * guests * experiences;
-            var feeMonthly = grossMonthly * (platformFee / 100);
-            var payoutMonthly = grossMonthly - feeMonthly;
-            var gross = grossMonthly * multiplier;
-            var fee = feeMonthly * multiplier;
-            var payout = payoutMonthly * multiplier;
+            var hours = numericValue(ranges.hours);
+            var gross = price * guests * hours;
+            var bikeFee = bikeRate * guests * hours;
+            var service = gross * (serviceFee / 100);
+            var payout = Math.max(0, gross - bikeFee - service);
 
             payoutOutputs.forEach(function (output) {
                 output.textContent = formatter.format(payout);
             });
-            grossOutput.textContent = formatter.format(gross);
-            feeOutput.textContent = '-' + formatter.format(fee);
-            resultLabel.textContent = period === 'annual'
-                ? 'Estimated annual host payout'
-                : 'Estimated monthly host payout';
 
-            formulaOutput.textContent =
-                formatter.format(price) +
-                ' × ' + guests +
-                ' guests × ' + experiences +
-                ' experiences' +
-                (period === 'annual' ? ' × 12 months' : '') +
-                ' × ' + formatPercent(hostShare) + '%';
+            if (grossOutput) {
+                grossOutput.textContent = formatter.format(gross);
+            }
+
+            if (bikeFeeOutput) {
+                bikeFeeOutput.textContent = '-' + formatter.format(bikeFee);
+            }
+
+            if (feeOutput) {
+                feeOutput.textContent = '-' + formatter.format(service);
+            }
+
+            if (resultLabel) {
+                resultLabel.textContent = 'Estimated host earnings (' + hours + ' ' + (hours === 1 ? 'hour' : 'hours') + ')';
+            }
+
+            if (formulaOutput) {
+                formulaOutput.textContent =
+                    formatter.format(price) +
+                    ' × ' + guests +
+                    ' guests × ' + hours +
+                    ' ' + (hours === 1 ? 'hour' : 'hours') +
+                    ' − ' + formatter.format(bikeRate) +
+                    ' × ' + guests +
+                    ' bikes × ' + hours +
+                    ' ' + (hours === 1 ? 'hour' : 'hours') +
+                    ' − ' + formatPercent(serviceFee) +
+                    '% service fee';
+            }
         }
 
         Object.keys(ranges).forEach(function (key) {
@@ -134,27 +195,15 @@
             });
 
             number.addEventListener('input', function () {
-                synchronize(number, range);
+                setRangeFromNumber(number, range);
             });
 
             number.addEventListener('change', function () {
-                synchronize(number, range);
+                commitNumberValue(number, range);
             });
-        });
 
-        periodButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                period = button.dataset.period === 'annual'
-                    ? 'annual'
-                    : 'monthly';
-
-                periodButtons.forEach(function (candidate) {
-                    var isActive = candidate === button;
-                    candidate.classList.toggle('is-active', isActive);
-                    candidate.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-                });
-
-                calculate();
+            number.addEventListener('blur', function () {
+                commitNumberValue(number, range);
             });
         });
 
@@ -174,4 +223,4 @@
     }
 
     document.addEventListener('elementor/popup/show', initialize);
-})();
+}());

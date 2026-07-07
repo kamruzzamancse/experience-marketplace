@@ -24,7 +24,7 @@
 
     let lastFocused = null;
 
-    function closeNavigation() {
+    function closeNavigation( restoreFocus = true ) {
         navigation.classList.remove( 'is-open' );
         toggle.classList.remove( 'is-open' );
         toggle.setAttribute( 'aria-expanded', 'false' );
@@ -35,6 +35,7 @@
         );
 
         if (
+            restoreFocus &&
             lastFocused &&
             typeof lastFocused.focus === 'function'
         ) {
@@ -88,11 +89,54 @@
     navigation.addEventListener(
         'click',
         function ( event ) {
-            if ( event.target.closest( 'a' ) ) {
-                closeNavigation();
+            const link = event.target.closest( 'a[href]' );
+
+            if ( ! link || ! navigation.contains( link ) ) {
+                return;
             }
-        }
+
+            const hrefAttribute = link.getAttribute( 'href' ) || '';
+            const destination = link.href || '';
+            const target = link.getAttribute( 'target' );
+            const isModifiedClick =
+                event.metaKey ||
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.altKey ||
+                ( 'button' in event && 0 !== event.button );
+
+            /*
+             * Preserve native behaviour for special links and new-tab clicks.
+             * The drawer can still close without moving focus back to the
+             * hamburger button.
+             */
+            if (
+                isModifiedClick ||
+                ( target && '_self' !== target ) ||
+                link.hasAttribute( 'download' ) ||
+                /^(?:#|mailto:|tel:|javascript:)/i.test( hrefAttribute )
+            ) {
+                closeNavigation( false );
+                return;
+            }
+
+            if ( ! destination ) {
+                return;
+            }
+
+            /*
+             * Handle ordinary mobile menu links directly in the capture
+             * phase. This prevents WCFM/Elementor or another delegated mobile
+             * handler from cancelling the navigation after the drawer opens.
+             */
+            event.preventDefault();
+            event.stopPropagation();
+            closeNavigation( false );
+            window.location.assign( destination );
+        },
+        true
     );
+
 
     document.addEventListener(
         'keydown',

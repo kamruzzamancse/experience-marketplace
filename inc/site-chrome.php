@@ -64,7 +64,7 @@ function tourbi_theme_get_site_account_url() {
 }
 
 /**
- * Return a normal Rental URL for the main Rent Now CTA.
+ * Return a normal Rental URL for the main Rent a Bike CTA.
  *
  * A mapped Experience is excluded. The first published Rent Item with Tourbi
  * inventory enabled becomes the fallback rental destination.
@@ -81,7 +81,7 @@ function tourbi_theme_get_rent_now_url() {
 
     /*
      * Reject development/demo destinations that should never be used as the
-     * main customer-facing Rent Now link.
+     * main customer-facing Rent a Bike link.
      */
     $blocked_fragments = array(
         'classic-template',
@@ -180,7 +180,7 @@ function tourbi_theme_register_navigation_customizer(
             ),
             'priority' => 35,
             'description' => __(
-                'Control the customer-facing Rent Now destination. The custom Tourbi header and footer are used consistently across the homepage and functional pages.',
+                'Control the customer-facing Rent a Bike destination. The custom Tourbi header and footer are used consistently across the homepage and functional pages.',
                 'torby'
             ),
         )
@@ -201,7 +201,7 @@ function tourbi_theme_register_navigation_customizer(
             'section' => 'tourbi_header_navigation',
             'type' => 'url',
             'label' => __(
-                'Rent Now URL',
+                'Rent a Bike URL',
                 'torby'
             ),
             'description' => __(
@@ -247,7 +247,8 @@ function tourbi_theme_get_custom_chrome_page_slugs() {
     $slugs = array(
         'home',
         'home-2',
-        'about',
+        'contact',
+        'contact-us',
         'calculate-earnings',
         'vendor-register',
         'store-manager',
@@ -387,8 +388,8 @@ function tourbi_theme_site_chrome_body_classes(
         $classes[] = 'tourbi-earnings-page';
     }
 
-    if ( is_page( 'about' ) ) {
-        $classes[] = 'tourbi-about-page';
+    if ( is_page( array( 'contact', 'contact-us' ) ) ) {
+        $classes[] = 'tourbi-contact-page';
     }
 
     if ( tourbi_theme_is_wcfm_storefront() ) {

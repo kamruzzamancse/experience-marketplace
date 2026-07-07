@@ -793,7 +793,7 @@ function torby_child_wrap_vendor_registration_content( $content ) {
             <p class="tourbi-host-registration-lead">
                 <?php
                 esc_html_e(
-                    'Create your host account, submit your store for approval, and manage your Tourbi listings from one dashboard.',
+                    'Create your host account, submit your host profile for approval, and manage your Tourbi experiences from one dashboard.',
                     'torby'
                 );
                 ?>
@@ -819,8 +819,8 @@ function torby_child_wrap_vendor_registration_content( $content ) {
                 <div>
                     <span aria-hidden="true">✓</span>
                     <p>
-                        <strong><?php esc_html_e( '85% host earning', 'torby' ); ?></strong>
-                        <small><?php esc_html_e( 'Current marketplace commission settings allocate 85% to the host.', 'torby' ); ?></small>
+                        <strong><?php esc_html_e( '$18 bike support', 'torby' ); ?></strong>
+                        <small><?php esc_html_e( 'Tourbi provides e-bikes at $18 per bike per hour, plus a 5% service fee.', 'torby' ); ?></small>
                     </p>
                 </div>
             </div>
@@ -828,7 +828,7 @@ function torby_child_wrap_vendor_registration_content( $content ) {
             <div class="tourbi-host-registration-steps" aria-label="Registration process">
                 <span><?php esc_html_e( '1. Register', 'torby' ); ?></span>
                 <span><?php esc_html_e( '2. Get approved', 'torby' ); ?></span>
-                <span><?php esc_html_e( '3. Set up your store', 'torby' ); ?></span>
+                <span><?php esc_html_e( '3. Set up your host profile', 'torby' ); ?></span>
                 <span><?php esc_html_e( '4. Start hosting', 'torby' ); ?></span>
             </div>
         </aside>
@@ -843,7 +843,7 @@ function torby_child_wrap_vendor_registration_content( $content ) {
             <p class="tourbi-host-registration-form-card__intro">
                 <?php
                 esc_html_e(
-                    'Enter your account and store information below. New host applications require administrator approval.',
+                    'Enter your account and host information below. New host applications require administrator approval.',
                     'torby'
                 );
                 ?>
@@ -913,3 +913,88 @@ tourbi_theme_load_module( 'inc/become-host-page.php' );
 tourbi_theme_load_module( 'inc/host-income-calculator.php' );
 tourbi_theme_load_module( 'inc/host-store-experiences.php' );
 tourbi_theme_load_module( 'inc/site-chrome.php' );
+
+/**
+ * Route the basic Contact page to the bundled Tourbi contact template when the
+ * page slug is contact or contact-us.
+ *
+ * @param array<int,array<string,mixed>> $routes Existing template routes.
+ * @return array<int,array<string,mixed>>
+ */
+function torby_child_register_contact_template_route( $routes ) {
+    $routes[] = array(
+        'condition' => static function () {
+            return is_page( array( 'contact', 'contact-us' ) );
+        },
+        'file'      => 'templates/page-contact-us.php',
+    );
+
+    return $routes;
+}
+add_filter( 'tourbi_theme_template_routes', 'torby_child_register_contact_template_route', 30 );
+
+
+/**
+ * Create a basic Contact Us page for the launch build when it is missing.
+ *
+ * The page is only created from wp-admin by administrators so normal frontend
+ * visitors never trigger content changes. The bundled route/template above then
+ * renders the page without needing Elementor content.
+ *
+ * @return void
+ */
+function torby_child_ensure_contact_us_page() {
+    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
+    $existing = get_page_by_path( 'contact-us' );
+
+    if ( ! $existing ) {
+        $existing = get_page_by_path( 'contact' );
+    }
+
+    if ( $existing instanceof WP_Post ) {
+        return;
+    }
+
+    $page_id = wp_insert_post(
+        array(
+            'post_title'   => __( 'Contact Us', 'torby' ),
+            'post_name'    => 'contact-us',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_content' => '',
+        ),
+        true
+    );
+
+    if ( ! is_wp_error( $page_id ) && $page_id ) {
+        update_post_meta( $page_id, '_wp_page_template', 'templates/page-contact-us.php' );
+    }
+}
+add_action( 'admin_init', 'torby_child_ensure_contact_us_page' );
+
+/**
+ * Keep checkout confirmation wording aligned with Tourbi's manual review and
+ * payout workflow.
+ *
+ * @param string        $text  WooCommerce order received text.
+ * @param WC_Order|null $order Order object.
+ * @return string
+ */
+function torby_child_tourbi_order_received_text( $text, $order ) {
+    return __( 'Your booking request has been received. Tourbi will review and confirm your booking details.', 'torby' );
+}
+add_filter( 'woocommerce_thankyou_order_received_text', 'torby_child_tourbi_order_received_text', 20, 2 );
+
+/**
+ * Use booking-first button wording at checkout.
+ *
+ * @param string $text Current button text.
+ * @return string
+ */
+function torby_child_tourbi_order_button_text( $text ) {
+    return __( 'Submit Booking Request', 'torby' );
+}
+add_filter( 'woocommerce_order_button_text', 'torby_child_tourbi_order_button_text', 20 );

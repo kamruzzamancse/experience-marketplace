@@ -970,3 +970,48 @@
         font-size: 52px !important;
     }
 }
+
+/* v1.9.4 — per-experience pricing estimator update. */
+.tourbi-income-calculator__share-bar--pricing {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tourbi-income-calculator__share-bar--pricing span:first-child {
+    background: var(--tourbi-estimator-orange);
+}
+
+.tourbi-income-calculator__share-bar--pricing span:last-child {
+    color: #111;
+    background: var(--tourbi-estimator-lime);
+}
+
+.tourbi-income-calculator__breakdown [data-bike-fee] {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+
+/* v1.9.5 — host calculator formula and pricing badge readability fix. */
+.tourbi-income-calculator__share-bar--pricing span:first-child,
+.tourbi-income-calculator__share-bar--pricing span:first-child b {
+    color: #ffffff !important;
+}
+
+.tourbi-income-calculator__share-bar--pricing span:first-child b {
+    opacity: 1 !important;
+    font-weight: 950 !important;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.tourbi-income-calculator__share-bar--pricing span:last-child b {
+    color: #ff5a27 !important;
+    opacity: 1 !important;
+    font-weight: 950 !important;
+}
+
+.tourbi-income-calculator__breakdown [data-gross],
+.tourbi-income-calculator__breakdown [data-fee],
+.tourbi-income-calculator__breakdown [data-bike-fee],
+.tourbi-income-calculator__breakdown [data-payout] {
+    white-space: nowrap;
+}

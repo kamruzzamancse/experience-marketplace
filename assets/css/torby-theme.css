@@ -1450,3 +1450,686 @@ a[href*="vendor"]::after {
     }
 }
 
+
+/* =========================================================
+ * Account login/register mobile visibility fix
+ * Ensures WooCommerce login and create account forms remain visible on phones.
+ * ======================================================= */
+@media (max-width: 767px) {
+    body.tourbi-account-guest .woocommerce,
+    body.tourbi-account-guest .woocommerce #customer_login,
+    body.tourbi-account-guest .woocommerce #customer_login.u-columns.col2-set {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 18px !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        clip: auto !important;
+        clip-path: none !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column1,
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column2,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-1,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-2 {
+        display: block !important;
+        float: none !important;
+        clear: both !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin: 0 !important;
+        padding: 24px 22px !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        clip: auto !important;
+        clip-path: none !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column1::before,
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column2::before,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-1::before,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-2::before {
+        display: inline-flex !important;
+        margin: 0 0 16px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column1 > h2,
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column2 > h2,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-1 > h2,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-2 > h2 {
+        display: block !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin: 0 0 18px !important;
+        color: var(--torby-color-primary) !important;
+        font-size: clamp(24px, 7vw, 30px) !important;
+        line-height: 1.1 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        clip: auto !important;
+        clip-path: none !important;
+        overflow: visible !important;
+    }
+
+    body.tourbi-account-guest .woocommerce form.login,
+    body.tourbi-account-guest .woocommerce form.register,
+    body.tourbi-account-guest .woocommerce #customer_login form,
+    body.tourbi-account-guest .woocommerce #customer_login form.woocommerce-form-login,
+    body.tourbi-account-guest .woocommerce #customer_login form.woocommerce-form-register {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        clip: auto !important;
+        clip-path: none !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login form p,
+    body.tourbi-account-guest .woocommerce #customer_login form .form-row,
+    body.tourbi-account-guest .woocommerce #customer_login form label,
+    body.tourbi-account-guest .woocommerce #customer_login form input,
+    body.tourbi-account-guest .woocommerce #customer_login form button,
+    body.tourbi-account-guest .woocommerce #customer_login form .woocommerce-privacy-policy-text,
+    body.tourbi-account-guest .woocommerce #customer_login form .woocommerce-LostPassword {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        clip: auto !important;
+        clip-path: none !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login form p,
+    body.tourbi-account-guest .woocommerce #customer_login form .form-row,
+    body.tourbi-account-guest .woocommerce #customer_login form .woocommerce-privacy-policy-text,
+    body.tourbi-account-guest .woocommerce #customer_login form .woocommerce-LostPassword {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin-bottom: 16px !important;
+        overflow: visible !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login form label {
+        display: block !important;
+        margin-bottom: 8px !important;
+        color: var(--torby-color-primary) !important;
+        font-weight: 800 !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login form input.input-text,
+    body.tourbi-account-guest .woocommerce #customer_login form input[type="text"],
+    body.tourbi-account-guest .woocommerce #customer_login form input[type="email"],
+    body.tourbi-account-guest .woocommerce #customer_login form input[type="password"] {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 50px !important;
+        max-height: none !important;
+        color: var(--torby-color-text) !important;
+        background: #ffffff !important;
+        border: 1px solid #cfd9df !important;
+        border-radius: 10px !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login .woocommerce-form-login__rememberme {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: auto !important;
+        margin: 8px 0 14px !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login .woocommerce-form-login__rememberme input[type="checkbox"] {
+        display: inline-block !important;
+        width: 18px !important;
+        min-width: 18px !important;
+        height: 18px !important;
+        min-height: 18px !important;
+        margin: 0 !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login button.button,
+    body.tourbi-account-guest .woocommerce #customer_login input.button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        min-height: 50px !important;
+        margin-top: 4px !important;
+        color: #ffffff !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+
+/* =========================================================
+ * Account login/register mobile card radius cleanup
+ * Keeps the top accent bar inside the rounded form cards.
+ * ======================================================= */
+@media (max-width: 767px) {
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column1,
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column2,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-1,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-2 {
+        position: relative !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+        border: 1px solid var(--torby-color-border) !important;
+        border-radius: 18px !important;
+        box-shadow: 0 18px 46px rgba(6, 20, 33, 0.10) !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column1::after,
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column2::after,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-1::after,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-2::after {
+        top: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 5px !important;
+        border-radius: 18px 18px 0 0 !important;
+        pointer-events: none !important;
+    }
+
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column1 > *,
+    body.tourbi-account-guest .woocommerce #customer_login > .u-column2 > *,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-1 > *,
+    body.tourbi-account-guest .woocommerce #customer_login > .col-2 > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+
+/* Tourbi basic Contact page. */
+.tourbi-contact-page-shell {
+    width: 100%;
+    color: #111;
+    background: #fffaf4;
+}
+
+.tourbi-contact-shell {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.tourbi-contact-hero {
+    padding: clamp(70px, 9vw, 130px) 0 clamp(38px, 6vw, 76px);
+    background: linear-gradient(135deg, #fff 0%, #fff3e8 58%, #ffe3d3 100%);
+}
+
+.tourbi-contact-kicker {
+    display: inline-flex;
+    margin-bottom: 18px;
+    padding: 8px 14px;
+    color: #111;
+    background: #c9ef48;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .14em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.tourbi-contact-hero h1 {
+    max-width: 800px;
+    margin: 0;
+    color: #111;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(56px, 8vw, 112px);
+    font-weight: 400;
+    letter-spacing: -.01em;
+    line-height: .86;
+    text-transform: uppercase;
+}
+
+.tourbi-contact-hero p {
+    max-width: 660px;
+    margin: 20px 0 0;
+    color: #3f372f;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.tourbi-contact-content {
+    padding: clamp(36px, 6vw, 80px) 0;
+}
+
+.tourbi-contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, .9fr));
+    gap: 18px;
+}
+
+.tourbi-contact-card {
+    min-height: 230px;
+    padding: clamp(24px, 3vw, 34px);
+    background: #fff;
+    border: 1px solid rgba(17, 17, 17, .08);
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(17, 17, 17, .08);
+}
+
+.tourbi-contact-card--primary {
+    background: #111;
+    color: #fff;
+}
+
+.tourbi-contact-card h2 {
+    margin: 0 0 14px;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: .92;
+    text-transform: uppercase;
+}
+
+.tourbi-contact-card p {
+    margin: 0 0 13px;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.tourbi-contact-email {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    padding: 12px 18px;
+    color: #111 !important;
+    background: #c9ef48;
+    border-radius: 999px;
+    font-weight: 900;
+    text-decoration: none !important;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+    .tourbi-contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .tourbi-contact-shell {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .tourbi-contact-card {
+        min-height: 0;
+        border-radius: 18px;
+    }
+}
+
+/* v1.10.9 — premium functional Contact Us page with form and support cards. */
+.tourbi-contact-page-shell {
+    width: 100%;
+    color: #111;
+    background: #fffaf4;
+}
+
+.tourbi-contact-shell {
+    width: min(1180px, calc(100% - 42px));
+    margin-inline: auto;
+}
+
+.tourbi-contact-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(76px, 9vw, 136px) 0 clamp(44px, 6vw, 84px);
+    background:
+        radial-gradient(circle at 82% 24%, rgba(255, 84, 21, .13), transparent 24%),
+        linear-gradient(135deg, #fff 0%, #fff3e8 58%, #ffe4d3 100%);
+}
+
+.tourbi-contact-hero::after {
+    position: absolute;
+    right: -120px;
+    bottom: -210px;
+    width: 520px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(201, 239, 72, .32);
+    content: "";
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.tourbi-contact-hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+    align-items: end;
+    gap: clamp(28px, 5vw, 72px);
+}
+
+.tourbi-contact-kicker,
+.tourbi-contact-form-card__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    padding: 9px 16px 8px;
+    color: #111;
+    background: #c9ef48;
+    border-radius: 999px;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: .18em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.tourbi-contact-hero h1,
+.tourbi-contact-form-card h2 {
+    margin: 0;
+    color: #111;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-weight: 400;
+    letter-spacing: -.015em;
+    text-transform: uppercase;
+}
+
+.tourbi-contact-hero h1 {
+    max-width: 820px;
+    font-size: clamp(58px, 8.6vw, 122px);
+    line-height: .82;
+}
+
+.tourbi-contact-hero p {
+    max-width: 650px;
+    margin: 24px 0 0;
+    color: #342d25;
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-weight: 650;
+    line-height: 1.42;
+}
+
+.tourbi-contact-hero__panel {
+    display: grid;
+    gap: 12px;
+    padding: 26px;
+    color: #fff;
+    background: linear-gradient(135deg, #06142b 0%, #112d48 100%);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 26px;
+    box-shadow: 0 24px 60px rgba(5, 17, 35, .18);
+}
+
+.tourbi-contact-hero__panel > span {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    color: #07142a;
+    background: #c9ef48;
+    border-radius: 17px;
+    font-size: 26px;
+    font-weight: 900;
+}
+
+.tourbi-contact-hero__panel strong {
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: .04em;
+    line-height: .95;
+    text-transform: uppercase;
+}
+
+.tourbi-contact-hero__panel p {
+    margin: 0;
+    color: rgba(255,255,255,.78);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.55;
+}
+
+.tourbi-contact-content {
+    padding: clamp(44px, 6vw, 82px) 0;
+}
+
+.tourbi-contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+    align-items: start;
+    gap: clamp(20px, 4vw, 42px);
+}
+
+.tourbi-contact-form-card,
+.tourbi-contact-card {
+    background: #fff;
+    border: 1px solid rgba(17, 17, 17, .08);
+    border-radius: 26px;
+    box-shadow: 0 24px 65px rgba(17, 17, 17, .08);
+}
+
+.tourbi-contact-form-card {
+    padding: clamp(26px, 4vw, 44px);
+}
+
+.tourbi-contact-form-card h2 {
+    margin-bottom: 22px;
+    font-size: clamp(42px, 5.8vw, 78px);
+    line-height: .84;
+}
+
+.tourbi-contact-alert {
+    margin: 0 0 20px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.tourbi-contact-alert--success {
+    color: #064b28;
+    background: #e9fff1;
+    border: 1px solid #8ee2ad;
+}
+
+.tourbi-contact-alert--error {
+    color: #7a1708;
+    background: #fff0ec;
+    border: 1px solid #ffb19f;
+}
+
+.tourbi-contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tourbi-contact-form__row {
+    display: grid;
+    gap: 8px;
+}
+
+.tourbi-contact-form__row--full,
+.tourbi-contact-form button {
+    grid-column: 1 / -1;
+}
+
+.tourbi-contact-form label {
+    color: #111;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: .01em;
+}
+
+.tourbi-contact-form label span {
+    color: #ff5415;
+}
+
+.tourbi-contact-form input,
+.tourbi-contact-form select,
+.tourbi-contact-form textarea {
+    width: 100%;
+    min-height: 56px;
+    padding: 14px 16px;
+    color: #101010;
+    background: #fffaf5;
+    border: 1px solid #dfd4c8;
+    border-radius: 16px;
+    font: inherit;
+    outline: 0;
+    transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.tourbi-contact-form textarea {
+    min-height: 156px;
+    resize: vertical;
+}
+
+.tourbi-contact-form input:focus,
+.tourbi-contact-form select:focus,
+.tourbi-contact-form textarea:focus {
+    background: #fff;
+    border-color: #ff5415;
+    box-shadow: 0 0 0 4px rgba(255, 84, 21, .12);
+}
+
+.tourbi-contact-form button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    min-height: 64px;
+    margin-top: 4px;
+    color: #fff;
+    background: linear-gradient(180deg, #ff6b2a 0%, #ff4f15 100%);
+    border: 0;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: .05em;
+    line-height: 1;
+    text-transform: uppercase;
+    box-shadow: 0 16px 30px rgba(255,84,21,.2);
+}
+
+.tourbi-contact-info {
+    display: grid;
+    gap: 18px;
+}
+
+.tourbi-contact-card {
+    display: grid;
+    gap: 12px;
+    min-height: 0;
+    padding: clamp(24px, 3vw, 34px);
+}
+
+.tourbi-contact-card--primary {
+    color: #fff;
+    background: #111;
+}
+
+.tourbi-contact-card__icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    color: #111;
+    background: #c9ef48;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.tourbi-contact-card:not(.tourbi-contact-card--primary) .tourbi-contact-card__icon {
+    color: #fff;
+    background: #ff5415;
+}
+
+.tourbi-contact-card h2 {
+    margin: 0;
+    font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(34px, 3.8vw, 54px);
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: .92;
+    text-transform: uppercase;
+}
+
+.tourbi-contact-card p {
+    margin: 0;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.tourbi-contact-card strong {
+    font-weight: 900;
+}
+
+@media (max-width: 900px) {
+    .tourbi-contact-hero__grid,
+    .tourbi-contact-layout,
+    .tourbi-contact-form {
+        grid-template-columns: 1fr;
+    }
+
+    .tourbi-contact-hero__panel {
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 520px) {
+    .tourbi-contact-shell {
+        width: min(100% - 30px, 1180px);
+    }
+
+    .tourbi-contact-hero {
+        padding: 52px 0 38px;
+    }
+
+    .tourbi-contact-hero h1 {
+        font-size: clamp(50px, 16vw, 74px);
+    }
+
+    .tourbi-contact-form-card,
+    .tourbi-contact-card,
+    .tourbi-contact-hero__panel {
+        border-radius: 20px;
+    }
+
+    .tourbi-contact-form-card {
+        padding: 24px 20px;
+    }
+}

@@ -25,19 +25,11 @@ $secondary = $host_page['secondary_cta'] ?? array();
             </span>
 
             <h1>
-                <?php esc_html_e( 'Turn your local knowledge into an unforgettable ride.', 'torby' ); ?>
+                <?php esc_html_e( 'Create something fun.', 'torby' ); ?>
             </h1>
 
             <p>
-                <?php
-                echo esc_html(
-                    sprintf(
-                        /* translators: %s: Location label. */
-                        __( 'Design an e-bike Experience in %s, welcome guests from around the world, and let Tourbi handle the booking infrastructure.', 'torby' ),
-                        $host_page['location'] ?? ''
-                    )
-                );
-                ?>
+                <?php esc_html_e( 'You create it, we provide the e-bikes. Together we turn great ideas into memories.', 'torby' ); ?>
             </p>
 
             <div class="tourbi-host-hero__actions">
@@ -45,24 +37,22 @@ $secondary = $host_page['secondary_cta'] ?? array();
                     class="tourbi-button tourbi-button--primary tourbi-button--large"
                     href="<?php echo esc_url( $primary['url'] ?? '#' ); ?>"
                 >
-                    <?php echo esc_html( $primary['label'] ?? '' ); ?>
+                    <?php esc_html_e( 'Start Hosting', 'torby' ); ?>
                     <span aria-hidden="true">→</span>
                 </a>
 
                 <a
                     class="tourbi-button tourbi-button--glass tourbi-button--large"
-                    href="<?php echo esc_url( $secondary['url'] ?? '#' ); ?>"
+                    href="<?php echo esc_url( $secondary['url'] ?? home_url( '/experiences/' ) ); ?>"
                 >
-                    <?php echo esc_html( $secondary['label'] ?? '' ); ?>
+                    <?php esc_html_e( 'Explore Experiences', 'torby' ); ?>
                 </a>
             </div>
 
-            <?php if ( ! empty( $primary['note'] ) ) : ?>
-                <small class="tourbi-host-hero__note">
-                    <span aria-hidden="true">✓</span>
-                    <?php echo esc_html( $primary['note'] ); ?>
-                </small>
-            <?php endif; ?>
+            <small class="tourbi-host-hero__note">
+                <span aria-hidden="true">✓</span>
+                <?php esc_html_e( '$18 per bike per hour + 5% service fee.', 'torby' ); ?>
+            </small>
         </div>
 
         <div class="tourbi-host-hero__calculator">
@@ -73,22 +63,22 @@ $secondary = $host_page['secondary_cta'] ?? array();
                         'variant'             => 'hero',
                         'max_width'           => 500,
                         'price_min'           => 20,
-                        'price_default'       => 75,
-                        'guests_default'      => 6,
-                        'experiences_default' => 6,
+                        'price_default'       => 40,
+                        'guests_default'      => 4,
+                        'experiences_default' => 2,
                     )
                 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 ?>
             <?php else : ?>
-                <aside class="tourbi-host-earning-card">
-                    <span><?php esc_html_e( 'Host earning', 'torby' ); ?></span>
-                    <strong>85%</strong>
+                <aside class="tourbi-host-earning-card tourbi-host-earning-card--pricing">
+                    <span><?php esc_html_e( 'Simple pricing', 'torby' ); ?></span>
+                    <strong>$18</strong>
                     <p>
-                        <?php esc_html_e( 'You receive 85% of eligible Experience revenue. Tourbi retains 15% for marketplace operations and support.', 'torby' ); ?>
+                        <?php esc_html_e( 'Per bike per hour, plus a 5% Tourbi service fee.', 'torby' ); ?>
                     </p>
                     <div>
-                        <span><b>85%</b><?php esc_html_e( 'Host', 'torby' ); ?></span>
-                        <span><b>15%</b><?php esc_html_e( 'Tourbi', 'torby' ); ?></span>
+                        <span><b>$18/hr</b><?php esc_html_e( 'E-bike', 'torby' ); ?></span>
+                        <span><b>5%</b><?php esc_html_e( 'Fee', 'torby' ); ?></span>
                     </div>
                 </aside>
             <?php endif; ?>
@@ -97,10 +87,10 @@ $secondary = $host_page['secondary_cta'] ?? array();
 
     <div class="tourbi-host-hero__facts">
         <div class="tourbi-shell--wide">
-            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Protected bike inventory', 'torby' ); ?></span>
-            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Secure customer checkout', 'torby' ); ?></span>
-            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Host booking dashboard', 'torby' ); ?></span>
-            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Admin quality review', 'torby' ); ?></span>
+            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'You create the experience', 'torby' ); ?></span>
+            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'We provide the bikes', 'torby' ); ?></span>
+            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'King Electric Bike Shop pickup', 'torby' ); ?></span>
+            <span><b aria-hidden="true">✓</b><?php esc_html_e( 'Simple host dashboard', 'torby' ); ?></span>
         </div>
     </div>
 </section>

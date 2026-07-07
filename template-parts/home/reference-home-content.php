@@ -28,13 +28,17 @@ $featured_people = sanitize_text_field(
     $featured['participant_label'] ?? __( '2–12 People', 'torby' )
 );
 $featured_price = $featured['price_html'] ?? __( 'From $69', 'torby' );
+$featured_has_price = (float) ( $featured['price'] ?? 0 ) > 0;
 $featured_url = $featured['permalink'] ?? tourbi_reference_home_experiences_url();
+$hero_reference_image_path = trailingslashit( TORBY_CHILD_THEME_DIR ) . 'assets/images/tourbi-home/home-hero-riders.jpg';
+$hero_reference_image_url  = trailingslashit( TORBY_CHILD_THEME_URI ) . 'assets/images/tourbi-home/home-hero-riders.jpg';
+$has_hero_reference_image  = file_exists( $hero_reference_image_path );
 
 $card_labels = array(
     __( 'Popular', 'torby' ),
-    __( 'Top Rated', 'torby' ),
-    __( 'Win Big', 'torby' ),
+    __( 'Coming Soon', 'torby' ),
     __( 'Top Pick', 'torby' ),
+    __( 'New', 'torby' ),
 );
 
 $card_classes = array(
@@ -46,31 +50,114 @@ $card_classes = array(
 ?>
 <div class="tourbi-home-page">
     <main id="tourbi-home-main" class="tourbi-home-main">
+        <section class="tourbi-home-hero" aria-labelledby="tourbi-home-hero-title">
+            <div class="tourbi-home-shell tourbi-home-hero__grid">
+                <div class="tourbi-home-hero__copy">
+                    <span class="tourbi-home-hero__eyebrow"><?php esc_html_e( 'Pure Fun', 'torby' ); ?></span>
+                    <h1 id="tourbi-home-hero-title">
+                        <span class="tourbi-home-hero__line"><?php esc_html_e( 'Book or Host', 'torby' ); ?></span>
+                        <span class="tourbi-home-hero__line tourbi-home-hero__line--orange"><?php esc_html_e( 'Experiences', 'torby' ); ?></span>
+                        <span class="tourbi-home-hero__line"><?php esc_html_e( 'on E-Bikes.', 'torby' ); ?></span>
+                    </h1>
+                    <div class="tourbi-home-hero__callouts" aria-label="<?php esc_attr_e( 'Tourbi highlights', 'torby' ); ?>">
+                        <span><b aria-hidden="true">♙</b><?php esc_html_e( 'Created by local hosts.', 'torby' ); ?></span>
+                        <span><b aria-hidden="true">⚡</b><?php esc_html_e( 'Powered by e-bikes.', 'torby' ); ?></span>
+                    </div>
+                    <div class="tourbi-home-hero__actions">
+                        <a class="tourbi-home-hero__button tourbi-home-hero__button--primary" href="<?php echo esc_url( tourbi_reference_home_experiences_url() ); ?>">
+                            <?php esc_html_e( 'Explore Experiences', 'torby' ); ?>
+                        </a>
+                        <a class="tourbi-home-hero__button tourbi-home-hero__button--secondary" href="<?php echo esc_url( tourbi_reference_home_host_url() ); ?>">
+                            <?php esc_html_e( 'Host Your Own', 'torby' ); ?>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tourbi-home-hero__visual" aria-hidden="true">
+                    <?php if ( $has_hero_reference_image ) : ?>
+                        <img
+                            class="tourbi-home-hero__image"
+                            src="<?php echo esc_url( $hero_reference_image_url ); ?>"
+                            alt=""
+                            loading="eager"
+                            decoding="async"
+                        >
+                    <?php else : ?>
+                        <?php
+                        echo wp_kses_post(
+                            tourbi_reference_home_get_main_image_markup(
+                                $featured_id,
+                                $featured,
+                                'hero',
+                                'tourbi-home-hero__image'
+                            )
+                        );
+                        ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+        </section>
+
         <section class="tourbi-home-intro">
             <div class="tourbi-home-shell tourbi-home-intro__grid">
                 <div class="tourbi-home-origin">
                     <span class="tourbi-home-origin__icon" aria-hidden="true">🚲</span>
                     <div>
                         <p><?php esc_html_e( 'All experiences begin at', 'torby' ); ?></p>
-                        <h1><?php esc_html_e( 'King Electric Bike Shop.', 'torby' ); ?></h1>
+                        <h2><?php esc_html_e( 'King Electric Bike Shop.', 'torby' ); ?></h2>
                         <address>
                             <span aria-hidden="true">⌖</span>
-                            <?php esc_html_e( '502 23rd Street, NW', 'torby' ); ?><br>
+                            <?php esc_html_e( '502 23rd Street. NW', 'torby' ); ?><br>
                             <?php esc_html_e( 'Washington, D.C. 20037', 'torby' ); ?>
                         </address>
                     </div>
                 </div>
 
-                <a
-                    class="tourbi-home-host-cta"
-                    href="<?php echo esc_url( tourbi_reference_home_host_url() ); ?>"
-                >
-                    <span class="tourbi-home-host-cta__icon" aria-hidden="true">♙</span>
-                    <span>
-                        <strong><?php esc_html_e( 'Host Your Own Experience', 'torby' ); ?></strong>
-                        <small><?php esc_html_e( 'Share your idea. We’ll help make it epic.', 'torby' ); ?></small>
-                    </span>
-                </a>
+                <aside class="tourbi-home-booking-cta">
+                    <span class="tourbi-home-booking-cta__icon" aria-hidden="true">▣</span>
+                    <div>
+                        <h2><?php esc_html_e( 'Book Your Adventure Today', 'torby' ); ?></h2>
+                        <p><?php esc_html_e( 'Choose a date, meet at King Electric Bike Shop, and enjoy a guided e-bike experience in Washington, D.C.', 'torby' ); ?></p>
+                    </div>
+                    <a href="<?php echo esc_url( tourbi_reference_home_experiences_url() ); ?>">
+                        <?php esc_html_e( 'Explore Dates', 'torby' ); ?>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </aside>
+            </div>
+        </section>
+
+        <section class="tourbi-home-steps" aria-labelledby="tourbi-home-steps-title">
+            <div class="tourbi-home-shell">
+                <div class="tourbi-home-section-title tourbi-home-section-title--compact">
+                    <span></span>
+                    <h2 id="tourbi-home-steps-title"><?php esc_html_e( 'How It Works', 'torby' ); ?></h2>
+                    <span></span>
+                </div>
+
+                <div class="tourbi-home-steps__grid">
+                    <article>
+                        <strong>01</strong>
+                        <h3><?php esc_html_e( 'Meet at King Electric Bike Shop', 'torby' ); ?></h3>
+                        <p><?php esc_html_e( 'Arrive at the pickup location and get ready for your ride.', 'torby' ); ?></p>
+                    </article>
+                    <article>
+                        <strong>02</strong>
+                        <h3><?php esc_html_e( 'Start your ride', 'torby' ); ?></h3>
+                        <p><?php esc_html_e( 'Grab your e-bike, meet your host, and follow the route.', 'torby' ); ?></p>
+                    </article>
+                    <article>
+                        <strong>03</strong>
+                        <h3><?php esc_html_e( 'Create memories', 'torby' ); ?></h3>
+                        <p><?php esc_html_e( 'Enjoy great stops, local stories, and shared experiences.', 'torby' ); ?></p>
+                    </article>
+                    <article>
+                        <strong>04</strong>
+                        <h3><?php esc_html_e( 'Share and repeat', 'torby' ); ?></h3>
+                        <p><?php esc_html_e( 'Tell friends, book again, or host your own adventure.', 'torby' ); ?></p>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -113,19 +200,27 @@ $card_classes = array(
                         <div class="tourbi-home-featured__meta">
                             <span><b aria-hidden="true">◷</b><?php echo esc_html( $featured_duration ); ?></span>
                             <span><b aria-hidden="true">♧</b><?php echo esc_html( $featured_people ); ?></span>
-                            <span><b aria-hidden="true">◇</b><?php echo wp_kses_post( $featured_price ); ?></span>
+                            <span>
+                                <b aria-hidden="true">◇</b>
+                                <span class="tourbi-card-price-per-person">
+                                    <?php echo wp_kses_post( $featured_price ); ?>
+                                    <?php if ( $featured_has_price ) : ?>
+                                        <small class="tourbi-card-price-per-person__suffix">/person</small>
+                                    <?php endif; ?>
+                                </span>
+                            </span>
                         </div>
 
                         <a class="tourbi-home-featured__button" href="<?php echo esc_url( $featured_url ); ?>">
                             <span aria-hidden="true">▣</span>
-                            <?php esc_html_e( 'Book This Experience', 'torby' ); ?>
+                            <?php esc_html_e( 'Explore Dates', 'torby' ); ?>
                         </a>
                     </div>
 
                     <div class="tourbi-home-featured__benefits" aria-label="<?php esc_attr_e( 'Experience benefits', 'torby' ); ?>">
                         <div>
-                            <span aria-hidden="true">♜</span>
-                            <p><strong><?php esc_html_e( 'Delicious Bites', 'torby' ); ?></strong><small><?php esc_html_e( 'Local eats and drinks', 'torby' ); ?></small></p>
+                            <span aria-hidden="true">♨</span>
+                            <p><strong><?php esc_html_e( 'Brunch & Ride', 'torby' ); ?></strong><small><?php esc_html_e( 'Food, friends, and city routes', 'torby' ); ?></small></p>
                         </div>
                         <div>
                             <span aria-hidden="true">⌘</span>
@@ -144,7 +239,7 @@ $card_classes = array(
             <div class="tourbi-home-shell">
                 <div class="tourbi-home-section-title">
                     <span></span>
-                    <h2><?php esc_html_e( 'View More Adventures', 'torby' ); ?></h2>
+                    <h2><?php esc_html_e( 'Endless Ways to Ride Together', 'torby' ); ?></h2>
                     <span></span>
                 </div>
 
@@ -202,7 +297,15 @@ $card_classes = array(
                                         <?php endif; ?>
 
                                         <?php if ( ! empty( $card['price_html'] ) ) : ?>
-                                            <span><b aria-hidden="true">◇</b><?php echo wp_kses_post( $card['price_html'] ); ?></span>
+                                            <span>
+                                                <b aria-hidden="true">◇</b>
+                                                <span class="tourbi-card-price-per-person">
+                                                    <?php echo wp_kses_post( $card['price_html'] ); ?>
+                                                    <?php if ( (float) ( $card['price'] ?? 0 ) > 0 ) : ?>
+                                                        <small class="tourbi-card-price-per-person__suffix">/person</small>
+                                                    <?php endif; ?>
+                                                </span>
+                                            </span>
                                         <?php endif; ?>
                                     </div>
 
@@ -214,9 +317,10 @@ $card_classes = array(
                             </article>
                         <?php endforeach; ?>
                     </div>
+                    <p class="tourbi-home-adventures__note"><?php esc_html_e( 'And more. Create your own.', 'torby' ); ?></p>
                 <?php else : ?>
                     <div class="tourbi-home-empty">
-                        <strong><?php esc_html_e( 'No published Experiences yet.', 'torby' ); ?></strong>
+                        <strong><?php esc_html_e( 'New adventures are coming soon.', 'torby' ); ?></strong>
                         <p><?php esc_html_e( 'Published guided Experiences will appear here automatically in newest-first order.', 'torby' ); ?></p>
                     </div>
                 <?php endif; ?>
@@ -226,16 +330,16 @@ $card_classes = array(
         <section class="tourbi-home-trust" aria-label="<?php esc_attr_e( 'Why Tourbi', 'torby' ); ?>">
             <div class="tourbi-home-shell tourbi-home-trust__grid">
                 <div class="tourbi-home-trust__item">
-                    <span aria-hidden="true">🚲</span>
-                    <p><strong><?php esc_html_e( 'Top Quality E-Bikes', 'torby' ); ?></strong><small><?php esc_html_e( 'Reliable, powerful, and fun to ride.', 'torby' ); ?></small></p>
+                    <span aria-hidden="true">▣</span>
+                    <p><strong><?php esc_html_e( 'E-bikes, helmets & locks provided', 'torby' ); ?></strong><small><?php esc_html_e( 'Everything needed for a smooth hosted ride.', 'torby' ); ?></small></p>
                 </div>
                 <div class="tourbi-home-trust__item">
                     <span aria-hidden="true">♢</span>
-                    <p><strong><?php esc_html_e( 'Safe & Reliable', 'torby' ); ?></strong><small><?php esc_html_e( 'Safety first. Always. We’ve got you.', 'torby' ); ?></small></p>
+                    <p><strong><?php esc_html_e( 'Pick up & drop off in one easy location', 'torby' ); ?></strong><small><?php esc_html_e( 'All experiences begin at King Electric Bike Shop.', 'torby' ); ?></small></p>
                 </div>
                 <div class="tourbi-home-trust__item">
-                    <span aria-hidden="true">♧</span>
-                    <p><strong><?php esc_html_e( 'Local Vibes, Real Connections', 'torby' ); ?></strong><small><?php esc_html_e( 'Real people. Real places. Real memories.', 'torby' ); ?></small></p>
+                    <span aria-hidden="true">◎</span>
+                    <p><strong><?php esc_html_e( 'Safe. Fun. Unforgettable.', 'torby' ); ?></strong><small><?php esc_html_e( 'Simple experiences built around shared memories.', 'torby' ); ?></small></p>
                 </div>
             </div>
         </section>

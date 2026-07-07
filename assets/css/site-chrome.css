@@ -342,6 +342,21 @@ body.tourbi-custom-chrome-page .page-content {
         transform: translateX(0);
     }
 
+    /* Keep every mobile navigation item above decorative/overlay layers. */
+    .tourbi-site-navigation,
+    .tourbi-site-navigation ul,
+    .tourbi-site-navigation li,
+    .tourbi-site-navigation a {
+        pointer-events: auto !important;
+    }
+
+    .tourbi-site-navigation a {
+        position: relative;
+        z-index: 2;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(255, 101, 61, 0.28);
+    }
+
     .tourbi-site-navigation ul {
         align-items: stretch;
         flex-direction: column;
@@ -385,11 +400,22 @@ body.tourbi-custom-chrome-page .page-content {
         transform: translateY(-7px) rotate(-45deg);
     }
 
+    /*
+     * The backdrop is a sibling of the header. A child z-index cannot escape
+     * the header's stacking context, so the backdrop must stay below the
+     * whole header while the drawer is open. Otherwise it visually allows the
+     * menu to show but intercepts every tap before it reaches the links.
+     */
+    body.tourbi-site-nav-open .tourbi-site-header {
+        z-index: 10020;
+    }
+
     .tourbi-site-nav-backdrop {
         position: fixed;
         inset: 0;
-        z-index: 10001;
+        z-index: 10010;
         display: block;
+        pointer-events: auto;
         background: rgba(0, 0, 0, 0.55);
     }
 

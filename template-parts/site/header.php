@@ -70,7 +70,7 @@ $home_url = $args['home_url'] ?? home_url( '/' );
                 class="tourbi-site-header__rent"
                 href="<?php echo esc_url( $rent_url ); ?>"
             >
-                <?php esc_html_e( 'Rent Now', 'torby' ); ?>
+                <?php esc_html_e( 'Rent a Bike', 'torby' ); ?>
                 <span aria-hidden="true">→</span>
             </a>
         </nav>

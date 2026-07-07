@@ -130,3 +130,88 @@ body.tourbi-custom-site-chrome {
         min-height: 600px;
     }
 }
+
+/* =========================================================
+ * Single Experience responsive cascade correction — 2026-07-01
+ *
+ * This file loads after experience-single.css. The original desktop grid
+ * declaration therefore overrode the phone grid and squeezed the content into
+ * a few pixels beside the 350px booking column. Keep the late-loaded reference
+ * treatment, but explicitly return the Experience layout to one column below
+ * the tablet breakpoint.
+ * ======================================================= */
+@media (max-width: 920px) {
+    body.tourbi-single-experience .tourbi-experience-single__layout,
+    body.tourbi-custom-site-chrome .tourbi-experience-single__layout {
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: min(calc(100% - 32px), 760px) !important;
+        max-width: 760px !important;
+        margin-inline: auto !important;
+        gap: 44px !important;
+    }
+
+    body.tourbi-single-experience .tourbi-experience-single__content,
+    body.tourbi-single-experience .tourbi-experience-single__booking,
+    body.tourbi-custom-site-chrome .tourbi-experience-single__content,
+    body.tourbi-custom-site-chrome .tourbi-experience-single__booking {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    body.tourbi-single-experience .tourbi-experience-single__booking,
+    body.tourbi-custom-site-chrome .tourbi-experience-single__booking {
+        position: static !important;
+        top: auto !important;
+    }
+
+    body.tourbi-single-experience .tourbi-booking-card,
+    body.tourbi-custom-site-chrome .tourbi-booking-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-inline: 0 !important;
+    }
+}
+
+@media (max-width: 700px) {
+    body.tourbi-single-experience .tourbi-experience-hero,
+    body.tourbi-custom-site-chrome .tourbi-experience-hero {
+        min-height: 0 !important;
+    }
+
+    body.tourbi-single-experience .tourbi-experience-single__layout,
+    body.tourbi-custom-site-chrome .tourbi-experience-single__layout {
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: min(calc(100% - 24px), 1300px) !important;
+        max-width: 1300px !important;
+        gap: 36px !important;
+        padding-block: 30px 24px !important;
+    }
+
+    body.tourbi-single-experience .tourbi-experience-single__content,
+    body.tourbi-custom-site-chrome .tourbi-experience-single__content {
+        order: 1 !important;
+    }
+
+    body.tourbi-single-experience .tourbi-experience-single__booking,
+    body.tourbi-custom-site-chrome .tourbi-experience-single__booking {
+        order: 2 !important;
+    }
+
+    body.tourbi-single-experience .tourbi-experience-single .tourbi-section-title,
+    body.tourbi-custom-site-chrome .tourbi-experience-single .tourbi-section-title {
+        width: auto !important;
+        max-width: 100% !important;
+        font-size: clamp(32px, 10vw, 43px) !important;
+        line-height: 0.98 !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+@media (max-width: 380px) {
+    body.tourbi-single-experience .tourbi-experience-single__layout,
+    body.tourbi-custom-site-chrome .tourbi-experience-single__layout {
+        width: min(calc(100% - 18px), 1300px) !important;
+    }
+}

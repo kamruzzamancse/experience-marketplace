@@ -130,77 +130,13 @@ $active_filter_count += ! empty( $state['sort'] ) && 'recommended' !== $state['s
         </div>
     </section>
 
-    <section class="tourbi-showcase-discovery" aria-label="<?php esc_attr_e( 'Search and filter experiences', 'torby' ); ?>">
-        <div class="tourbi-showcase-shell">
-            <form class="tourbi-showcase-search" action="<?php echo esc_url( $base_url ); ?>" method="get" role="search">
-                <div class="tourbi-showcase-search__field tourbi-showcase-search__field--search">
-                    <span class="tourbi-showcase-search__icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
-                    </span>
-                    <label class="screen-reader-text" for="tourbi-experience-search"><?php esc_html_e( 'Search experiences', 'torby' ); ?></label>
-                    <input
-                        id="tourbi-experience-search"
-                        type="search"
-                        name="experience_search"
-                        value="<?php echo esc_attr( $state['search'] ?? '' ); ?>"
-                        placeholder="<?php esc_attr_e( 'Search experiences', 'torby' ); ?>"
-                    >
-                </div>
-
-                <div class="tourbi-showcase-search__field">
-                    <label class="screen-reader-text" for="tourbi-experience-category"><?php esc_html_e( 'Experience category', 'torby' ); ?></label>
-                    <select id="tourbi-experience-category" name="experience_category">
-                        <option value=""><?php esc_html_e( 'All categories', 'torby' ); ?></option>
-                        <?php foreach ( $categories as $category ) : ?>
-                            <?php if ( '1' === get_term_meta( $category->term_id, '_tourbi_showcase_hidden', true ) ) { continue; } ?>
-                            <option value="<?php echo esc_attr( $category->slug ); ?>" <?php selected( $state['category'] ?? '', $category->slug ); ?>>
-                                <?php echo esc_html( $category->name ); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-
-                <?php if ( ! empty( $locations ) ) : ?>
-                    <div class="tourbi-showcase-search__field">
-                        <label class="screen-reader-text" for="tourbi-experience-location"><?php esc_html_e( 'Experience location', 'torby' ); ?></label>
-                        <select id="tourbi-experience-location" name="experience_location">
-                            <option value=""><?php esc_html_e( 'All locations', 'torby' ); ?></option>
-                            <?php foreach ( $locations as $location ) : ?>
-                                <option value="<?php echo esc_attr( $location ); ?>" <?php selected( $state['location'] ?? '', $location ); ?>>
-                                    <?php echo esc_html( $location ); ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                <?php endif; ?>
-
-                <div class="tourbi-showcase-search__field tourbi-showcase-search__field--sort">
-                    <label class="screen-reader-text" for="tourbi-experience-sort"><?php esc_html_e( 'Sort experiences', 'torby' ); ?></label>
-                    <select id="tourbi-experience-sort" name="experience_sort">
-                        <?php foreach ( $sort_options as $sort_key => $sort_label ) : ?>
-                            <option value="<?php echo esc_attr( $sort_key ); ?>" <?php selected( $state['sort'] ?? 'recommended', $sort_key ); ?>>
-                                <?php echo esc_html( $sort_label ); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-
-                <button class="tourbi-showcase-search__submit" type="submit">
-                    <span><?php esc_html_e( 'Find', 'torby' ); ?></span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
-                </button>
-
-                <?php if ( $is_filter ) : ?>
-                    <a class="tourbi-showcase-search__reset" href="<?php echo esc_url( $base_url ); ?>">
-                        <?php esc_html_e( 'Clear', 'torby' ); ?>
-                        <?php if ( $active_filter_count ) : ?>
-                            <span><?php echo esc_html( $active_filter_count ); ?></span>
-                        <?php endif; ?>
-                    </a>
-                <?php endif; ?>
-            </form>
-        </div>
-    </section>
+    <?php
+    /*
+     * Launch UI: keep the dynamic search/filter engine in the theme, but hide
+     * the public filter bar for now because the starting Experience inventory
+     * is intentionally small. Query-string filters still work if needed later.
+     */
+    ?>
 
     <section id="tourbi-experience-sections" class="tourbi-showcase-content">
         <div class="tourbi-showcase-shell">
@@ -323,7 +259,7 @@ $active_filter_count += ! empty( $state['sort'] ) && 'recommended' !== $state['s
 
                                             <?php if ( ! empty( $card['price_html'] ) ) : ?>
                                                 <strong class="tourbi-showcase-card__price">
-                                                    <?php echo wp_kses_post( $card['price_html'] ); ?>
+                                                    <?php echo wp_kses_post( $card['price_html'] ); ?><?php if ( (float) ( $card['price'] ?? 0 ) > 0 ) : ?><small class="tourbi-showcase-card__price-suffix">/person</small><?php endif; ?>
                                                 </strong>
                                             <?php endif; ?>
                                         </div>

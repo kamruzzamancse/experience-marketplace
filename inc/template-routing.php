@@ -524,3 +524,224 @@ add_filter(
     'tourbi_theme_register_become_host_route',
     5
 );
+
+/* =========================================================
+ * Guided Experience public permalink.
+ *
+ * WpRently stores Rentals and Experiences in the same rbfw_item post type.
+ * Normal Rentals keep /rent/{slug}/ while explicitly mapped Experiences use
+ * /experience/{slug}/. Existing /rent/ Experience URLs are redirected so old
+ * links and search-engine history remain valid.
+ * ======================================================= */
+
+/**
+ * Return the public URL base used by single guided Experiences.
+ *
+ * @return string
+ */
+function tourbi_theme_experience_permalink_base() {
+    return (string) apply_filters(
+        'tourbi_theme_experience_permalink_base',
+        'experience'
+    );
+}
+
+/**
+ * Register the guided Experience rewrite rule.
+ *
+ * @return void
+ */
+function tourbi_theme_register_experience_permalink_rule() {
+    $base = trim(
+        sanitize_title(
+            tourbi_theme_experience_permalink_base()
+        ),
+        '/'
+    );
+
+    if ( '' === $base ) {
+        return;
+    }
+
+    add_rewrite_rule(
+        '^' . preg_quote( $base, '/' ) . '/([^/]+)/?$',
+        'index.php?post_type=rbfw_item&name=$matches[1]',
+        'top'
+    );
+}
+add_action(
+    'init',
+    'tourbi_theme_register_experience_permalink_rule',
+    99
+);
+
+/**
+ * Give only mapped Experiences an /experience/{slug}/ permalink.
+ *
+ * @param string  $post_link Existing post type permalink.
+ * @param WP_Post $post      Post object.
+ * @param bool    $leavename Whether to preserve the post-name token.
+ * @param bool    $sample    Whether this is a sample permalink.
+ * @return string
+ */
+function tourbi_theme_filter_experience_post_type_link(
+    $post_link,
+    $post,
+    $leavename,
+    $sample
+) {
+    if (
+        ! $post instanceof WP_Post ||
+        'rbfw_item' !== $post->post_type ||
+        ! tourbi_theme_item_is_experience( $post->ID )
+    ) {
+        return $post_link;
+    }
+
+    $base = trim(
+        sanitize_title(
+            tourbi_theme_experience_permalink_base()
+        ),
+        '/'
+    );
+
+    $slug = $leavename
+        ? '%postname%'
+        : sanitize_title( $post->post_name );
+
+    if ( '' === $base || '' === $slug ) {
+        return $post_link;
+    }
+
+    return home_url(
+        user_trailingslashit(
+            $base . '/' . $slug
+        )
+    );
+}
+add_filter(
+    'post_type_link',
+    'tourbi_theme_filter_experience_post_type_link',
+    50,
+    4
+);
+
+/**
+ * Flush rewrite rules once after this permalink feature is installed.
+ *
+ * @return void
+ */
+function tourbi_theme_maybe_flush_experience_permalink_rules() {
+    $rules_version = '2026-07-01-v1';
+    $option_name = 'tourbi_experience_permalink_rules_version';
+
+    if ( $rules_version === get_option( $option_name ) ) {
+        return;
+    }
+
+    tourbi_theme_register_experience_permalink_rule();
+    flush_rewrite_rules( false );
+    update_option( $option_name, $rules_version, false );
+}
+add_action(
+    'init',
+    'tourbi_theme_maybe_flush_experience_permalink_rules',
+    120
+);
+
+/**
+ * Stop WordPress from redirecting a valid /experience/ request back to the
+ * underlying WpRently /rent/ structure.
+ *
+ * @param string|false $redirect_url  Proposed canonical URL.
+ * @param string       $requested_url Requested URL.
+ * @return string|false
+ */
+function tourbi_theme_preserve_experience_canonical_url(
+    $redirect_url,
+    $requested_url
+) {
+    if ( ! tourbi_theme_is_single_experience_request() ) {
+        return $redirect_url;
+    }
+
+    $base = trim(
+        sanitize_title(
+            tourbi_theme_experience_permalink_base()
+        ),
+        '/'
+    );
+
+    $requested_path = (string) wp_parse_url(
+        $requested_url,
+        PHP_URL_PATH
+    );
+
+    if (
+        '' !== $base &&
+        0 === strpos(
+            trailingslashit( $requested_path ),
+            trailingslashit( home_url( '/' . $base . '/', 'relative' ) )
+        )
+    ) {
+        return false;
+    }
+
+    return $redirect_url;
+}
+add_filter(
+    'redirect_canonical',
+    'tourbi_theme_preserve_experience_canonical_url',
+    10,
+    2
+);
+
+/**
+ * Redirect legacy /rent/ Experience links to the new public permalink.
+ *
+ * @return void
+ */
+function tourbi_theme_redirect_legacy_experience_permalink() {
+    if (
+        is_admin() ||
+        wp_doing_ajax() ||
+        is_preview() ||
+        is_feed() ||
+        ! tourbi_theme_is_single_experience_request()
+    ) {
+        return;
+    }
+
+    $post_id = get_queried_object_id();
+    $target_url = get_permalink( $post_id );
+
+    if ( ! $target_url || empty( $_SERVER['REQUEST_URI'] ) ) {
+        return;
+    }
+
+    $requested_path = untrailingslashit(
+        (string) wp_parse_url(
+            wp_unslash( $_SERVER['REQUEST_URI'] ),
+            PHP_URL_PATH
+        )
+    );
+
+    $target_path = untrailingslashit(
+        (string) wp_parse_url(
+            $target_url,
+            PHP_URL_PATH
+        )
+    );
+
+    if ( $requested_path === $target_path ) {
+        return;
+    }
+
+    wp_safe_redirect( $target_url, 301 );
+    exit;
+}
+add_action(
+    'template_redirect',
+    'tourbi_theme_redirect_legacy_experience_permalink',
+    2
+);
